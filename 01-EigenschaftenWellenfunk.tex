@@ -1,0 +1,434 @@
+\chapter{Eigenschaften von Wellenfunktionen}
+
+\begin{lem}[Lemma von Riemann-Lebesgue]
+\label{prop:1.1}
+\index{Lemma!von Riemann-Lebesgue}
+Sei $u\in L^1(\R^n)$. Dann ist $\hat{u}\in L^\infty(\R^n)\cap C(\R^n)$,
+$\norm{\hat{u}}_\infty \le (2\pi)^{-n/2}\norm{u}_1$ und
+\begin{align*}
+\hat{u}(p) \to 0,\qquad \abs{p}\to\infty.\fishhere
+\end{align*}
+\end{lem}
+\begin{proof}
+\textit{Beschränktheit}. 
+Sei $u\in L^1(\R^n)$. Dann ist
+\begin{align*}
+&\hat{u}(p) = (2\pi)^{-n/2}\int e^{-ipx}u(x)\dx,\\
+\Rightarrow\; &
+\abs{\hat{u}(p)} \le (2\pi)^{-n/2}
+\int\abs{u(x)}\dx = (2\pi)^{-n/2}\norm{u}_1.
+\end{align*}
+\textit{Stetigkeit}. Anwendung des Satz von Lebesgue ergibt für $\abs{h}\to 0$
+\begin{align*}
+\hat{u}(p+h)-\hat{u}(p) = (2\pi)^{-n/2}
+\int e^{-ipx}\underbrace{\left(e^{-ihx} - 1\right)}_{\to 0}u(x)\dx \to 0,
+\end{align*}
+denn $|$Integrand$| \le 2\abs{u}\in L^1(\R^n)$.
+
+Sei $\ep > 0$. Da $\SS(\R^n)$ dicht in $L^1(\R^n)$ liegt, gibt es ein $v\in
+\SS(\R^n)$, so dass $\norm{u-v}_1 < \frac{\ep}{2}$. Da
+$\hat{v}\in\SS(\R^n)$ gibt es außerdem ein $R>0$ mit
+\begin{align*}
+\abs{\hat{v}(p)} < \frac{\ep}{2},\qquad \abs{p} \ge R.
+\end{align*}
+Also gilt für $\abs{p}\ge R$,
+\begin{align*}
+\abs{\hat{u}(p)} \le \abs{\hat{u}(p)-\hat{v}(p)} + \abs{\hat{v}(p)}
+\le (2\pi)^{-n/2}\norm{u-v}_1 + \abs{\hat{v}(p)} < \ep.\qedhere
+\end{align*}
+\end{proof}
+
+\begin{cor}
+\label{prop:1.2}
+Sei $u\in L^1(\R^n)$ und $\abs{x}^ku\in L^1(\R^n)$. Dann ist $\hat{u}\in
+C^k(\R^n)$ und für $\abs{\alpha}\le k$ gilt
+\begin{align*}
+\partial^\alpha \hat{u}(p) = \widehat{(-ix)^\alpha u}(p) \to 0,\qquad
+\abs{p}\to \infty.\fishhere
+\end{align*}
+\end{cor}
+\begin{proof}
+\textit{Induktion über $\abs{\alpha}$}. Der Fall $\abs{\alpha}=0$ ist klar.
+
+Sei $j\in\setd{1,..,n}$ und $e_j = (0,\ldots,1,\ldots,0)$ der $j$-te
+Basisvektor. Dann ist
+\begin{align*}
+\frac{1}{h}\left(\hat{u}(p+he_j) - \hat{u}(p) \right)
+= (2\pi)^{-n/2}\int e^{-ipx}\underbrace{\frac{1}{h}\left(e^{-ihx_j}-1
+\right)}_{\to -ix_j}u(x)\dx,
+\end{align*}
+wobei $|$Integrand$| \le 2\abs{u}\abs{x_j}\in L^1(\R^n)$ und daher nach Lemma
+\ref{prop:1.1} und dem Satz von Lebesgue
+\begin{align*}
+\partial_j \hat{u}(p) = \widehat{(-ix_j)u}(p) \to 0,\qquad \abs{p}\to\infty.
+\end{align*}
+Damit ist der Induktionsschrit von $\abs{\alpha} \le k-1$ nach $\abs{\alpha}
+\le k$ beweisen. (Induktionsannahme auf $\partial^{\alpha-e_j} u$
+anwenden).\qedhere
+\end{proof}
+
+\begin{bem*}[Folgerung.]
+Falls $u\in L^2(\R^n)$, $\hat{u}\in L^2(\R^n)$ und $\abs{p}^k\hat{u}\in
+L^1(\R^n)$, dann ist $u\in C^k(\R^n)$ und es gilt
+\begin{align*}
+\partial^\alpha u = \FF^{-1}(ip)^\alpha \FF u.\maphere
+\end{align*}
+\end{bem*}
+
+\begin{bem*}
+Insbesondere gilt diese Identität für alle $u\in\SS(\R^n)$. Die rechte Seite
+ist aber auch dann sinnvoll (wohldefiniert), wenn $u\in L^2(\R^n)$ und
+$\abs{p}^{\abs{\alpha}}\hat{u}\in L^2(\R^n)$.\maphere
+\end{bem*}
+
+Dies motiviert die folgende
+
+\begin{defn*}
+Für jedes $s\ge 0$ definieren wir einen Innenproduktraum\index{Sobolevraum}
+\begin{align*}
+&H^s(\R^n) := \setdef{u\in L^2(\R^n)}{\hat{u}(p)\abs{p}^s \in L^2(\R^n)},\\
+&\lin{u,v}_s := \int_{\R^n}
+\overline{\hat{u}(p)}\hat{v}(p)(1+p^2)^s\ddp.
+\end{align*}
+$H^s(\R^m)$ heißt \emph{Sobolevraum}.\fishhere
+\end{defn*}
+
+Aus der Plancherel-Gleichung folgt unmittelbar, dass $H^0(\R^n)=L^2(\R^n)$ und
+weiterhin gilt
+\begin{align*}
+s> t\ge 0\Rightarrow H^s(\R^n)\subset H^t(\R^n)\subset L^2(\R^n).
+\end{align*}
+
+\begin{prop}
+\label{prop:1.3}
+Für jedes $s\ge 0$ ist $H^s(\R^n)$ ein Hilbertraum und $C_0^\infty(\R^n)$ ist
+dicht in $H^s(\R^n)$.\fishhere
+\end{prop}
+\begin{proof}
+Einen Beweis findet man z.B. in \cite{Fun07}.\qedhere
+\end{proof}
+
+\begin{thm}[Theorem (Sobolev-Lemma)]
+\label{prop:1.4}
+\index{Lemma!Sobolev-}
+Sei $u\in H^s(\R^n)$ und $k\in\N_0$ mit $k< s- n/2$. Dann gelten
+\begin{propenum}
+\item\label{prop:1.4:1} $u\in C^k(\R^n)$ und $\partial^\alpha u(x) =
+\FF^{-1}((ip)^\alpha \hat{u})(x)\to 0$ für $\abs{x}\to\infty$, $\abs{\alpha}\le
+k$.
+\item\label{prop:1.4:2} $\norm{\partial^\alpha u}_\infty =
+\sup\limits_{x\in\R^n} \abs{\partial^\alpha u(x)} \le C_{s,k,n}\norm{u}_s$ für
+$\abs{\alpha}\le k$.\fishhere
+\end{propenum}
+\end{thm}
+\begin{proof}
+Sei $u\in H^s$ und $s>n/2+k$.
+``\ref{prop:1.4:1}'': Wir wenden die Folgerung aus Korollar \ref{prop:1.2} auf
+$u$ an.
+\begin{align*}
+&\int_{\R^n} \abs{\hat{u}(p)}\ddp,
+\int_{\R^n} \abs{p}^k\abs{\hat{u}(p)}\ddp
+\le
+\int_{\R^n} (1+\abs{p}^2)^{k/2}\abs{\hat{u}(p)}\ddp\\
+&\quad=
+\int_{\R^n} \abs{\hat{u}(p)}(1+\abs{p}^2)^{s/2}(1+\abs{p}^2)^{k/2-s/2}\ddp\\
+&\quad\overset{\text{CSB}}{\le}
+\norm{u}_s \left(\int_{\R^n}
+(1+\abs{p}^2)^{k-s}\ddp\right)^{1/2}.
+\end{align*}
+Das Integral ist endlich für $s > n/2+k$, denn
+\begin{align*}
+\int_{\R^n}
+(1+\abs{p}^2)^{k-s}\ddp
+= \abs{\S^{n-1}}
+\int_{0}^\infty
+\frac{1}{(1+t^2)^{s-k}}t^{n-1}\dt
+\end{align*}
+wobei $2(s-k) - (n-1) > 1 \Leftrightarrow 2(s-k) > n\Leftrightarrow s-k > n/2$.
+Mit Korollar \ref{prop:1.2} folgt nun \ref{prop:1.4:1} und außerdem:
+
+``\ref{prop:1.4:2}'': Da
+$\partial^\alpha u(x) = (2\pi)^{-n/2} \int_{\R^n} e^{ipx}(ip)^\alpha
+\hat{u}(p)\ddp$ ist folglich
+\begin{align*}
+\abs{\partial^\alpha u(x)} 
+&\le (2\pi)^{-n/2} \int_{\R^n} \abs{p^\alpha}
+\abs{\hat{u}(p)}\ddp
+\le C_{s,p,k}\norm{u}_s.\qedhere
+\end{align*}
+\end{proof}
+
+\begin{bem*}[Folgerungen.]
+\begin{bemenum}
+\item $\bigcap_{s\ge 0} H^s(\R^n)\subset C^\infty(\R^n)$.
+\item Der maximale Definitionsbereich des Laplace-Operators im $\R^3$ ist
+$H^2(\R^3)$. Für $\ph\in H^2(\R^3)$ gilt folglich $\ph\in C(\R^n)$ und
+$\ph(x)\to 0$ für $\abs{x}\to\infty$.
+
+Ist $\ph\in H^2(\R)$, so gilt sogar $\ph\in C^1(\R)$ und $\ph,\ph'\to 0$ für
+$\abs{x}\to\infty$.
+
+Ist $\ph\in H^1(\R)$, d.h. $\ph\in L^2(\R)$ und die ``kinetische Energie'' ist
+endlich
+\begin{align*}
+\int_{\R^n} \abs{p}^2\abs{\hat{\ph}(p)}^2\ddp < \infty,
+\end{align*}
+so ist $\ph\in C(\R)$ und $\ph(x)\to 0$ für $\abs{x}\to\infty$.
+\item Sei $V\in L^2(\R^n)$, $\ph\in H^2(\R^n)$ und $n\le 3$. Nach dem
+Sobolev-Lemma ist dann $\ph\in L^\infty(\R^n)$ und somit
+\begin{align*}
+\int_{\R^n} \abs{V\ph(x)}^2\dx \le
+\underbrace{\sup_{x\in\R^n} \abs{\ph(x)}^2}_{<\infty}
+\underbrace{\int\abs{V(x)}^2\dx}_{<\infty} <
+\infty,
+\end{align*}
+d.h. $V\ph\in L^2(\R^n)$.
+
+Dies gilt auch für $V\in L^2(\R^n) \oplus L^\infty(\R^n)$, d.h. $V =
+V_2+V_\infty$, denn
+\begin{align*}
+V\ph = \underbrace{V_2\ph}_{\in L^2} + \underbrace{V_\infty\ph}_{\in L^2}.
+\end{align*}
+Das Coulomb-Potential $V(x) = -\frac{1}{\abs{x}}$ ist genau von dieser Form:
+\begin{align*}
+-\frac{1}{\abs{x}} = -\underbrace{\frac{1}{\abs{x}}\chi_{\abs{x}\le 1}}_{\in
+L^2} - \underbrace{\frac{1}{\abs{x}}\chi_{\abs{x}>1}}_{\in L^\infty} \in
+L^2(\R^3)\oplus L^\infty(\R^3).
+\end{align*}
+Somit ist $-\frac{1}{\abs{x}}\ph\in L^2(\R^3)$  für alle $\ph\in H^2(\R^3)$.
+\maphere
+\end{bemenum}
+\end{bem*}
+
+Zur Behandlung des Wasserstoffatoms benötigen wir jedoch noch weitere
+Ergebnisse.
+
+\begin{lem}
+\label{prop:1.5}
+Sei $V\in L^2(\R^n)$ und $\ep > 0$. Dann gibt es eine Zerlegung des Potentials
+\begin{align*}
+V = V_2 + V_\infty,\qquad V_2\in L^2(\R^n),\quad V_\infty\in L^\infty(\R^n)
+\end{align*}
+mit $\norm{V_2}_2 < \ep$.\fishhere
+\end{lem}
+\begin{proof}
+Sei $\chi_N$ die charakteristische Funktion der Menge
+\begin{align*}
+\setdef{x\in\R^n}{\abs{V(x)}\le N},
+\end{align*}
+dann gilt $V = V(1-\chi_N) + V\chi_N$, wobei $V\chi_N \in L^\infty(\R^n)$ und
+\begin{align*}
+\norm{V(1-\chi_N)}^2 = \int_{\R^n}\abs{V(x)}^2\underbrace{(1-\chi_N(x))}_{\to
+0}\dx \to 0,\quad N\to
+\infty
+\end{align*}
+für fast alle $x$ nach dem Satz von Lebesgue, denn
+\begin{align*}
+\abs{V(x)}^2(1-\chi_N) \le \abs{V(x)}^2 \in L^1(\R^n).
+\end{align*}
+Wähle nun $N$ so groß, dass $\norm{V(1-\chi_N)} < \ep$ und setzte $V_2 :=
+V(1-\chi_N)$ und $V_\infty := V\chi_N$.\qedhere
+\end{proof}
+
+\begin{thm}
+\label{prop:1.6}
+Sei $V\in L^2(\R^n)$ mit $n\le 3$. Für jedes $\ep > 0$ gibt es ein
+$C_\ep\in\R$, so dass
+\begin{align*}
+\norm{V\ph} \le \ep \norm{\Delta \ph} + C_\ep\norm{\ph},\qquad
+\forall \ph\in H^2(\R^n).\fishhere
+\end{align*}
+\end{thm}
+\begin{proof}
+Sei $V\in L^2(\R^n)$ und $\ep > 0$ und
+\begin{align*}
+V = V_2 + V_\infty 
+\end{align*}
+die Zerlegung nach Lemma \ref{prop:1.5}. Dann gilt für $\ph\in H^2(\R^n)$
+\begin{align*}
+\norm{V\ph} &= \norm{V_2\ph + V_\infty \ph} \le
+\norm{V_2\ph} + \norm{V_\infty\ph}
+\le
+\norm{V_2}\norm{\ph}_\infty + \norm{V_\infty}_\infty\norm{\ph}\\
+&< \ep \norm{\ph}_\infty + \norm{V_\infty}_\infty \norm{\ph}.
+\end{align*}
+Wobei eine leichte Anwendung des Sobolev-Lemmas zeigt
+\begin{align*}
+\norm{\ph}_\infty \le c\norm{\ph}_{H^2}
+\le C\left(\norm{\Delta \ph} + \norm{\ph}\right).
+\end{align*}
+Somit folgt
+\begin{align*}
+\norm{V\ph} &\le \ep\left(C\norm{\Delta \ph}  + C\norm{\ph}\right)
++ \norm{V_\infty}_\infty\norm{\ph}\\
+&= \ep C\norm{\Delta \ph} + (\ep C + \norm{V_\infty}_\infty)\norm{\ph}.\qedhere
+\end{align*}
+\end{proof}
+
+\begin{defn*}
+Für $u\in H^s(\R^n)$ und $\alpha\in\N_0^n$ mit $\abs{\alpha} \le s$ definiert
+man nun\index{schwache Ableitung}
+\begin{align*}
+\partial^\alpha u:= \FF^{-1}((ip)^\alpha \hat{u}).
+\end{align*}
+$\partial^\alpha u$ heißt \emph{schwache Ableitung} von $u$.\fishhere
+\end{defn*}
+
+Wenn $\abs{\alpha} < s-n/2$, stimmt nach Theorem \ref{prop:1.4} die schwache
+Ableitung mit der partiellen Ableitung  $\partial^\alpha$ überein.
+
+\begin{lem}
+\label{prop:1.7}
+Sei $\alpha\in\N_0^n$ mit $\abs{\alpha}\le s$. Für $u\in H^s(\R^n)$ gilt
+$\partial^\alpha u \in H^{s-\abs{\alpha}}(\R^n)$ und
+\begin{align*}
+\norm{\partial^\alpha u}_{s-\abs{\alpha}} \le \norm{u}_s.\fishhere
+\end{align*}
+\end{lem}
+\begin{proof}
+Blatt 1.\qedhere
+\end{proof}
+
+$\partial^\alpha : H^s(\R^n)\to H^{s-\abs{\alpha}}(\R^n)$ ist somit eine
+beschränkte lineare Abbildung.
+
+\begin{lem}
+\label{prop:1.8}
+Sei $f\in C^m(\R^n)$ beschränkt mit beschränkten partiellen Ableitungen bis zu
+Ordnung $m$. Dann ist $f\ph\in H^m(\R^n)$ für alle $\ph\in H^m(\R^n)$,
+$\norm{f\ph}_m \le C_f\norm{\ph}_m$ und die partiellen Ableitungen von $f\ph$
+lassen sich mit der Leibniz-Regel berechnen
+\begin{align*}
+\partial^\alpha (f\ph) = \sum_{\beta\le \alpha}\partial^\beta
+f\partial^{\alpha-\beta} \ph.\fishhere
+\end{align*}
+\end{lem}
+\begin{proof}
+Wir setzten für diesen Beweis
+\begin{align*}
+\norm{\ph}_m := \sum_{\abs{\alpha}\le m} \norm{\partial^\alpha \ph}_{L^2}.
+\end{align*}
+Diese Norm ist äquivalent zur $\norm{\cdot}_s$-Norm.
+
+Sei zuerst $\ph\in C_0^\infty(\R^n)$. Dann ist $f\ph \in C_0^m(\R^n)\subset
+H^m(\R^n)$ und
+\begin{align*}
+\partial^\alpha(f\ph) = \sum_{\beta\le \alpha} \binom{\alpha}{\beta}
+\partial^\beta f\partial^{\alpha-\beta} \ph.
+\end{align*}
+Daraus folgt
+\begin{align*}
+\norm{\partial^\alpha (f\ph)}_{L^2} \le
+\sum_{\beta\le \alpha} \binom{\alpha}{\beta}
+\underbrace{\norm{\partial^\beta
+f}_{L^2}}_{<\infty}\underbrace{\norm{\partial^{\alpha-\beta}\ph}_{L^2}}_{\le
+\norm{\ph}_m} \le C_{\alpha,f}\norm{\ph}_m
+\end{align*}
+und somit
+\begin{align*}
+\norm{f\ph}_m = \sum_{\abs{\alpha}\le m}\norm{\partial^\alpha (f\ph)}_{L^2} \le
+\sum_{\abs{\alpha}\le m} C_{\alpha,f}\norm{\ph}_m \overset{*}{\le} C_f
+\norm{\ph_m}.
+\end{align*}
+
+Da $C_0^\infty(\R^n)$ dicht in $H^m(\R^n)$, existiert zu jedem $\ph\in
+H^m(\R^n)$ eine Folge $(\ph_n)\in C_0^\infty(\R^n)$ mit $\norm{\ph_n-\ph}_m \to
+0$ für $n\to\infty$. Mit (*) folgt nun
+\begin{align*}
+\norm{f(\ph_k-\ph_l)} \le C_f\norm{\ph_k-\ph_l}_m \to 0,\qquad k,l\to\infty,
+\end{align*}
+also ist $(f\ph_k)$ eine Cauchyfolge in $H^m(\R^n)$. Da $H^m(\R^n)$
+vollständig, existiert ein $\psi\in H^m(\R^n)$ mit
+\begin{align*}
+\norm{f\ph_k - \psi}_m \to 0.
+\end{align*}
+Andererseits gilt $\ph_k \to \ph$ in $L^2(\R^n)$ und $f\in L^\infty(\R^n)$ also
+\begin{align*}
+f\ph_k \to f\ph,\qquad \text{ in } L^2(\R^n).
+\end{align*}
+Folglich ist $\psi = f\ph$ in $L^2(\R^n)$ und damit insbesondere in
+$H^m(\R^n)$, d.h.
+\begin{align*}
+f\ph_k \to f\ph,\qquad \text{in } H^m(\R^n).
+\end{align*}
+Somit lässt sich (*) auf $H^m(\R^n)$ übetragen.
+
+Die Produktregel folgt nun aus
+\begin{align*}
+\partial^\alpha (f\cdot \ph_n) = \sum_{\beta\le \alpha} \partial^\beta f
+\partial^{\alpha-\beta}\ph_n
+\end{align*}
+im Limes für $n\to\infty$, wegen der Stetigkeit der Multiplikation mit $f$ und
+der Differentiation (Lemma \ref{prop:1.7}).\qedhere
+\end{proof}
+
+\begin{thm}
+\label{prop:1.9}
+Sei $V:\R^n\to\C$ messbar, $E\in\C$ und $\ph\in H^2(\R^n)$ mit
+\begin{align*}
+-\Delta \ph + V\ph = E \ph.
+\end{align*}
+Ist $\Omega$ offen und $V\big|_\Omega \in C^m(\Omega)$ dann ist
+\begin{align*}
+\ph\big|_\Omega \in C^k(\Omega),\qquad \text{für }k< m+2-n/2.\fishhere
+\end{align*}
+\end{thm}
+\begin{proof}
+Zu jedem Punkt $x\in\Omega$ existiert ein $\gamma\in C_0^\infty(\R^n)$ mit
+$\supp(\gamma)\subset\Omega$ und $\gamma = 1$ in einer Umgebung von $x$.
+
+Es genügt also zu zeigen, dass $\gamma\ph\in C^k(\R^n)$ für alle $\gamma\in
+C_0^\infty(\Omega)$. Nach dem Sobolev-Lemma genügt es dazu, zu zeigen, dass
+\begin{align*}
+\gamma\ph\in H^{m+2}(\R^n),\qquad \gamma\in C_0^\infty(\Omega).
+\end{align*}
+\textit{Induktion über $m$}. ``$m=0$'': Wegen $\ph\in H^2(\R^n)$ ist
+$\gamma\ph\in H^2(\R^n)$ für alle $\gamma\in C_0^\infty(\Omega)$.
+
+Wir nehmen an, dass
+$\gamma\ph\in H^{m+1}(\R^n)$ für alle $\gamma\in C_0^\infty(\Omega)$ und zeigen,
+dass $\gamma\ph\in H^{m+2}(\R^n)$ für alle $\gamma\in C_0^\infty(\Omega)$. Es
+gilt
+\begin{align*}
+\Delta(\gamma\ph) &= (\Delta \gamma)\ph + 2\nabla\gamma\nabla \ph +
+\gamma\Delta\ph\\
+&= (\Delta\gamma)\ph + 2\div((\nabla\gamma)\ph) - 2(\Delta\gamma)\gamma +
+\gamma\Delta\ph\\
+&= -(\Delta\gamma)\ph + 2\div((\nabla\gamma)\ph) + (V-E)\gamma\ph
+\end{align*}
+Nach Induktionsannahme gilt
+\begin{align*}
+(\Delta\gamma)\ph,\;(\nabla\gamma)\ph,\;\gamma\ph\in H^{m+1}(\R^n).
+\end{align*}
+Nach Annahme über $V$ und nach Satz \ref{prop:1.8} ist $(V-E)\gamma\ph\in
+H^m(\R^n)$ und auch $\div((\nabla\gamma)\ph)\in H^m(\R^n)$. Also auch
+$\Delta(\gamma\ph)\in H^m(\R^n)$. Daraus folgt, dass $\gamma\ph\in
+H^{m+2}(\R^n)$, denn
+\begin{align*}
+&\int_{\R^n} \abs{\widehat{\gamma\ph}(p)}^2 (1+p^2)^{m+2}\ddp
+= \int_{\R^n}
+\abs{\widehat{\gamma\ph}(p)}^2(1+p^2){m}\underbrace{(1+p^2)^2}_{\le 2 +
+2(p^2)^2}\ddp\\
+&\qquad\le
+2\norm{\gamma\ph}_m^2 + 2\int_{\R^n}
+\abs{p^2\widehat{\gamma\ph}(p)}^2(1+p^2)^m\ddp\\
+&\qquad < \infty.\qedhere
+\end{align*}
+\end{proof}
+\begin{cor}
+\label{prop:1.10}
+Sei $V:\R\to\C$ messbar, $E\in \C$ und $\ph\in H^2(\R^n)$ mit
+\begin{align*}
+-\ph'' + V\ph= E\ph. 
+\end{align*}
+Ist $I\subset\R$ ein offenes Intervall und $V\big|_I\in C^m(I)$, dann ist
+$\ph\big|_I \in C^{m+2}(I)$.\fishhere
+\end{cor}
+\begin{proof}
+Nach Theorem \ref{prop:1.9} ist $\ph\big|_I\in C^{m+1}(I)$. Wegen
+\begin{align*}
+\ph'' = (V-E)\ph \in C^m(I)
+\end{align*}
+ist $\ph\in C^{m+1}(I)$. Details für $m=0$ siehe Übungsaufgabe 2.4.\qedhere
+\end{proof}
+

@@ -1,0 +1,438 @@
+\chapter{Spektrum und Resolvente}
+
+Wir haben bisher Lösungen der Eigenwertgleichung des Operators
+\begin{align*}
+H = -\Delta + V : H^2(\R^n)\to H^2(\R^n)
+\end{align*}
+untersucht aber nicht geklärt, ob diese Lösungen überhaupt existieren. Um dies
+zu klären, wollen wir die Spektraltheorie für unbeschränkte Operatoren auf
+Hilberträumen entwickeln. Dazu betrachten wir allgemein Operatoren
+\begin{align*}
+A: D\subset X \to X
+\end{align*}
+und interessieren uns für deren Spektrum, dessen Approximation und Verhalten
+unter Störungen.
+
+\subsection{Grundlegende Definitionen}
+
+%%-------------------------------Einfuehrung-Notationen-Definitionen-----------------
+Sei $X$ ein komplexer Banachraum und $D \subset X$ ein linearer
+Teilraum. 
+
+\begin{defn*}
+\begin{defnenum}
+\item
+Ein \emph{linearer Operator} in $X$,\index{Operator!linear}
+\begin{align*}
+A : D \subset X \to X,
+\end{align*}
+ist eine lineare Abbildung $A : D \to X$. $D$ heißt
+\emph{Definitionsbereich} von $A$ (schreibe $D = D_A = D(A)$)
+und
+\begin{align*}
+\ran (A) := AD =\setdef{Ax}{x \in D}
+\end{align*}
+heißt \emph{Wertebereich} von $A$ (range of $A$).
+\item
+Man sagt, $A$ sei \emph{dicht definiert}, falls\index{dicht definiert}
+$\bar{D}=X$.
+\item
+$A$ heißt \emph{abgeschlossen}, falls der Graph von
+$A$\index{Operator!abgeschlossen}
+\begin{align*}
+\Gamma_A:=\setdef{(x,y)}{x \in D, y=Ax}
+\end{align*}
+abgeschlossen ist in $X \oplus X$.\fishhere
+\end{defnenum}
+\end{defn*}
+
+\begin{lem*}
+Der Operator $A$ ist
+genau dann abgeschlossen, wenn
+\begin{align*}
+\begin{rcases}
+x_n \in D,\, x_n \to x \in X\\
+Ax_n\to y
+\end{rcases}
+\Rightarrow x \in D(A)\text{ und } Ax=y.\fishhere
+\end{align*}
+\end{lem*}
+
+\begin{defn*}
+Ein zweiter Operator, $B : D(B) \subset X \to X$ heißt
+\emph{Erweiterung}\index{Operator!Erweiterung}
+von $A$, falls $D(A) \subset D(B)$ und $Ax=Bx$ für alle $x \in D(A)$.
+Man schreibt dafür $A\subset B$.
+Zwei Operatoren sind gleich, $A=B$, falls $D(A)=D(B)$ und
+$Ax = Bx$ für alle $x \in D(A)$.\fishhere
+\end{defn*}
+
+Den Identitätsoperator $\Id : X \to X,\, x \mapsto x$ lassen
+wir meist weg.
+Zum Beispiel:
+\begin{align*}
+\lambda-A := \lambda\Id - A \text{ für } \lambda \in \C.
+\end{align*}
+
+\begin{defn*}
+\begin{defnenum}
+\item
+Die \emph{Resolventenmenge} von $A$ ist die Menge\index{Resolventenmenge}
+\begin{align*}
+\rho(A) := \setdef{\lambda \in \C}{\atop{(\lambda-A) : D(A) \to X \text{
+ist bijektiv und }}{(\lambda-A)^{-1} \text{ beschränkt}}}.
+\end{align*}
+\item
+Die Abbildung
+\begin{align*}
+R(A): \rho(A) \to \LL(X),\qquad
+\lambda  \mapsto  (\lambda-A)^{-1}
+\end{align*}
+heißt \emph{Resolvente}\index{Resolvente} von $A$. $R_{\lambda}(A)$ ist die
+Resolvente von $A$ an der Stelle $\lambda$.
+\item
+Das Komplement der Resolventenmenge:
+\begin{align*}
+  \sigma(A) := \C \setminus \rho(A)
+\end{align*}
+heißt \emph{Spektrum}\index{Spektrum} von $A$. Die Menge
+\begin{align*}
+\sigma_p(A) := \setdef{\lambda \in \C}{\lambda \text{ ist
+Eigenwert von A}}\subset \sigma(A)
+\end{align*}
+heißt \emph{Punktspektrum} von $A$.\index{Spektrum!Punkt-}\fishhere  
+\end{defnenum}
+\end{defn*}
+
+\begin{bem*}
+Wenn $A$ abgeschlossen und $(A-\lambda):D \to X$ bijektiv ist,
+dann ist auch $(A-\lambda)^{-1} : X \to D$ abgeschlossen und somit nach
+dem Graphensatz beschränkt (FA~Satz~4.3.5 \cite{Fun07}).
+Das heißt, wenn $A$ abgeschlossen ist, dann gilt
+\begin{align*}
+\rho(A)=\setdef{\lambda \in \C}{(\lambda-A) : D(A) \to X \text{ ist
+bijektiv}}.
+\end{align*}
+Wenn $A$ nicht abgeschlossen ist, dann gilt $\rho(A) = \varnothing$ und
+$\sigma(A)=\C$.\maphere
+\end{bem*}
+%%--------------------------------------------------------------
+
+
+%%----------------------------Beispiele-------------------------
+\begin{bsp*}
+\begin{bspenum}
+\item
+Sei $X = \C^{n}$ und $A \in \LL(X)$, dann gilt: $\sigma(A) = \sigma_p(A) \ne
+\varnothing$ (Eigenwerte der Matrix bezüglich einer Basis von X).
+\item 
+Sei $X = L^2(\R)$, $D = \setdef{f \in L^2(\R)}{\int \abs{xf(x)}\dx <
+\infty}$ und
+\begin{align*}
+Af(x) := xf(x).
+\end{align*}
+Dann gilt: $\sigma(A) = \R$, $\sigma_p(A) = \varnothing$ und 
+$\rho(A) = \C \setminus \R$.
+\item
+Sei $X = C(I)$, $I=[0,1]$, $\norm{f} = \sup \limits_{x \in I} \abs{f(x)}$, 
+und sei
+\begin{align*}
+A_k : D_k \subset X \to X,\qquad (A_kf)(x) = \frac{d}{dx}f(x)
+\end{align*}
+wobei $k \in \setd{1,\ldots,4}$ und
+\begin{align*}
+  D_1 & =  C^1(I)  \\
+  D_2 & =  \setdef{f \in D_1}{f(0)=0}  \\
+  D_3 & =  \setdef{f \in D_1}{f(0)=f(1)} \qquad \text{(Periodische
+  Randbedingung)}\\
+  D_4 & =  \setdef{f \in D_1}{f(0)=0=f(1)}\  \quad \text{(Dirichlet
+  Randbedingung)}
+\end{align*}
+Alle $A_k$ sind abgeschlossen und es gilt:
+\begin{align*}
+  \sigma(A_1) & =  \sigma_p(A_1)  =  \C,& \rho(A_1) &= \varnothing, \\
+  \sigma(A_2) & =  \sigma_p(A_2)  =  \varnothing,&  \rho(A_2) &= \C, \\
+  \sigma(A_3) & =  \sigma_p(A_3)  =  2 \pi i \Z,  \\
+  \sigma(A_4) & =  \C,\ \sigma_p(A_4) = \varnothing,&\qquad
+  \rho(A_4) &= \varnothing.
+\end{align*}
+\begin{proof}
+\textit{$A$ ist abgeschlossen}.
+Sei $(\ph_n)_{n \in \N} \subset D_1$ mit $\ph_n \to \ph$ und $\ph_n' \to \psi$ in $X$.
+Dann gilt $\ph_n \to \ph$ gleichm\"a\ss{}ig, $\ph_n' \to \psi'$ gleichm\"a\ss{}ig.
+Also ist $\ph \in C^1(I) = D_1$ und $\ph' = \psi$ (Analysis).
+Falls $\ph_n \in D_k$, dann ist auch $\ph \in D_k$ f\"ur $k=2,3,4$.
+Also ist $A_k$ abgeschlossen f\"ur $k \in \{1,\ldots ,4\}$.
+
+``\textit{$\sigma(A_1) = \sigma_p(A_1) = \C$}''.
+Sei $\lambda \in \C$, dann ist $x \mapsto e^{\lambda x}$ in $D_1$ und
+\begin{align*}
+\frac{\diffd}{\dx}e^{\lambda x} = \lambda e^{\lambda x}.
+\end{align*}
+Also ist $\lambda$ Eigenwert und daher
+ $\sigma(A_1) = \sigma_p(A_1) = \C$.
+
+``\textit{$\sigma(A_2)=\varnothing$}''.
+Wir lösen $(A_2-\lambda) f = g$
+für gegebenes $g \in X$ nach $f \in D_2$ auf. Das heißt, wir suchen
+$f \in C^1(I)$ mit 
+\begin{align*}
+f'-\lambda f = g, \qquad f(0) = 0.
+\end{align*}
+Die eindeutige Lösung dieses Anfangswertproblems ist
+\begin{align*}
+f(x) = \int_{0}^{x} e^{\lambda(x-t)}g(t)\dt =: (Sg)(x).
+\end{align*}
+Somit ist $(A_2-\lambda):D_2\to X$ bijektiv mit Rechtsinverser $S$.
+$S$ ist außerdem beschränkt, denn
+\begin{align*}
+\abs{(Sg)(x)} \le \int_0^1 \abs{e^{\lambda(x-t)}g(t)}\dt
+\le c\int_0^1 \abs{g(t)}\dt \le c\norm{g}.
+\end{align*}
+Es bleibt noch zu zeigen, dass $(A_2-\lambda)g = g$ für $g \in D_2$. Sei
+also $g \in D_2$, dann
+\begin{align*}
+S(A_2-\lambda)g(x) 
+& = \int_{0}^{x} e^{\lambda(x-t)}(g'(t)-\lambda g(t))\dt \\
+& = \left. e^{\lambda(x-t)} g(t) \right|_{0}^{x} 
++ \int_{0}^{x} \lambda e^{\lambda(x-t)}g(t)\dt\\ 
+& \phantom{ = \left. e^{\lambda(x-t)} g(t) \right|_{0}^{x}\,}
+- \int_{0}^{x} e^{\lambda(x-t)} \lambda g(t)\dt\\
+& = g(x).
+\end{align*}
+Also $S = R_{\lambda}(A_2)$.\bsphere
+\end{proof}
+\end{bspenum}
+\end{bsp*}
+%%----------------------Beispielende--------------------------
+
+
+%%----------------------Satz----------------------------------
+\begin{prop}
+\label{prop:3.1}
+Sei $A: D \subset X \to X$ ein linearer Operator und
+seien $\lambda,\mu \in \rho(A)$. Dann gilt:
+\begin{propenum}
+\item\label{prop:3.1:1} $R_{\lambda}(A)-R_{\mu}(A) = (\mu-\lambda)
+R_{\lambda}(A)R_{\mu}(A)$,
+\item\label{prop:3.1:2} $R_{\lambda}(A) R_{\mu}(A) = R_{\mu}(A) R_{\lambda}(A)$,
+\item\label{prop:3.1:3} $R_{\lambda}(A) A \subset A R_{\lambda}(A)$,
+\item\label{prop:3.1:4} $A R_{\lambda}(A) = -\Id + R_{\lambda}(A)$.\fishhere
+\end{propenum}
+\end{prop}
+
+\begin{proof}
+\begin{proofenum}
+``\ref{prop:3.1:1}'':
+Mit $\lambda,\mu \in \rho(A)$ gilt,
+\begin{align*}
+R_{\lambda}(A)-R_{\mu}(A) & = (\lambda-A)^{-1} - (\mu-A)^{-1}\\
+& = (\lambda-A)^{-1} \left[(\mu-A)-(\lambda-A)\right] (\mu-A)^{-1}\\
+& = (\lambda-A)^{-1} (\mu-\lambda) (\mu-A)^{-1}\\
+& = (\mu-\lambda) R_{\lambda}(A)R_{\mu}(A)
+\end{align*}
+
+``\ref{prop:3.1:2}'':
+folgt aus \ref{prop:3.1:1}.
+
+``\ref{prop:3.1:3}, \ref{prop:3.1:4}'':
+Für $x \in D$ gilt
+\begin{align*}
+R_{\lambda}(A) Ax & =
+(\lambda-A)^{-1}Ax  = (\lambda-A)^{-1}(A-\lambda) + \lambda(\lambda-A)^{-1}\\
+&= (-\Id+\lambda R_\lambda(A))x. 
+\end{align*}
+Außerdem gilt für alle $x \in X$,
+\begin{align*}
+A R_{\lambda}(A)x & = A(\lambda-A)^{-1}x
+= (A-\lambda)(\lambda-A)^{-1}x + \lambda R_\lambda(A)x\\
+&= (-\Id + R_\lambda(A))x. 
+\end{align*}
+Daraus folgen \ref{prop:3.1:3} und \ref{prop:3.1:4}.\qedhere
+\end{proofenum}
+\end{proof}
+%%------------------------------------------------------------
+
+%%-------------------------Theorem------------------------------
+\begin{thm}
+\label{prop:3.2}
+Sei $A : D \subset X \to X$
+ein linearer Operator. Dann ist die Resolventenmenge $\rho(A)$ offen,
+das Spektrum $\sigma(A)$ abgeschlossen und die Resolvente $z \mapsto
+(A-z)^{-1}$ ist analytisch auf $\rho(A)$.
+
+Falls $z_0 \in \rho(A)$, dann ist
+\begin{align*}
+B(z_0,\norm{R_{z_0}(A)}^{-1}) \subset \rho(A)
+\end{align*}
+und für alle $z$ aus dieser Kreisscheibe gilt
+\begin{align*}
+R_z(A) = \sum_{n=0}^{\infty} (-1)^nR_{z_0}(A)^{n+1}(z-z_0)^n.
+\end{align*}
+Insbesondere gilt
+$
+\norm{R_{z_0}(A)} \geq \frac{1}{\dist(z_0,\sigma(A))}.\fishhere
+$
+\end{thm}
+
+\begin{proof}
+Sei $z_0 \in \rho(A)$ und $z \in \C$. Dann gilt
+\begin{align*}
+z- A& = (z_0-A) +  (z-z_0) = (\Id + (z-z_0)R_{z_0}(A))(z_0-A),
+\end{align*}
+wobei $(z_0-A) : D \to X$ bijektiv mit $(z_0-A)^{-1} \in
+\LL(X)$. Falls $\abs{z-z_0} \cdot \norm{R_{z_0}(A)} < 1$, dann ist auch
+\begin{align*}
+\Id + (z-z_0) R_{z_0}(A) : X \to X\tag{1}
+\end{align*}
+bijektiv mit stetiger Inversen (FA~Thm~3.3.6 \cite{Fun07}).
+
+Also ist $z\in\rho(A)$, falls $\abs{z-z_0} < \norm{R_{z_0}(A)}^{-1}$. Die
+Inverse von (1) ist dann gegeben durch die Neumannreihe
+\begin{align*}
+\sum_{n\ge 0} (-1)^n R_{z_0}(A)^n(z-z_0)^n
+\end{align*}
+und folglich
+\begin{align*}
+\sum_{n\ge 0} (-1)^n R_{z_0}(A)^{n+1}(z-z_0)^n.
+\end{align*}
+
+Wenn $z\in\sigma(A)$, dann ist zwingend $\abs{z-z_0}\norm{R_{z_0}(A)} \ge 1$,
+d.h. $\abs{z-z_0}\ge \norm{R_{z_0}(A)}^{-1}$ und folglich
+\begin{align*}
+\dist(z_0,\sigma(A)) = 
+\inf\setdef{\abs{z-z_0}}{z\in\sigma(A)} \ge
+\frac{1}{\norm{R_{z_0}(A)}}.\qedhere
+\end{align*}
+\end{proof}
+
+%%---------------------------Korollar------------------------------------------
+\begin{cor}
+\label{prop:3.4}
+Sei $A \in \LL(X)$. Dann ist $\sigma(A)$ kompakt und nichtleer.\fishhere
+\end{cor}
+\begin{proof}
+\textit{$\sigma(A)$ ist kompakt}.
+Sei $z\in \C$ mit $\abs{z}\ge \norm{A}$, dann ist $(z-A) = z(\Id-z^{-1}A)$ und
+$\norm{z^{-1}A} < 1$. Somit besitzt $(z-A)$ eine beschränkte Inverse
+(Neumannreihe)
+\begin{align*}
+(z-A)^{-1} = \frac{1}{z}\sum_{n=0}^\infty \frac{1}{z^n}A^n
+\end{align*}
+und daher ist $z\in\rho(A)$. Insbesondere gilt
+\begin{align*}
+\norm{(z-A)^{-1}} \le \frac{1}{\abs{z}}\sum_{n\ge0}
+\frac{1}{\abs{z}^n}\norm{A}^n
+= \frac{1}{\abs{z}}\frac{1}{1-\abs{z}^{-1}\norm{A}} = \frac{1}{\abs{z}-\norm{A}}
+\end{align*}
+und $\sigma(A)\subset\setdef{z\in\C}{\abs{z}\le \norm{A}}$.
+
+\textit{$\sigma(A)$ ist nicht leer}.
+Angenommen $\sigma(A)= \varnothing$, dann ist $F_{l,x} : z\mapsto l(R_z(A)x)$
+für alle $x\in X$ und $l\in X^*$
+eine ganze Funktion und
+\begin{align*}
+\abs{F_{l,x}(z)} \le \norm{l}\norm{R_z(A)}\norm{x} \le
+\norm{l}\norm{x}\frac{1}{\abs{z}-\norm{A}}\to 0,\qquad \abs{z}\to
+\infty,\tag{*}
+\end{align*}
+also auch beschränkt.
+Nach dem Satz von Liouville (Funktionentheorie) ist $F_{l,x}$ konsant und wegen
+(*) gilt sogar $F_{l,x}\equiv 0$. Somit ist
+$l(R_z(A)x)\equiv 0$ für alle $x\in X$ und $l\in X^*$ und daher ist $R_z(A)=0$
+für alle $z\in\C$ im Widerspruch zu $(z-A)R_z(A) = \Id$.\qedhere
+\end{proof}
+
+Der Beweis lässt sich mit Funktionentheorie über Funktionen $f: \C\to X$
+mit $X$ einem komplexen Banachraum deutlich abkürzen. Die Spektraltheorie
+befasst sich im Wesentlichen mit solchen Abbildungen.
+
+\begin{bem*}
+Für einen unbeschränkten Operator $A:D\subset X\to X$ ist sowohl
+$\sigma(A)=\varnothing$ als auch $\sigma(A) = \C$ möglich.\maphere
+\end{bem*}
+
+% %%--------------Einf\"uhrung--Notationen---Definitionen--------------------
+Im Folgenden wollen wir untersuchen, ob wir einen nichtabgeschlossenen Operator
+durch Vergrößerung seines Definitionsbereichs abschließen können.
+
+\begin{defn*}
+Ein Operator $A : D \subset X \to X$ heißt
+\emph{abschließbar}\index{Operator!abschließbar}, falls ein abgeschlossener
+Operator $B \supset A$ existiert.
+Die kleinste abgeschlossene Erweiterung eines abschließbaren
+Operators $A$ heißt \emph{Abschluss}\index{Operator!Abschluss} von $A$ und wird
+mit $\bar{A}$ bezeichnet.
+\end{defn*}
+
+Die Existenz von $\bar{A}$ folgt aus folgendem
+
+\begin{prop}
+\label{prop:3.5}
+Sei $A : D(A) \subset X \to X$ ein linearer Operator.
+Dann sind äquivalent:
+\begin{equivenum}
+\item\label{prop:3.5:1} $A$ ist abschließbar.
+\item\label{prop:3.5:2} $\overline{\Gamma}_A$ ist der Graph eines linearen
+Operators.
+\item\label{prop:3.5:3} Aus $x_n \to 0$ und $Ax_n \to y$ folgt $y = 0$.\fishhere
+\end{equivenum}
+\end{prop}
+\begin{proof}
+``\ref{prop:3.5:1}$\Rightarrow$\ref{prop:3.5:3}'': Sei $A\subset B$, $B$
+abschließbar und $x_n$ Folge in $D$ mit $x_n\to 0$ und $Ax_n\to y$. Dann gilt
+$Bx_n \to y$ und da $B$ abgeschlossen ist $y = \lim\limits_{n\to \infty} Bx_n =
+B0 = 0$.
+
+``\ref{prop:3.5:3}$\Rightarrow$\ref{prop:3.5:2}'': Seien $(x,y_1),(x,y_2)\in
+\overline{\Gamma_A}$. Dann ist $(0,y_1-y_2) = (x,y_1)-(x,y_2)\in
+\overline{\Gamma_A}$. Also existiert eine Folge $(x_n,Ax_n)$ in
+$\overline{\Gamma_A}$ mit $x_n\to 0$ und $Ax_n\to y_1-y_2$. Nach
+\ref{prop:3.5:3} gilt $y_1=y_2$. Wir können somit einen Operator $B:D(B)\subset
+X\to X$ definieren durch
+\begin{align*}
+x\in D(B) \Leftrightarrow \text{Es existiert }y\in Y\text{ mit }(x,y)\in
+\overline{\Gamma_A}.
+\end{align*}
+und $Bx=y$ wenn $(x,y)\in \overline{\Gamma_A}$. Nach dem eben gezeigten, ist $B$
+wohldefiniert, linear, denn $\overline{\Gamma_A}$ ist ein linearer Raum, und
+$\Gamma_B = \overline{\Gamma_A}$.
+
+``\ref{prop:3.5:2}$\Rightarrow$\ref{prop:3.5:1}'': Aus
+$\Gamma_B=\overline{\Gamma_A}$ folgt $B\supset A$ und $B$ ist abgeschlossen, da
+$\Gamma_B$ abgeschlossen. Somit ist $A$ abschließbar.\qedhere
+\end{proof}
+
+
+\begin{bem*}
+Nach Satz~\ref{prop:3.5} können wir einen linearen Operator
+$\bar{A}$ definieren durch $\Gamma_{\bar{A}} = \overline{\Gamma}_A$.
+$\bar{A}$ ist abgeschlossen und f\"ur jeden abgeschlossenen Operator
+$B \supset A$ gilt $B \supset \bar{A}$
+(folgt aus $A \subset B \Leftrightarrow \Gamma_A \subset \Gamma_B$).
+Offenbar gilt:
+\begin{align*}
+x \in D(\bar{A})
+\quad\Leftrightarrow\quad
+\begin{cases}
+\text{Es existiert eine Folge }(x_n)_{n \in \N} \text{ in } D(A)\\
+\text{mit } x_n \to x \text{ und } (Ax_n)_{n \in \N}
+\text{ ist eine Cauchyfolge.}
+\end{cases}
+\end{align*}
+Es ist dann $\bar{A}x = \lim \limits_{n \to \infty} Ax_n$.\maphere
+\end{bem*}
+%%---------------------------------------------------------------------
+\begin{bsp*}
+Sei $H = L^2(\R)$ und $g\in H$ mit $\norm{g}=1$. Der Operator $A
+: D \subset H \to H$ definiert durch
+\begin{align*}
+  D = C_{0}^{\infty}(\R),\qquad Af = f(0)g,
+\end{align*}
+ist nicht abschließbar.
+\begin{proof}
+Sei $f\in D$ mit $f(0)=1$ und sei $f_n(x):=f(nx)$. Dann ist
+$\|f_n\|=n^{-1/2}\|f\|\to 0$ f\"ur $n\to\infty$ aber
+$Af_n = g$ f\"ur alle $n$, wobei $g\neq 0$.\qedhere\bsphere
+\end{proof}
+\end{bsp*}

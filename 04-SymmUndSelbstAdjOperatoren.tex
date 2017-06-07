@@ -1,0 +1,578 @@
+\chapter{Symmetrische und selbstadjungierte Operatoren}
+%\renewcommand{\HH}{\mathrm{H}}
+\renewcommand{\bar}[1]{\overline{#1}}
+
+\subsection{Der adjungierte Operator}
+
+\begin{defn*}
+Sei $\HH$ ein komplexer Hilbertraum und sei $A : D(A) \subset \HH \to \HH$
+linear und dicht definiert $(\bar{D} = \HH)$. Der zu $A$ \emph{adjungierte
+Operator}\index{Operator!adjungiert}
+$A^{*} : D(A^{*}) \subset \HH \to \HH$ ist wie folgt definiert:
+Falls zu gegebenem $\ph \in \HH$ ein $\ph^{*} \in \HH$ existiert,
+so dass
+\begin{align*}
+\lin{\ph,A\eta} = \lin{\ph^{*},\eta}, \qquad \text{für alle}\ \eta\in D(A),
+\end{align*}
+dann ist  $\ph \in D(A^{*})$ und $A^{*}\ph := \ph^{*}$.\fishhere
+\end{defn*}
+
+Da $D(A)$ dicht ist in $\HH$, ist $\ph^{*}$ durch $\ph$ eindeutig bestimmt,
+und die Abbildung $\ph \mapsto \ph^{*}$ ist linear.
+Nach dem Lemma von Fréchet-Riesz (FA~Thm~3.4.9 \cite{Fun07}) gilt:
+%\begin{align*}
+\[
+   D(A^{*}) = \setdef{\ph\in\HH}{\eta \mapsto \lin{\ph,A\eta}
+\text{ ist stetig auf } D(A)}.
+\]
+%\end{align*}
+\begin{proof}
+Aus $\lin{\ph,A\eta} = \lin{\ph^{*},\eta}$ f\"ur alle
+$\eta \in D(A)$ folgt unmittelbar die Stetigkeit von $\eta \mapsto
+\lin{\ph,A\eta}$.
+Falls umgekehrt $\eta \mapsto \lin{\ph,A\eta}$ stetig ist,
+dann gibt es wegen $\overline{D(A)} = \HH$ ein eindeutiges
+$F \in \HH^{*}$ mit $F(\eta) = \lin{\ph,A\eta}$
+für $\eta \in D(A)$ (FA~Satz~3.3.8~\cite{Fun07}).
+Nach Fréchet-Riesz gilt $F(\eta) = \lin{\ph^{*},\eta}$
+für ein $\ph^{*} \in \HH$.\qedhere
+\end{proof}
+
+\begin{bem*}
+Aus $A \subset B$ folgt $A^{*} \supset B^{*}$.
+
+Man beachte, dass $A^*$ nur existiert, wenn $A$ dicht definiert ist.
+Damit $(A^*)^*$ existiert muss also $A^*$ wieder dicht definiert sein,
+was im Allgemeinen nicht der Fall ist.~\maphere
+\end{bem*}
+%%-------------------Beispiel----------------------------------------------
+
+\begin{bsp*}
+\begin{bspenum}
+\item Sei $\HH = L^2(\R)$ und $g\in\HH$ mit $\|g\|=1$. Wir definieren
+$A \colon D \subset \HH \to \HH$ durch
+\begin{align*}
+D = C_{0}^{\infty}(\R),\qquad Af = f(0)g.
+\end{align*}
+Dann ist $D(A^*)=\setdef{\ph\in \HH}{\ph \bot\ g}$ und $A^*=0$ auf $D(A^*)$.
+\begin{proof}
+Sei $\lin{\ph,g}=0$. Dann ist $\lin{\ph,Af}=0$ f\"ur alle $f\in
+D(A)$. Also $\ph\in D(A^*)$ und $A^*\ph=0$.
+Sei  $\lin{\ph,g}\neq 0$ und sei $(f_n)$ eine Folge in $D$ mit
+$\norm{f_n}\to 0$ und $f_n(0)=1$. Dann gilt
+$\lim\limits_{n\to\infty}\lin{\ph,Af_n} = \lin{\ph,g}\neq 0$. Somit ist
+$f\mapsto \lin{\ph,Af}$ nicht stetig, also $\ph \not\in D(A^*)$.\qedhere
+\end{proof}
+
+\item
+Sei $\HH = L^2(\R)$ und $(e_n)_{n \in \N}$ eine Orthonormalbasis
+von $L^2(\R)$. Der Operator $A \colon D \subset \HH \to \HH$ sei
+definiert durch
+$D = C_{0}^{\infty}(\R)$ und
+%\[
+\begin{align*}
+Af = \sum_{n=0}^{\infty} f(n) e_n,
+\end{align*}
+%\]
+wobei die Reihe konvergiert wegen $f \in C_{0}^{\infty}(\R)$.
+Dann gilt $D(A^{*}) = (0)$.
+
+% \begin{proof}
+% Sei $g \in L^2(\R)$ mit $g \ne 0$. Wir zeigen, dass
+% $f \mapsto \sprod{g}{Af}$ nicht stetig ist. Daraus folgt
+% $g \notin D(A^{*})$. Da $g\neq 0$, gibt ein $n_0 \in \N$ mit
+% $\sprod{e_{n_0}}{g} \ne 0$.
+% Sei $(f_k)_{k \in \N}$ eine Folge in $D$ mit
+% $\norm{f_k} \to 0$,
+% \[
+%   f_k(n_0) = 1 \quad \text{und} \quad f_k(n) = 0, n \ne n_0.
+% \]
+% Dann gilt $A f_k = f_k(n_0) e_{n_0} = e_{n_0}$, also
+% \[
+% \sprod{g}{Af_k} = \sprod{g}{e_{n_0}} \ne 0
+% \]
+% f\"ur alle $k$.
+% Insbesondere $\sprod{g}{Af_k}\not\rightarrow 0$, w\"ahrend
+% $f_k \to 0 \ (k \to \infty)$.
+% \end{proof}
+\begin{proof}
+Übung.\qedhere
+\end{proof}
+\end{bspenum}
+\end{bsp*}
+
+
+%%--------------------------------------------------------------------
+%%-------------Satz----------------------------------------------------
+\medskip %Platz
+\begin{prop}
+\label{prop:4.1}
+Sei $\HH$ ein komplexer Hilbertraum und
+$A : D \subset \HH \to \HH$ dicht definiert.
+Dann gelten
+\begin{propenum}
+\item $A^{*}$ ist abgeschlossen.
+\item
+$A$ ist genau dann abschließbar, wenn $D(A^{*})$
+dicht ist und dann gilt $\bar{A} = (A^{*})^{*}$.
+\item
+Falls $A$ abschließbar ist, gilt $\left(\bar{A}\right)^{*} = A^{*}$.
+\end{propenum}
+\end{prop}
+\begin{proof}
+\begin{proofenum}
+\item Sei $\ph_n\in D(A^*)$ mit $\ph_n\to \ph\in \HH$ und $A^*\ph_n\to \psi$.
+Für alle $\eta\in D(A)$ gilt
+\begin{align*}
+\lin{\ph,A\eta} = \lim\limits_{n\to\infty}
+\lin{\ph_n,A\eta} = \lim\limits_{n\to\infty} \lin{A^*\ph_n,\eta} =
+\lin{\psi,\eta}.
+\end{align*}
+Somit ist $\ph\in D(A^*)$ und $A^*\ph =\psi$.
+\item ``$\Leftarrow$'': Sei $D(A^*)\subset \HH$ dicht und sei $\ph_n\to0$ mit
+$A\ph_n\to \psi$. Zu zeigen ist, dass $\psi=0$. Nach Voraussetzung gilt für alle
+$\eta\in D(A^*)$,
+\begin{align*}
+\lin{\eta,\psi} = \lim\limits_{n\to\infty}\lin{\eta,A\ph_n} = 
+\lim\limits_{n\to\infty} \lin{A^*\eta,\ph_n} = 0.
+\end{align*}
+Also ist $\psi\in D(A^*)^\bot = (0)$.
+
+``$\Rightarrow$'': Siehe (Thm. VII.1, \cite{RS95a}).
+\item Aus $\bar{A} \supset A$ folgt $(\bar{A})^* \subset A^*$. Es bleibt noch zu
+zeigen, dass $(\bar{A})^* \supset A^*$. Sei also $\ph\in D(A^*)$ und $\ph^* =
+A^*\ph$, so gilt 
+\begin{align*}
+\lin{\ph,A\eta} = \lin{\ph^*,\eta}\text{ für alle }\eta\in D(A).\tag{*}
+\end{align*}
+Ist $\eta\in D(\bar{A})$, dann gibt es eine Folge $(\eta_n)$ in $D(A)$ mit
+$\eta_n\to \eta$ und $A\eta_n\to \bar{A}\eta$. Mit (*) folgt somit
+\begin{align*}
+\lin{\ph,\bar{A}\eta} = \lin{\ph^*,\eta}\text{ für alle }\eta\in D(\bar{A}).
+\end{align*}
+Folglich ist $\ph\in D((\bar{A})^*)$ und $(\bar{A})^*\ph = \ph^*$. Also ist
+$(\bar{A})^*\supset A^*$.\qedhere
+\end{proofenum}
+\end{proof}
+
+\begin{defn*}
+Der \emph{Kern}\index{Operator!Kern} eines linearen Operators $B : D
+\subset \HH \to \HH$ ist definiert durch
+\begin{align*}
+\ker(B) := \setdef{\ph \in D}{B \ph = 0}.\fishhere
+\end{align*}
+\end{defn*}
+
+\begin{prop}
+\label{prop:4.2}
+Sei $A:D(A)\subset \HH\to \HH$ dicht definiert. Dann gilt
+\begin{align*}
+\ker(A^*) = \ran(A)^\bot.
+\end{align*}
+Insbesondere ist $\ran(A)^\bot\subset D(A^*)$ und aus $\ker(A^*)=(0)$ folgt
+$\bar{\ran(A)} = \HH$.\fishhere
+\end{prop}
+\begin{proof}
+Es folgt leicht
+\begin{align*}
+\ph\in \ker(A^*) &\Leftrightarrow
+\lin{A^*\ph,\eta} = 0\forall \eta\in D(A)\\
+&\Leftrightarrow
+\lin{\ph,A\eta} = 0\forall \eta\in D(A)\\
+&\Leftrightarrow
+\ph\in\ran(A)^\bot.
+\end{align*}
+Außerdem folgt für $\ker(A^*)=(0)$ nach (FA Kor 3.8, \cite{Fun07}),
+\begin{align*}
+\HH = (0)^\bot = \ker(A^*)^\bot
+= (\ran(A)^\bot)^\bot = \bar{\ran(A)}.\qedhere 
+\end{align*}
+\end{proof}
+
+\subsection{Symmetrie und Selbstadjungiertheit}
+
+\begin{defn*}[Definition / Lemma]
+Ein dicht definierter Operator $A:D(A)\subset \HH\to\HH$ heißt
+\emph{symmetrisch}\index{Operator!symmetrisch}, falls $A\subset A^*$. Der
+Operator $A$ heißt \emph{selbstadjungiert}\index{Operator!selbstadjungiert},
+falls $A=A^*$.
+
+$A$ ist genau dann symmetrisch, wenn
+\begin{align*}
+\lin{A\ph,\eta} = \lin{\ph,A\eta},\quad \text{für alle }\ph,\eta \in
+D(A).\tag{*}
+\end{align*}
+$A$ ist genau dann selbstadjungiert, wenn (*) und zusätzlich $D(A)=D(A^*)$
+gilt.\fishhere
+\end{defn*}
+
+\begin{bem*}[Bemerkungen.]
+\begin{bemenum}
+\item Für $A\in\LL(\HH)$ sind Symmetrie und Selbstadjungiertheit äquivalent.
+\item Ein selbstadjungierter Operator $A$ hat keine symmetrische Erweiterung
+$B\supset A$ mit $B\neq A$.
+\begin{proof}
+Aus $A\subset B\subset B^*$ und $A=A^*$ folgt $A=A^*\supset B^* \supset B\supset
+A$ und somit $A=B$.\qedhere
+\end{proof}
+\item Falls $A\subset A^*$ und $B$ eine selbstadjungierte Erweiterung von $A$,
+dann gilt $A\subset B\subset A^*$.\maphere
+\end{bemenum}
+\end{bem*}
+
+\begin{bsp*}
+Sei $\HH=L^2(\R)$, $D=\SS(\R)$ und $A:D\subset \HH\to \HH$ definiert durch $f =
+-if'$. Dann ist $A$ symmetrisch aber $A\neq A^*$. Es gilt $D(A^*) = H^1(\R)$ und
+\begin{align*}
+A^*f= \FF^{-1}p \FF f,\qquad f\in H^1(\R).
+\end{align*}
+$A^*$ ist selbstadjungiert, d.h. $(A^*)^*=A^*$.
+\begin{proof}
+Wir zeigen hier nur die Symmetrie. Die übrigen Eigenschaften weisen wir später
+nach. Für alle $f,g\in \SS(\R)$ gilt
+\begin{align*}
+\lin{f,Ag} &= -i \int_\R \overline{f(x)}g'(x)\dx
+= \lim\limits_{R\to\infty} -i \int_{-R}^R \overline{f(x)}g'(x)\dx\\
+&= -\overline{f(x)}g(x)\big|_{-R}^R  + i \int_{-R}^R \overline{f'(x)}g(x)\dx\\
+&= \int_\R \overline{-if'(x)}g(x)\dx = \lin{Af,g}.
+\end{align*}
+Somit ist $A\subset A^*$.\qedhere\bsphere
+\end{proof}
+\end{bsp*}
+
+
+Wir suchen nun nach handlichen Kriterien, um zu zeigen, dass ein Operator
+selbstadjungiert ist. Dabei wird sich folgender Satz als äußert nützlich
+erweisen.
+
+\begin{bem*}[Notation.]
+$\C_+ := \setd{z\in\C}{\Im z > 0}$, $\C_- = \setdef{z\in\C}{\Im z < 0}$.\maphere
+\end{bem*}
+
+\begin{prop}
+\label{prop:4.3}
+Sei $A: D(A)\subset \HH\to \HH$ symmetrisch.
+\begin{propenum}
+\item Für alle $\lambda,\mu\in\R$ und alle $\ph\in D(A)$ gilt
+\begin{align*}
+\norm{(A-\lambda-i\mu)\ph}^2 = \norm{(A-\lambda)\ph}^2 + \mu^2\norm{\ph}^2.
+\end{align*}
+\item Falls $\ran(A-z) = \HH$ für ein $z\in\C_\pm$, so ist $\C_\pm\subset
+\rho(A)$.\fishhere
+\end{propenum}
+\end{prop}
+\begin{proof}
+\begin{proofenum}
+\item Sei $B=A-\lambda$. Dann gilt
+\begin{align*}
+\norm{(B-i\mu)\ph}^2
+&= \lin{(B-i\mu)\ph,(B-i\mu)\ph}\\
+&= \lin{B\ph,B\ph} \overline{-i\mu}\lin{\ph,B\ph}
+- i\mu\lin{B\ph,\ph} \\
+&\qquad\qquad\qquad
++(\overline{-i})(-i)\mu^2\lin{\ph,\ph}\\
+&= 
+\norm{B\ph}^2+\mu^2\norm{\ph}^2 
+\underbrace{+i\mu\lin{\ph,B\ph}
+- i\mu\lin{B\ph,\ph}}_{=0}.
+\end{align*}
+\item Sei $z\in\C_\pm$ und $\ran(A-z) =\HH$. Nach Teil 1) gilt für
+alle $\ph\in D(A)$,
+\begin{align*}
+\norm{(A-z)\ph} \ge \underbrace{\abs{\Im z}}_{>0}\norm{\ph}.\tag{*}
+\end{align*}
+D.h. $(A-z) : D(A)\subset \HH \to \HH$ ist injektiv , also nach Voraussetzung an
+$z$ sogar bijektiv. Mit der Wahl $\ph=(A-z)^{-1}\psi$ folgt aus (*)
+\begin{align*}
+\norm{(A-z)^{-1}} \le \frac{1}{\abs{\Im z}}.
+\end{align*}
+Somit ist $z\in\rho(A)$ und nach Theorem \ref{prop:3.2} gilt außerdem
+$B(z,\abs{\Im z}) \subset\rho(A)$.
+
+Für jedes $z_1\in B(z,\abs{\Im z})$ folgt aus dem Gezeigten,
+dass $B(z_1,\abs{\Im z}) \subset\rho(A)$. Durch Iteration dieses Arguments
+schließen wir $\C_\pm\subset \rho(A)$.\qedhere
+\end{proofenum}
+\end{proof}
+
+\begin{thm}
+\label{prop:4.4}
+Sei $A: D(A)\subset \HH\to \HH$ symmetrisch. Dann sind äquivalent
+\begin{propenum}
+\item\label{prop:4.4:1} $A=A^*$.
+\item\label{prop:4.4:2} $\sigma(A) \subset \R$.
+\item\label{prop:4.4:3} $\ran(A-z_\pm) = \HH$ für ein $z_+\in \C_+$ und ein
+$z_-\in \C_-$.
+\item\label{prop:4.4:4} $A$ ist abgeschlossen und $\ker(A^*-z_\pm) = (0)$ für
+ein $z_+\in \C_+$ und ein $z_-\in \C_-$.\fishhere
+\end{propenum}
+\end{thm}
+
+\begin{bem*}
+$\sigma(A)\subset\R$ allein impliziert \textit{nicht}, dass $A$ selbstadjungiert
+ist.
+
+Ein einfaches Gegenbeispiel ist $A=\bigl(\begin{smallmatrix}0 & 1\\ 0 &
+0\end{smallmatrix}\bigr)$, denn $A$ hat nur den Eigenwert $0\in\R$, ist aber
+offensichtlich nicht hermitesch.\maphere
+\end{bem*}
+
+\begin{proof}
+``\ref{prop:4.4:1}$\Rightarrow$\ref{prop:4.4:4}'': Aus $A=A^*$ und Satz
+\ref{prop:4.1} folgt, dass $A$ abgeschlossen ist. Außerdem gilt
+\begin{align*}
+\ker (A^*\pm i) = \ker (A\mp i) = (0)
+\end{align*}
+nach dem eben bewiesenen Satz \ref{prop:4.3}.
+
+``\ref{prop:4.4:4}$\Rightarrow$\ref{prop:4.4:3}'': Aus $\ker(A- z_\pm) = (0)$
+und Satz \ref{prop:4.2} folgt $\ran(A-\overline{z_\pm}) \subset \HH$ ist dicht.
+Wir zeigen $\ran(A-\overline{z_\pm}) = \HH$ mit Hilfe der Abgeschlossenheit von
+$A$. Sei $\psi\in \HH$, so existiert aufgrund der Dichtheit eine Folge $(\ph_n)$
+in $D(A)$ mit
+\begin{align*}
+(A-\overline{z_\pm})\ph_n \to \psi.
+\end{align*}
+Nach Satz \ref{prop:4.3} gilt
+\begin{align*}
+\norm{(A-\overline{z_\pm})(\ph_n-\ph_m)} \ge
+\abs{\ph_n-\ph_m}\underbrace{\abs{\Im z_\pm}}_{>0}.
+\end{align*}
+Also ist $(\ph_n)$ Cauchyfolge in $\HH$. Sei
+$\ph=\lim\limits_{n\to\infty}\ph_n$, so folgt, da $A-\overline{z_+}$
+abgeschlossen, dass $\ph\in D(A)$ und $(A-\overline{z_\pm})\ph=\psi$.
+%Analog zeigt man $\ran(A-\overline{z_-})=\HH$.
+
+``\ref{prop:4.4:3}$\Rightarrow$\ref{prop:4.4:2}'': Folgt direkt aus Satz
+\ref{prop:4.3}.
+
+``\ref{prop:4.4:2}$\Rightarrow$\ref{prop:4.4:1}'': Da $A\subset A^*$ bleibt nur
+$D(A^*)\subset D(A)$ zu zeigen. Sei also $\ph\in D(A^*)$.  Da $(A+i): D(A)\to
+\HH$ nach Voraussetzung surjektiv ist, existiert ein $\eta\in D(A)$ mit
+$(A^*+i)\ph = (A+i)\eta = (A^*+i)\eta$. Also ist $(A^*+i)(\ph-\eta) = 0$ und
+$\ker (A^*+i) = \ran(A-i)^\bot =(0)$, da $i\in\rho(A)$. Das heißt $\ph=\eta \in
+D(A)$.\qedhere
+\end{proof}
+
+\subsection{Wesentliche Selbstadjungiertheit}
+
+Sei $A: D(A)\subset \HH\to\HH$ ein symmetrischer Operator, so ist $A\subset
+A^*$. Da $A^*$ abgeschlossen, ist $A$ abschließbar mit $\bar{A}\subset A^*$.
+Falls $\bar{A}$ selbst-adjungiert ist, dann ist $\bar{A}$ die einzige
+selbstadjungierte Erweiterung von $A$ (vgl. obige Bemerkung).
+Dies motiviert folgende
+
+\begin{defn*}
+Ist der Abschluss eines Operators $A:D(A)\subset\HH\to\HH$ selbstadjungiert,
+dann heißt $A$ \emph{wesentlich selbstadjungiert}\index{Operator!wesentlich
+selbstadjungiert}. Sei $A$ abgeschlossen, so heißt jeder Teilraum $D\subset
+D(A)$ mit $\bar{A\big|_D} = A$ \emph{definierender Bereich (core)} von
+$A$\index{Operator!definierender Bereich}.\fishhere
+\end{defn*}
+
+\begin{thm}
+\label{prop:4.5}
+Sei $A: D(A)\subset \HH\to \HH$ ein symmetrischer Operator. Dann sind
+äquivalent:
+\begin{propenum}
+\item\label{prop:4.5:1} $A$ ist wesentlich selbstadjungiert.
+\item\label{prop:4.5:2} $\ran(A\pm i)\subset \HH$ ist dicht.
+\item\label{prop:4.5:3} $\ker(A^*\pm i) = (0)$.\fishhere
+\end{propenum}
+\end{thm}
+\begin{proof}
+``\ref{prop:4.5:1}$\Rightarrow$\ref{prop:4.5:3}'': Nach Voraussetzung
+ist $\bar{A}$ selbstadjungiert und $(\bar{A})^* = A^*$ nach Satz
+\ref{prop:4.1}. Also ist $\ker(A^*\pm i) = \ker ((\bar{A})^*\pm i) = (0)$ nach
+Theorem \ref{prop:4.4}.
+
+``\ref{prop:4.5:3}$\Rightarrow$\ref{prop:4.5:2}'': Folgt direkt aus Satz
+\ref{prop:4.2}.
+
+``\ref{prop:4.4:2}$\Rightarrow$\ref{prop:4.4:1}'': Wir zeigen $\ran(\bar{A}\pm
+i) = \HH$, dann folgt die Selbstadjungiertheit aus Theorem \ref{prop:4.4}. Sei
+also $\psi\in \HH$. Da $\bar{\ran(A-i)} = \HH$ gibt es eine Folge $(\ph_n)$ in
+$D(A)$ mit $(A-i)\ph_n \to \psi$. Nach Satz \ref{prop:4.3} ist $(\ph_n)$ eine
+Cauchyfolge in $\HH$. (Siehe Beweis von Theorem \ref{prop:4.4}) Sei
+$\ph=\lim\limits_{n\to\infty} \ph_n$, dann gilt $A\ph_n \to \psi + i\ph$. Es
+folgt $\ph\in D(\bar{A})$ und $\bar{A}\ph = \psi+i\ph$, d.h. $(\bar{A}-i)\ph =
+\psi$.
+Analog zeigt man $\ran(\bar{A}+i)=\HH$.\qedhere
+\end{proof}
+
+Als Anwendung beweisen wir einen wichtigen Störungssatz.
+
+\begin{thm}[Theorem von Kato-Rellich]
+\label{prop:4.6}
+Sei $A$ wesentlich selbstadjungiert und $B$ symmetrisch mit $D(B)\supset D(A)$.
+Gilt weiterhin
+\begin{align*}
+\norm{B\ph} \le a\norm{A\ph} + b\norm{\ph}
+\end{align*}
+für alle $\ph\in D(A)$, wobei $a,b\in\R$ und $a<1$, so ist
+\begin{align*}
+A+B : D(A)\subset \HH\to \HH
+\end{align*}
+wesentlich selbstadjungiert und $D(\bar{A+B}) = D(\bar{A})$.\fishhere
+\end{thm}
+
+Wir werden später sehen, dass $-\Delta$ auf $\SS(\R)$ wesentlich
+selbstadjungiert ist und $\abs{x}^{-1}$ die obige Abschätzung erfüllt, folglich
+ist der Hamilton des Wasserstoffatoms wesentlich selbstadjungiert.
+
+\begin{bem*}
+Ist $A=A^*$ und $B\in\LL(\HH)$ symmetrisch, dann ist
+\begin{align*}
+A+B : D(A)\subset\HH \to \HH 
+\end{align*}
+selbstadjungiert nach Theorem \ref{prop:4.6}. (Wähle dazu $a=0$ und
+$b=\norm{B}$). Beschränkte Störungen sind daher weitgehend
+uninteressant.\maphere
+\end{bem*}
+
+\begin{proof}
+\begin{proofenum}
+\item
+Wir betrachten zuerst den Fall, dass $A$ selbstadjungiert ist. Nach
+Voraussetzung ist auch der Operator
+$
+A+B:D(A)\subset\HH\to \HH
+$
+symmetrisch. Es genügt daher nach Theorem \ref{prop:4.4} 
+zu zeigen, dass $(A+B-i\mu)D(A) =\HH$ für $\abs{\mu}$ hinreichend groß.
+
+Nach Satz \ref{prop:4.3} gilt
+\begin{align*}
+\norm{(A-i\mu)\psi}^2 = \norm{A\psi}^2 + \mu^2\norm{\psi}^2,\qquad \psi\in D(A).
+\end{align*}
+Setzen wir $\psi=(A-i\mu)^{-1}\ph$ für ein $\mu\in\R\setminus\setd{0}$, so folgt
+\begin{align*}
+\norm{\ph} \ge \norm{A(A-i\mu)^{-1}\ph},\qquad
+\norm{\ph} \ge \abs{\mu}\norm{(A-i\mu)^{-1}\ph}\tag{*}
+\end{align*}
+für alle $\ph\in\HH$. Sei $\mu\in\R\setminus \setd{0}$, so gilt weiterhin
+\begin{align*}
+(A+B-i\mu) = (1+B(A-i\mu)^{-1})(A-i\mu),\tag{**}
+\end{align*}
+wobei $(A-i\mu):D(A)\to\HH$ bijektiv ist. Ferner gilt nach Voraussetzung und (*)
+\begin{align*}
+\norm{B(A-i\mu)^{-1}\ph} &\le a \norm{A(A-i\mu)^{-1}\ph} +
+b\norm{(A-i\mu)^{-1}\ph}\\
+&\le \left(a+\frac{b}{\abs{\mu}}\right)\norm{\ph}.
+\end{align*} 
+Somit ist $\norm{B(A-i\mu)^{-1}}\le a+\frac{b}{\abs{\mu}} < 1$ für
+$\abs{\mu}$ hinreichend groß. Für solche $\mu$ ist
+\begin{align*}
+(1+B(A-i\mu)^{-1}) : \HH\to\HH
+\end{align*}
+bijektiv (\cite{Fun07}, Thm 3.3.6), folglich ist nach (**) auch $A+B-i\mu$
+bijektiv.
+\item Sei nun $A$ lediglich wesentlich selbstadjungiert. Sei $\ph\in D(\bar{A})$
+und $(\ph_n)_n$ eine Folge in $D(A)$ mit $\ph_n\to \ph$ und $A\ph_n\to
+\bar{A}\ph$. Dann ist auch $B\ph_n$ Cauchyfolge, denn
+\begin{align*}
+\norm{B(\ph_n-\ph_m)} \le a\norm{A(\ph_n-\ph_m)} + b\norm{\ph_n-\ph_m}
+\end{align*}
+Also ist $\ph\in D(\bar{B})$ und $\ph\in D(\bar{A+B})$, denn $((A+B)\ph_n)$ ist
+ebenfalls Cauchyfolge. Außerdem gilt durch Grenzwertübergang
+\begin{align*}
+\norm{\bar{B}\ph} \le a\norm{\bar{A}\ph} + b\norm{\ph},\qquad \ph\in D(\bar{A}).
+\end{align*}
+Somit ist $\bar{A}+\bar{B}$ nach dem 1. Teil selbstadjungiert und insbesondere
+abgeschlossen. Also gilt
+\begin{align*}
+\bar{A}+\bar{B}\subset \bar{A+B},
+\end{align*}
+weil wir eben außerdem gezeigt haben, das $D(\bar{A})\subset D(\bar{A+B})$ folgt
+$D(\bar{A+B}) = D(\bar{A})$ und $\bar{A+B} = \bar{A}+\bar{B}$.\qedhere
+\end{proofenum}
+\end{proof}
+
+Die (reinen) Zustände eines quantenmechanischen Systems werden durch normierte
+Vektoren eines komplexen Hilbertraums $\HH$ beschrieben. Die Zeitevolution
+eines Zustandes, gegeben durch $u\in\HH$, ist bestimmt durch das
+Anfangswertproblem für eine Schrödingergleichung
+\begin{align*}
+i\frac{\diffd}{\dt}\ph_t = H\ph_t,\qquad \ph_0 = u,\tag{S}
+\end{align*}
+wobei $H:D\subset\HH\to\HH$ im Allgemeinen unbeschränkt ist.
+
+Wir nehmen im Folgenden an, dass $\bar{D}=\HH$. Eine Lösung von (S) ist eine
+differenzierbare\footnote{differenzierbar im Sinne von (iii)} Funktion $\ph:
+I\to\HH$, $I\subset\R$ ein nichtentartetes Intervall mit $0\in I$, so dass
+\begin{equivenum}
+\item $\ph_t \in D(H)$ für alle $t\in I$.
+\item $\ph_0 = u$.
+\item $\dfrac{\diffd}{\dt}\ph_t = \lim_{h\to 0} \dfrac{\ph_{t+h}-\ph_t}{h} =
+-iH\ph_t$ für alle $t\in I$.
+\end{equivenum}
+\begin{lem*}
+Falls (S) für jedes $u\in D$ eine Lösung $\ph$ besitzt mit $\norm{\ph_t} =
+\norm{u}$ für alle $t\in I$, dann ist notwendigerweise $H\subset H^*$. Umgekehrt
+folgt aus $H\subset H^*$, dass $\norm{\ph_t}$ erhalten und die Lösung
+von (S) eindeutig ist.\fishhere
+\end{lem*}
+\begin{proof}
+Sei $u\in D$ und $\ph_t$ eine Lösung von (S) mit $\norm{\ph_t} = \norm{u}$. Dann
+gilt
+\begin{align*}
+0 &= \frac{\diffd}{\dt}\norm{\ph_t}^2\big|_{t=0}
+= \lin{\dot{\ph}_t,\ph_t}+\lin{\ph_t,\dot{\ph}_t}\big|_{t=0}
+=  \lin{-iHu,u} +\lin{u,-iHu}\\ & = i
+\left[\underbrace{\lin{Hu,u}-\lin{u,Hu}}_{=0}\right]
+\end{align*}
+Aus $\lin{Hu,u} = \lin{u,Hu}$ für alle $u\in D$ folgt $H\subset H^*$.
+
+Sind $\ph_t,\psi_t:I\to \HH$ Lösungen von (S) und ist  $\Phi_t = \ph_t-\psi_t$,
+dann gilt
+\begin{align*}
+i\frac{\diffd}{\dt}\Phi_t = H\Phi_t,\qquad \Phi_0 = 0. 
+\end{align*}
+Also folgt wegen $H\subset H^*$, dass $\norm{\Phi_t} = \norm{\Phi_0} = 0$ für
+alle $t\in I$.\qedhere
+\end{proof}
+
+\begin{prop}
+\label{prop:4.7}
+Sei $H:D\subset\HH\to\HH$ symmetrisch. Falls (S) für jedes $u\in D$ eine globale
+Lösung $\ph: \R\to \HH$ besitzt, ist $H$ wesentlich selbstadjungiert.\fishhere
+\end{prop}
+\begin{proof}
+Nach Theorem \ref{prop:4.5} genügt es zu zeigen, dass $\ker(H^*\pm i)=(0)$. Sei
+also $u\in D$ und $\ph_t$ die Lösung von (S) zu $u$ und für ein $w\in D(H^*)$,
+$(H^*+i)w =0$. Dann gilt
+\begin{align*}
+\frac{\diffd}{\dt}\lin{w,\ph_t}
+= \lin{w,-iH\ph_t} = \lin{H^*w,-i\ph_t} = \lin{-iw,-i\ph_t} =
+\lin{w,\ph_t}.
+\end{align*}
+Also gilt $\lin{w,\ph_t} = \lin{w,u}e^t$ und wegen
+\begin{align*}
+\abs{\lin{w,\ph_t}} \le \norm{w}\norm{\ph_t} = \norm{w}\norm{u}
+\end{align*}
+ist $\lin{w,u} = 0$ für alle $u\in D$ und da $\bar{D}=H$ folgt $w=0$. Analog
+zeigt man, dass $\ker(H^*-i)=(0)$.\qedhere
+\end{proof}
+
+\begin{bem*}[Bemerkungen]
+\begin{bemenum}
+\item Wir werden sehen, dass $H=H^*$ auch hinrechend ist für die Existenz einer
+globalen Lösung
+\begin{align*}
+\ph: \R\to \HH
+\end{align*}
+von (S). Falls $H=H^*\in\LL(\HH)$, ist
+\begin{align*}
+\ph_t = e^{-iHt}\ph_0,\qquad
+e^{-iHt} = \sum_{n=1}^\infty \frac{1}{n!} (-iHt)^n\ph_0.
+\end{align*}
+\item Nicht jeder symmetrische Operator $H$ hat eine selbstadjungierte
+Erweiterung. Notwendig und hinreichend für die Existenz einer selbstadjungierten
+Erweiterung ist, dass die \emph{Defektindizies}\index{Defektindizes}
+\begin{align*}
+&h_+ := \dim \ker(H^*-i) = \dim \ran(H^*+i)^\bot,\\
+&h_- := \dim \ker(H^*+i) = \dim \ran(H^*-i)^\bot,
+\end{align*}
+übereinstimmen. (\cite{RS05a}, Kap. X)\maphere
+\end{bemenum}
+\end{bem*}

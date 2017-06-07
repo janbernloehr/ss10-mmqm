@@ -1,0 +1,188 @@
+\chapter{Multiplikations- und Schrödingeroperator}
+
+\subsection{Multiplikationsoperatoren}
+Ein Schrödingeroperator $-\Delta + V$ wird im einfachsten Fall $(V=0)$ zu
+$-\Delta$. Unter Fouriertransformation geht $-\Delta$ über in einen
+Multiplikationsoperator.
+
+\begin{defn*}
+Eine messbare Funktion $f: \R^n\to \C$ definiert einen
+\emph{Multiplikationsoperator}
+$
+M_f : D_f \subset L^2(\R^n)\to L^2(\R^n)
+$
+durch
+\begin{align*}
+D_f := \setdef{\ph\in L^2(\R^n)}{f\ph\in L^2(\R^n)},\quad
+(M_f\ph)(x) = f(x)\ph(x).\fishhere
+\end{align*}
+\end{defn*}
+Man sieht leicht ein, dass $D_f\subset L^2(\R^n)$ dicht ist. 
+
+\begin{prop}
+\label{prop:5.1}
+Das Spektrum von $M_f$ ist der \emph{wesentliche Wertebereich} von $f$. D.h.
+\begin{align*}
+\sigma(M_f) := \setdef{z\in \C}{\forall \ep >0 : \abs{f^{-1}(B_\ep(z))}>
+0},
+\end{align*}
+wobei $\abs{\cdot}$ das Lebesgue-Maß  bezeichnet. Ist $f$ reellwertig, dann ist
+$M_f$ selbstadjungiert.\fishhere
+\end{prop}
+
+Ist $f$ stetig, dann entspricht der wesentliche Wertebereich dem Wertebereich.
+
+\begin{proof}
+Sei $W_f$ der wesentliche Wertebereich von $f$ und $z\in W_f$. Wir zeigen, dass
+$z\in \sigma(M_f)$. Zu jedem $k\in\N$ existiert eine messbare Menge
+$E_k\subset\R^n$ mit
+\begin{align*}
+E_k \subset f^{-1}(B_k(z)),\qquad 0 < \abs{E_k}< \infty.
+\end{align*}
+Wähle $E_k = f^{-1}(B_{1/k}(z))$, falls $\abs{f^{-1}(B_{1/k}(z))} < \infty$,
+sonst wähle eine messbare Teilmenge von $f^{-1}(B_{1/k}(z))$. Sei
+\begin{align*}
+\ph_k = \frac{1}{\sqrt{\abs{E_k}}}\chi_{E_k}.
+\end{align*}
+Dann ist $\ph_k \in L^2(\R^n)$, $\norm{\ph_k}=1$ und $f\ph_k \in L^2$, denn
+$\abs{f\big|_{E_k}-z} < \frac{1}{k}$ und
+\begin{align*}
+\norm{(z-M_f)\ph_k} &= \left(\int \abs{(z-f(x))\ph_k(x)}^2\dx \right)^{1/2}\\
+&=
+ \sqrt{\abs{E_k}}^{-1} \left(\int_{E_k} \abs{z-f(x)}^2\dx\right)^{1/2} 
+ \le \frac{1}{k}\to 0.
+\end{align*}
+Somit ist $z\in \sigma(M_f)$ (vgl. Aufgabe 4.4).
+
+Ist andererseits $z\notin W_f$, dann existiert ein $\ep > 0$, so dass
+\begin{align*}
+\abs{f^{-1}(B_\ep(z))} = 0.
+\end{align*}
+Definiere nun
+\begin{align*}
+g(x) =
+\begin{cases}
+(z-f(x))^{-1},& \abs{z-f(x)} \ge \ep,\\
+0, & \text{sonst}.
+\end{cases}
+\end{align*}
+Dann ist $g\in L^\infty(\R^n)$, also $M_g$ ein beschränkter Operator und
+$(z-f(x))g(x) = 1$ fast überall. Also $fg\in L^\infty(\R^n)$ und somit
+$M_gL^2(\R^n)\subset D_f$. Es folgt
+\begin{align*}
+\ph\in L^2(\R^n) \Rightarrow
+(z-M_f)M_g\ph = (z-f)g\ph = \ph\text{ f.ü.},\\
+\ph\in D_f \Rightarrow M_g(z-M_f)\ph = g(z-f)\ph = \ph\text{ f.ü.}.
+\end{align*}
+Somit ist $z\in \rho(M_f)$ und $M_g=(z-M_f)^{-1}$.
+
+Falls $f$ reellwertig ist, so ist $M_f$ symmetrisch (Übung) und $\sigma(M_f) =
+W_f \subset\R$, also ist $M_f$ nach Theorem \ref{prop:4.4}
+selbstadjungiert.\qedhere
+\end{proof}
+
+\begin{bsp}
+\begin{bspenum}
+\item Der Operator $-i\frac{\diffd}{\dx}: H^1(\R)\subset L^2(\R) \to L^2(\R)$
+definiert durch
+\begin{align*}
+-i\frac{\diffd}{\dx} = \FF^{-1}M_f\FF,\qquad f(p)=p,
+\end{align*}
+ist selbstadjungiert auf $H^1$, da $M_f$ selbstadjungiert. Auf $C_0^\infty(\R)$
+ist $-i\frac{\diffd}{\dx}$ wesentlich selbstadjungiert und
+$\sigma(-i\frac{\diffd}{\dx}) = \sigma(M_f) = \R$.
+\item Der Operator $-\Delta : H^2(\R^n)\subset L^2(\R^n)\to L^2(\R^n)$ definiert
+durch
+\begin{align*}
+-\Delta := \FF^{-1}M_f\FF,\qquad f(p) = p^2 = \sum_{k=1}^n p_k^2
+\end{align*}
+ist selbstadjungiert und wesentlich selbstadjungiert auf $C_0^\infty(\R^n)$ und
+$\sigma(-\Delta) = [0,\infty)$. Der Beweis erfolgt mit Satz
+\ref{prop:1.3}, Satz \ref{prop:5.1} und den Resultaten aus den Übungen.\bsphere
+\end{bspenum}
+\end{bsp}
+
+\subsection{Schrödingeroperatoren}
+
+\begin{defn*}
+\emph{Schrödingeroperatoren} sind Operatoren der Form
+\begin{align*}
+-\Delta + V : D\subset L^2(\R^n)\to L^2(\R^n),\tag{*}
+\end{align*}
+wobei $V=M_V$ ein Multiplikationsoperator ist.\fishhere
+\end{defn*}
+
+\begin{thm}
+\label{prop:5.2}
+Sei $V \in L^2(\R^n)  + L^\infty(\R^n)$ reellwertig und $n\le 3$. Dann ist
+(*) selbstadjungiert auf $D=H^2(\R^n)$ und wesentlich selbstadjungiert auf
+$D=C_0^\infty(\R^n)$.\fishhere
+\end{thm}
+\begin{proof}
+Da $V$ reellwertig ist, ist $M_V$ ein symmetrischer Multiplikationsoperator und
+$-\Delta$ ist selbstadjungiert auf $H^2(\R^n)$ und wesentlich selbstadjungiert
+auf $C_0^\infty(\R^n)$. Nach Theorem \ref{prop:1.6} existiert zu jedem $\ep > 0$
+ein $C_\ep\in\R$, so dass
+\begin{align*}
+\norm{V\ph} \le \ep \norm{\Delta \ph} + C_\ep \norm{\ph},\qquad \ph\in
+H^2(\R^n).
+\end{align*}
+Aus dem Satz von Kato-Rellich folgt schließlich, dass (*) selbstadjungiert auf
+$H^2(\R^n)$ und wesentlich selbstadjungiert auf $C_0^\infty(\R^n)$ ist.\qedhere
+\end{proof}
+
+Mit denselben Methoden (vgl. \cite{RS05b}) beweist man das folgende
+\begin{thm*}[Theorem von Kato (1951)]
+Seien $V_k$, $V_{ik}\in L^2(\R^n) + L^\infty(\R^n)$ für $1\le i,k \le N$
+reellwertig und $n\le 3$. Dann ist der Operator
+\begin{align*}
+-\Delta + \sum_{k=1}^N V_k(x_k) + \sum_{i<k} V_{ik}(x_i-x_k)
+: D \subset L^2(\R^n)\to L^2(\R^n)
+\end{align*}
+selbstadjungiert auf $D=H^2(\R^{nN})$ und wesentlich selbstadjungiert auf
+$D=C_0^\infty(\R^{nN})$.\fishhere
+\end{thm*}
+
+\begin{cor*}
+Der Schrödingeroperator $H: D\subset L^2(\R^{3N})\to L^2(\R^{3N})$ gegeben durch
+\begin{align*}
+H=\sum_{k=1}^N \left(-\frac{\hbar^2}{2m}\Delta_{x_k}-\frac{Ze^2}{\abs{x_k}}
+\right) + \sum_{i<k} \frac{e^2}{\abs{x_i-x_k}}
+\end{align*}
+ist selbstadjungiert auf $D=H^2(\R^{3N})$ und wesentlich selbstadjungiert auf
+$D=C_0^\infty(\R^{3N})$.\fishhere
+\end{cor*}
+
+\begin{bem*}[Bemerkung zu den Einheiten.]
+Der Operator aus dem obigen Korollar ist unitär äquivalent zu
+\begin{align*}
+2\alpha^2mc^2\left[ \sum_{k=1}^N \left(-\Delta_{x_k} -
+\frac{Z}{\abs{x_k}}\right) + \sum_{i<k} \frac{1}{\abs{x_i-x_k}}
+\right],
+\end{align*}
+wobei $\alpha= \frac{e^2}{\hbar c} \approx \frac{1}{137}$ die
+Feinstrukturkonstante ist.
+
+Die zugehörige unitäre Transformation ist gegeben durch
+\begin{align*}
+U: L^2(\R^{3N}) \to L^2(\R^{3N}),\qquad (U\ph)(x) := \lambda^{3N/2}\ph(\lambda
+x)
+\end{align*}
+mit geeignetem $\lambda > 0$. Es gilt
+\begin{align*}
+UHU^{-1} = \sum_{k=1}^N \left(-\frac{\hbar^2}{2m\lambda^2}\Delta_{x_k} -
+\frac{Ze^2}{\lambda \abs{x_k}}\right) + \sum_{i< k}
+\frac{e^2}{\lambda\abs{x_i-x_k}}.
+\end{align*}
+Eine einfache Rechnung zeigt, dass
+$\frac{\hbar^2}{2m\lambda^2}=\frac{e^2}{\lambda}$, mit der Wahl
+\begin{align*}
+\lambda = \frac{\hbar^2}{2me^2} = \frac{1}{2}\text{Bohr-Radius}.
+\end{align*}
+Der gemeinsame Faktor
+\begin{align*}
+\frac{\hbar^2}{2m\lambda^2} = \frac{e^2}{\lambda} = 2\alpha^2me^2
+\end{align*}
+ist die 4-fache Rydberg-Energie $E_{\mathrm{Ryd}} =
+\frac{1}{2}\alpha^2mc^2$.\maphere
+\end{bem*}

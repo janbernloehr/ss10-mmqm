@@ -1,0 +1,419 @@
+\chapter{Exponentieller Abfall von Eigenfunktionen}
+
+Sei $\ph\in L^2(\R)$ eine $C^2$-Lösung der Schrödingergleichung
+\begin{align*}
+-\ph''  + V\ph = E\ph,
+\end{align*}
+wobei $V(x)>E$ für $x> R$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%---Bild 1---%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[!htpb]
+\centering
+\begin{pspicture}(-1.5,-3.5)(8,2.5) 
+ \psline{->}(-1,0)(8.5,0)
+ \psline{->}(0,-3)(0,1.8)
+ \psline[linestyle=dashed](4.1933,-0.7)(4.1933,1.8)
+ \psline[linecolor=yellow](0,-0.4047)(6,-0.4047)
+
+ \psplot[linewidth=1.2pt,plotpoints=200,linecolor=darkblue,algebraic=true]{0.47}{8}%
+ 	{(-22.5*x^2+11.25*x^3)*2.71828^(-1.5*x)+0.02}
+ \psplot[linewidth=1.2pt,linecolor=darkblue,algebraic=true]{1.6}{8}% 
+ 	{-4.25*(2.71828^(-.143*x^2))-0.06}
+ 	
+ \rput(-0.19,-0.38){\color{yellow}$E$}
+ \rput(1.9,-2.956){\color{gdarkgray}$V$}
+ \rput(2.1,1){\color{gdarkgray}$\ph$}
+ \rput(6,-0.9){\color{gdarkgray}$V>E$}
+ \rput(6.2,1.43){\color{gdarkgray}exponentieller Abfall}
+ \pscurve[linecolor=gray](5.8,1.2)(5.35,0.8)(5.9,0.75)(5.6,0.4)
+\end{pspicture}
+\caption{$-\ph^{\prime\prime}+V\ph=E\ph$ mit $\ph\in L^2(\R)$}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Es gilt
+\begin{enumerate}
+\item[] $V(x)<E \quad\Rightarrow\quad  \ph^{\prime\prime}(x),\ph(x)$ haben verschiedenes Vorzeichen,
+\item[] $V(x)>E \quad\Rightarrow\quad  \ph^{\prime\prime}(x),\ph(x)$ haben gleiches Vorzeichen.
+\end{enumerate}
+Im Bereich $x>R$ ist $V(x)>E$, also muss $\ph$ dort strikt konvex sein wenn $\ph(x)>0$, und strikt konkav wenn $\ph(x)<0$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%---Bild 2---%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[!htpb]
+\centering
+\begin{pspicture}(-1,-2)(6.4,3)
+ \psline[arrowsize=4pt]{->}(0,-1)(0,2)
+ 
+ \pscurve[linecolor=purple,linewidth=1.2pt](0,1)(1,0.5)(5,2)
+ 
+ \psplot[linewidth=1.2pt,linecolor=darkblue,algebraic=true]{0}{5}%
+ 	{2.71828^(-x)}
+ \psplot[linewidth=1.2pt,linecolor=purple,algebraic=true]{1}{4}%
+ 	{ln(-0.25*(x-5))}
+ \psplot[linewidth=1.2pt,linecolor=purple,algebraic=true]{0}{1}%
+	{-0.78125*x^3+2.3125*x^2-2.53125*x+1}
+  \psline[arrowsize=4pt]{->}(-2,0)(6,0)
+  
+  \rput(-0.3,-0.3){\color{gdarkgray}$R$}
+  \rput(5.6,0.3){\color{gdarkgray}$\ph\in L^2$}
+  \rput(5.7,2.1){\color{gdarkgray}$\ph\not\in L^2$}
+\end{pspicture}
+\caption{Möglicher Verlauf von $\ph$ für $x>R$.}
+\end{figure}
+Wegen $\ph\in L^2(\R)$ kommt nur der (exponentielle) Abfall
+$\lim_{|x|\to\infty}\ph(x)=0$ in Frage. Wir beweisen ein analoges Resultat im $\R^n$.
+
+\begin{prop}[IMS-Formel]
+\label{prop:2.1}
+Sei $H=-\Delta : H^2(\R^n)\to H^2(\R^n)$ aufgefasst als linearer Operator und
+$f\in C^{\infty}(\R^n\to\R)$ mit $\partial^{\alpha}f\in L^{\infty}(\R^n)$ für $|\alpha|\leq 2$. Dann gilt
+\begin{align*}
+   fHf = \frac{1}{2}\left(f^2 H + H f^2\right) + |\nabla f|^2.
+\end{align*} 
+auf $H^2(\R^n)$, wobei $f$, $f^2$ und $\abs{\nabla f}^2$ als
+Multiplikationsoperatoren aufzufassen sind.\fishhere
+\end{prop}
+
+\begin{bem*}
+Der Satz gilt unverändert auch für
+\begin{align*}
+H = -\Delta + V,\qquad V: \R^n\to \C,
+\end{align*}
+wenn $V: H^2(\R^n)\to L^2(\R^n)$.\maphere
+\end{bem*}
+
+\begin{proof}
+Nach Satz \ref{prop:1.8} ist $H^2(\R^n)$ invariant unter $f$ und $f^2$
+und somit gilt auf $H^2(\R^n)$,
+\begin{align*}
+ fHf &= f^2H+f[H,f]\tag{1}\\
+ fHf &= Hf^2-[H,f]f\tag{2}
+\end{align*}
+wobei für alle $\ph \in H^2(\R^n)$ gilt
+\begin{align*}
+[H,f]\ph &= (Hf-fH)\ph\\
+  &= -\Delta(f\ph)+f\Delta\ph\\
+  &= (-\Delta f)\ph-2(\nabla f)\cdot\nabla\ph.
+\end{align*}
+Also ist
+\begin{align*}
+ [H,f]f\ph &= (-\Delta f)f\ph-2(\nabla f)\cdot\nabla(f\ph)\\
+    &= (-\Delta f)f\ph-2f(\nabla f)\cdot\nabla\ph-2|\nabla f|^2\ph\\
+    &= f[H,f]\ph-2|\nabla f|^2\ph.\tag{3}
+\end{align*}
+Nach (3) gilt
+\begin{align*}
+f[H,f] - [H,f]f = 2\abs{\nabla f}^2.\tag{4} 
+\end{align*}
+Aus (1), (2) und (4) folgt nun die Behauptung nach Addition von (1) und
+(2).\qedhere
+\end{proof}
+
+\begin{defn*}
+Sei $V:\R^n\to\R$ messbar mit $V\ph\in L^2(\R^n)$ für alle $\ph\in H^2(\R^n)$.
+Wir definieren die \emph{Ionisierungsschwelle}\index{Ionisierungsschwelle}
+$\Sigma\le \infty$ von $H=-\Delta+V$ durch
+\begin{align*}
+&\Sigma = \lim\limits_{R\to\infty} \Sigma_R,\\
+&\Sigma_R = \inf\setdef{\lin{\ph,H\ph}}{\ph\in H^2(\R^n),\; \norm{\ph} = 1,\;
+\ph(x) = 0\text{ für } \abs{x}< R}.\fishhere
+\end{align*}
+\end{defn*}
+
+Anschaulich beschreibt die Ionisierungsschwelle die kleinste
+Energie des Atoms mit einem Elektron weniger. In den einfachsten Fällen ist
+$\Sigma=\lim\limits_{\abs{x}\to\infty} V(x)$, beim Potential $V=x^2$ ist
+beispielsweise $\Sigma=\infty$.
+
+\begin{thm}
+\label{prop:2.2}
+Sei $V:\R^n\to\R$ messbar mit $V\ph\in C^2(\R^n)$ für alle $\ph\in H^2(\R^n)$.
+Ist $\ph\in H^2(\R^n)$ und $H\ph = E\ph$, wobei $E< \Sigma$, dann ist
+$e^{\beta\abs{x}}\ph(x)\in L^2(\R^n)$ für alle $\beta\in\R$, so dass
+$E+\beta^2< \Sigma$.\fishhere
+\end{thm}
+\begin{proof}
+Sei $\chi\in C_0^\infty(\R^n\to[0,1])$ mit
+\begin{align*}
+\chi(x) = 
+\begin{cases}
+1, & \abs{x}\ge 2,\\
+0, & \abs{x} \le 1
+\end{cases}
+\end{align*}
+und sei $\chi_R(x) := \chi(R^{-1}x)$ für $R> 0$.
+
+\begin{figure}[!htpb]
+\begin{center}
+\begin{pspicture}(-2,-1.5)(8,2)
+ \psline{->}(-1.5,0)(7,0)
+ \psline{->}(0,-1)(0,2)
+ \psplot[linewidth=1.18pt,linecolor=darkblue,algebraic=true]{2}{4}%
+ 	{0.1875*(x-2)^5-0.9375*(x-2)^4+1.25*(x-2)^3}
+ \psline[linewidth=1.18pt,linecolor=darkblue](-0.75,0)(2,0)
+ \psline[linewidth=1.18pt,linecolor=darkblue](4,1)(6.5,1)
+ \rput(2,-0.3){\color{gdarkgray}$R$}
+ \rput(3.9,-0.3){\color{gdarkgray}$2R$}
+ \rput(-0.2,1){\color{gdarkgray}$1$}
+ \rput(5,1.35){\color{gdarkgray}$\chi_R$}
+ \psline(0,1)(-0.08,1)
+ \psline(2,0)(2,-0.08)
+ \psline(3.9,0)(3.9,-0.08)
+\end{pspicture}
+\end{center}
+\caption{Zur Abschneidefunktion.}
+\end{figure}
+
+Für $0<\ep < 1$ definieren wir
+\begin{align*}
+f(x) = \frac{\beta\abs{x}}{1+\ep\abs{x}}.
+\end{align*}
+Dann gilt $\abs{f} \le \ep^{-1}\beta$ und $\abs{\nabla f} \le \beta$
+für $\abs{x}> 0$. Sei $G=\chi_R e^f$, dann ist $G\in L^\infty\cap
+C^\infty(\R^n)$ und $\partial^\alpha G\in L^\infty(\R^n)$ für $\abs{\alpha}\le
+2$.
+
+Aus der IMS-Formel folgt nun
+\begin{align*}
+\lin{G\ph,(H-E)G\ph} &= \lin{\ph, G(H-E)G\ph}
+= \frac{1}{2}\lin{\ph,G^2(H-E)\ph} \\ &+ \frac{1}{2}\lin{\ph,(H-E)G^2\ph}
++ \lin{\ph,\abs{\nabla G}^2\ph}
+\end{align*}
+Da $(H-E)$ ein symmetrischer Operator auf $L^2$ ist, verschwinden die ersten
+beiden Terme. Zum dritten Term betrachte
+\begin{align*}
+\nabla G &= \nabla \chi_R e^f + \chi_R e^f \nabla f 
+=  \nabla \chi_R e^f + G f,\\
+\Rightarrow\;\abs{\nabla G} &= \nabla \chi_R^2 e^{2f} + 2\nabla \chi_R \nabla f
+e^f G + G^2\abs{\nabla f}^2.
+\end{align*}
+Die ersten beiden Terme sind in der $L^\infty$-Norm durch eine von
+$\ep$ unabhängige Konstante $C_R$  beschränkt, denn $\nabla \chi_R$ hat
+kompakten Träger. Es folgt
+\begin{align*}
+\lin{G\ph,(H-E-\abs{\nabla f}^2)G\ph} \le C_R\norm{\ph}^2,\tag{1}
+\end{align*}
+und andererseits
+\begin{align*}
+\lin{G\ph,(H-E-\abs{\nabla f}^2)G\ph} &\ge \lin{G\ph,(H-E-\beta^2)G\ph}
+\\ &\ge (\Sigma_R-E-\beta^2)\norm{G\ph}^2.\tag{2}
+\end{align*}
+Da $\Sigma_R\to\Sigma> E+\beta^2$ existiert ein $R> 0$, so dass $\Sigma_R >
+E+\beta^2$. Für dieses $R$ folgt aus (1) und (2), dass
+\begin{align*}
+\norm{G\ph}^2 \le \frac{C_R}{\Sigma_R-E-\beta^2} \norm{\ph}^2.
+\end{align*}
+Also gilt
+\begin{align*}
+\int_{\setd{x\ge 2R}} e^{2\beta\abs{x}}\abs{\ph(x)}^2\dx
+&=
+\int_{\setd{x\ge 2R}} \lim\limits_{\ep \to 0} e^{2f(x)}\abs{\ph(x)}^2\dx\\
+&\overset{\text{mon.konv.}}{=}
+\lim\limits_{\ep \to 0}
+\int_{\setd{x\ge 2R}}  e^{2f(x)}\abs{\ph(x)}^2\dx\\
+&\le
+\lim\limits_{\ep\to 0}
+\norm{G\ph}
+\le
+\frac{C_R}{\Sigma_R-E-\beta^2} \norm{\ph}^2
+< \infty.
+\end{align*}
+Andererseits ist auch
+\begin{align*}
+\int_{\setd{x< 2R}} e^{2\beta\abs{x}}\abs{\ph(x)}^2\dx
+\le
+e^{4\beta R}\norm{\ph}^2 < \infty.\qedhere
+\end{align*}
+\end{proof}
+
+\begin{prop}
+\label{prop:2.3}
+Sei $V:\R^n\to\R$ messbar mit $V\ph\in C^2(\R^n)$ für alle $\ph\in H^2(\R^n)$
+und $\ph\in H^2(\R^n)$ mit $H\ph = E\ph$. Sei
+\begin{align*}
+\sup\limits_{x\in\R^n} \int_{\abs{y-x}\le 1}
+\abs{V_-(x)}^p\dy < \infty,
+\end{align*}
+für ein $p>\frac{n}{2}$ und $n\ge 2$. Dann gilt für alle $x\in\R^n$
+\begin{align*}
+\esssup\limits_{y:\abs{y-x}\le \frac{1}{2}} \abs{\ph(y)} \le
+C\norm{\ph}_{L^2(B_1(x))}.\fishhere
+\end{align*}
+\end{prop}
+\begin{proof}
+Siehe Übungsblatt 3.\qedhere
+\end{proof}
+
+\begin{cor}
+\label{prop:2.4}
+Sei $V:\R^n\to\R$ messbar mit $V\ph\in C^2(\R^n)$ für alle $\ph\in H^2(\R^n)$
+und $\ph\in H^2(\R^n)$ mit $H\ph = E\ph$. Dann gibt es zu jedem $\beta\in\R$
+mit $E+\beta^2<\Sigma$ ein $C_\beta \in\R$, so dass
+\begin{align*}
+\abs{\ph(x)} \le C_\beta e^{-\beta\abs{x}}\quad \text{f.ü.}\fishhere
+\end{align*}
+\end{cor}
+\begin{proof}
+Für jedes $x\in\R^n$ gilt
+\begin{align*}
+\esssup\limits_{y: \abs{x-y}\le \frac{1}{2}}
+e^{\beta\abs{y}}\ph(y)
+&\le
+e^{\beta \abs{x}}
+e^{\beta/2}
+\esssup\limits_{y: \abs{x-y}\le \frac{1}{2}}
+\ph(y)
+\le
+e^{\beta \abs{x}}
+e^{\beta/2}
+C\norm{\ph}_{L^2(B_1(x))}\\
+&\le
+C\norm{e^{\beta\abs{\cdot}}\ph}_{L^2(B_1(x))}
+e^{3/2\beta}
+\le
+C\norm{e^{\beta\abs{\cdot}}\ph}
+e^{3/2\beta}
+< \infty.\qedhere
+\end{align*}
+\end{proof}
+
+\begin{bem*}
+\begin{bemenum}
+\item Mit den Methoden des Beweises von Theorem \ref{prop:2.2} lassen sich für
+$n$-Teilchensysteme verbesserte, anisotrope Schranken herleiten.
+\item Solche Schranken existieren nicht nur für Schrödinger-Operatoren, sondern
+auch für Operatoren die ein Teilchen in einem quantisierten Strahlungsfeld
+beschreiben,
+\begin{align*}
+H = (-i\nabla_x  + A(x))^2 + H_f + V,
+\end{align*}
+wobei $A(x)$ das quantisierte Vektorpotential darstellt und $H_f$ die
+Feldenergie.\maphere
+\end{bemenum}
+\end{bem*}
+% 
+% \noindent
+% \emph{Bemerkung.} Nach Satz 8.8 ist $V$ relativ kompakt 
+% bezüglich $-\Delta/2$ und somit ist $H$ selbstadjungiert mit $D(H)=H^2(\R^n)$ und
+% $\sigma_{\rm ess}(H)=[0,\infty)$ nach Theorem 8.12.
+% 
+% \begin{bew}
+% Sei $\chi\in C^{\infty}(\R^n,[0,1])$ mit
+% \[\chi(x)=
+% \begin{cases}
+%  1 & |x|\geq 2,\\
+%  0 & |x|\leq 1.
+% \end{cases}\]
+% Sei $\chi_R(x)=\chi(x/R)$ und $f(x)=\frac{\beta|x|}{1+\eps|x|}$, $\eps>0, R>0$.
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%---Bild 3---%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{center}
+% \begin{pspicture}(-2,-1.5)(8,2)
+%  \psline[linewidth=0.5pt,arrowsize=4pt]{->}(-1.5,0)(7,0)
+%  \psline[linewidth=0.5pt,arrowsize=4pt]{->}(0,-1)(0,2)
+%  \psplot[linewidth=1.2pt,algebraic=true]{2}{4}{0.1875*(x-2)^5-0.9375*(x-2)^4+1.25*(x-2)^3}
+%  \psline[linewidth=1.18pt](-0.75,0)(2,0)
+%  \psline[linewidth=1.18pt](4,1)(6.5,1)
+%  \rput(2,-0.3){$R$}
+%  \rput(3.9,-0.3){$2R$}
+%  \rput(-0.2,1){$1$}
+%  \rput(5,1.35){$\chi_R$}
+%  \psline[linewidth=0.5pt](0,1)(-0.08,1)
+%  \psline[linewidth=0.5pt](2,0)(2,-0.08)
+%  \psline[linewidth=0.5pt](3.9,0)(3.9,-0.08)
+% \end{pspicture}
+% \end{center}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Es gilt $|f|\leq\beta/\eps$ und für $x\neq0$
+% \[
+%   |\nabla f(x)|\leq \beta.
+% \]
+% Sei $G=\chi_Re^f.$ Dann $G\in C^{\infty}(\R^n)\cap L^{\infty}(\R^n)$
+% \begin{eqnarray*}
+%  \nabla G &=& \nabla\chi_Re^f+\chi_Re^f\nabla f\\
+%    &=& \nabla\chi_Re^f+G\nabla f\quad\in L^{\infty}
+% \end{eqnarray*}
+% und $\partial_i\partial_jG\in L^{\infty}(\R^n)$ für alle $i,j$. Also nach Satz 2
+% \begin{eqnarray*}
+%  \sprod{G\ph}{(H-E)G\ph} &=& \sprod{\ph}{|\nabla G|^2\ph}\frac{1}{2}\\
+%    &=& \sprod{\ph}{(\nabla\chi_Re^f+G\nabla f)^2\ph}\frac{1}{2}\\
+%    &=& \frac{1}{2}\sprod{\ph}{\left(|\nabla\chi_R|^2e^{2f}+2\nabla\chi_R\nabla fe^fG+G^2|\nabla f|^2\right)\ph}
+% \end{eqnarray*}
+% Somit
+% \begin{eqnarray}
+%  \sprod{G\ph}{\left(H-E-|\nabla f|^2/2\right)G\ph} &\leq&%
+%   \sup_x\left(|\nabla\chi_R|e^{2\beta|x|}+2|\nabla\chi_R|\beta e^{2\beta|x|}\right)\|\ph\|^2 \nonumber\\
+%      &=& C_R\|\ph\|^2 \label{p:9.3:1}
+% \end{eqnarray}
+% wobei $C_R<\infty$. Andererseits
+% \begin{eqnarray}
+%  \sprod{G\ph}{\left(H-E-|\nabla f|^2/2\right)G\ph} &\geq& \sprod{G\ph}{\left(V-E-\beta^2/2\right)G\ph}\nonumber\\
+%   &\geq& \left[\left(\inf_{|x|\geq R}V(x)\right)-E-\beta^2/2\right]\|G\ph\|^2 \label{p:9.3:2}\\
+%   &=:& \delta_R\|G\ph\|^2.\nonumber
+% \end{eqnarray}
+% Nach Voraussetzung existiert $R>0$ hinreichend groß, so dass $\delta_R>0$. Halte dieses $R$ fest. 
+% Dann folgt aus \eqref{p:9.3:1} und \eqref{p:9.3:2}
+% \[
+%   \|G\ph\|^2\leq \frac{C_R}{\delta_R}\|\ph\|^2
+% \]
+% für alle $\eps>0$. Also
+% \begin{eqnarray*}
+%  \int e^{2\beta|x|}|\ph(x)|^2\:dx &=& \int\lim_{\eps\to0}e^{2f(x)}|\ph(x)|^2\:dx\\
+%    &=& \lim_{\eps\to0}\int e^{2f}|\ph|^2\:dx~\leq~\frac{C_R}{\delta_R}\|\ph\|^2~<~\infty.
+% \end{eqnarray*}
+% \end{bew}
+% 
+% \noindent{\it Bemerkung.} Unter den Voraussetzungen des Theorems gibt es eine Konstante $C=C(V)$, 
+% so dass für alle $x\in\R^n$
+% \[
+%   \|\ph\|_{L^{\infty}(B_1(x))}\leq C\|\ph\|_{L^2(B_1(x))}
+% \]
+% (Agmon: Thm. 5.1), somit folgt aus Theorem 3:
+% \[
+%   |\ph(x)|\leq C_{\beta}e^{-\beta|x|}
+% \]
+% für $\beta>0$ mit $E+\beta^2/2<0$.
+% 
+% \subsection*{Regularität der Eigenfunktionen}
+% 
+% Nach dem Sobolev-Lemma (F.A 5.2.2) ist $H^2(\R^n)\subset C^k(\R^n)$ falls $k<2-n/2$.
+% Also sind für $n\leq3$ Eigenfunktionen stetig.
+% 
+% \begin{thm}
+% Sei $H=-\Delta/2+V$ definiert auf $H^2(\R^n)$, $\ph\in H^2(\R^n)$ und
+% $H\ph=E\ph$ für $E\in\C$. Falls $\Omega\subset\R^n$ offen ist und $V\restricted\Omega\in C^{\infty}(\Omega)$
+% dann ist $\ph\in C^{\infty}(\Omega)$.
+% \end{thm}
+% 
+% \noindent
+% \emph{Bemerkung.} Falls $V\in C^{m}(\Omega)$ und $k<2+m-\frac{n}{2}$ dann 
+% $\ph\in C^{k}(\Omega)$ (Reed \& Simon Kap. IX.6)
+% 
+% \begin{bew}
+% Wir zeigen, dass $\gamma\ph\in\bigcap_{m\geq2}H^m(\R^n)$ für alle $\gamma\in C_0^{\infty}(\Omega)$.
+% Dann folgt $\ph\in C^{\infty}(\Omega)$, denn $\bigcap_{m}H^m(\R^n)\subset C^{\infty}(\R^n)$ nach dem
+% Sobolev-Lemma.
+% 
+% Da $\ph\in H^2(\R^n)$, ist auch $\gamma\ph\in H^2(\R^n)$ für alle $\gamma\in C_0^{\infty}(\Omega)$.
+% Sei $m\geq2$ und sei $\gamma\ph\in H^m(\R^n)$ für alle $\gamma\in C_0^{\infty}(\Omega)$. Dann gilt für
+% $\gamma\in C_0^{\infty}(\Omega)$
+% \begin{eqnarray}
+%  \Delta(\gamma\ph) &=& (\Delta\gamma)\ph+2\nabla\gamma\cdot\nabla\ph+\gamma(\Delta\ph)\nonumber\\
+%    &=& (\Delta\gamma)\ph+2\nabla\gamma\cdot\nabla\ph+(V-E)\gamma\ph \label{p:9.4:1}
+% \end{eqnarray}
+% wobei
+% \begin{equation}
+%   \nabla\gamma\nabla\ph=\div((\nabla\gamma)\ph)-(\Delta\gamma)\ph \label{p:9.4:2}
+% \end{equation}
+% Nach Annahme sind $(\Delta\gamma)\ph,(V-E)\gamma\ph$ und $(\nabla\gamma)\ph$ in $H^m(\R^n)$.
+% Also ist $\div((\nabla\gamma)\ph)\in H^{m-1}(\R^n)$ nach F.A Lemma 5.3.3. Aus \eqref{p:9.4:1} und \eqref{p:9.4:2}
+% folgt nun, dass $\Delta(\gamma\ph)\in H^{m-1}(\R^n)$, d.h.
+% \[
+%   \int \abs{p^2\widehat{\gamma\ph}(p)}^2(1+p^2)^{m-1}\:dp<\infty
+% \]
+% und somit
+% \[
+%   \int \abs{\widehat{\gamma\ph}(p)}^2(1+p^2)^{m+1}\:dp<\infty.
+% \]
+% Also ist $\gamma\ph\in H^{m+1}(\R^n)$ für alle $\gamma\in C_0^{\infty}(\Omega)$.
+% \end{bew}

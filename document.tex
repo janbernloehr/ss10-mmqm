@@ -1,0 +1,263 @@
+% =============================================================================
+% Titel:		MMQM - Mitschrieb
+% Erstellt:	SS 10
+% Dozent:	Prof. Dr. M. Griesemer
+% Autor:	Jan-Cornelius Molnar
+% =============================================================================
+\documentclass[%
+	paper=a5,%
+	fleqn,%
+% ===================================================
+%  10pt aktivieren, falls *nicht* die Lucida Schrift verwendet wird.
+% =================================================== 
+	10pt,%
+	DIV=18,%
+	BCOR=0mm,
+%	headings=openleft,
+	titlepage=false,%
+	twoside=true]%
+	{scrbook}
+
+% =============================================================================
+% 					Benötigte Pakete
+% =============================================================================
+
+% ===================================================
+%  Option nolucida aktivieren, falls *nicht* die Lucida Schrift verwendet wird.
+% =================================================== 
+\usepackage%[nolucida]%
+				    {janmcommon}
+\usepackage{janmscript}
+\usepackage{fancyhdr}
+\usepackage{float}
+\restylefloat{figure}
+\usepackage{marginnote}
+\usepackage{makeidx}
+
+\makeindex
+
+% =============================================================================
+% 					Theorem-Style
+% =============================================================================
+% Theorem Umgebungen *MIT* Numerierung
+\theoremstyle{graymarginwithblueheader}
+\theorembodyfont{\itshape}
+\theoremseparator{}
+\theoremsymbol{}
+
+\newtheorem{prop}{Satz}[chapter]
+\newtheorem{thm}[prop]{Theorem}
+\newtheorem{lem}[prop]{Lemma}
+\newtheorem{defn}[prop]{Definition}
+\newtheorem{cor}[prop]{Korollar}
+
+\theoremstyle{graymarginwithyellowheader}
+\theorembodyfont{\normalfont}
+\theoremseparator{}
+\theoremsymbol{}
+
+\newtheorem{bsp}[prop]{Bsp}
+
+\theoremstyle{graymarginwithitblackheader}
+\theorembodyfont{\normalfont}
+\theoremseparator{}
+\theoremsymbol{}
+
+\newtheorem{bem}[prop]{Bemerkung.}
+
+% Theorem Umgebungen *OHNE* Numerierung
+\theoremstyle{graymarginwithblueheadern}
+\theorembodyfont{\itshape}
+\theoremseparator{}
+\theoremsymbol{}
+
+\renewtheorem{defn*}{Definition}
+\renewtheorem{prop*}{Satz}
+\renewtheorem{lem*}{Lemma}
+\renewtheorem{cor*}{Korollar}
+
+\theoremstyle{graymarginwithyellowheadern}
+\theorembodyfont{\normalfont}
+\theoremseparator{}
+\theoremsymbol{}
+
+\renewtheorem{bsp*}{Bsp}
+
+\theoremstyle{graymarginwithitblackheadern}
+\theorembodyfont{\normalfont}
+\theoremseparator{}
+\theoremsymbol{}
+
+\renewtheorem{bem*}{Bemerkung.}
+
+% =============================================================================
+% 					Überschriften-Style
+% =============================================================================
+\renewcommand\thesection{\arabic{chapter}-\Alph{section}}
+\renewcommand\thesubsection{{\small\ensuremath{\blacksquare}}}
+\renewcommand\thebsp{\arabic{bsp}}
+
+\setkomafont{chapter}{\normalfont\bfseries\Huge\color{darkblue}}
+\setkomafont{section}{\normalfont\bfseries\Large\color{darkblue}}
+\setkomafont{subsection}{\normalfont\bfseries\color{darkblue}}
+
+% =============================================================================
+% 					PSTricks-Standards
+% =============================================================================
+\psset{linecolor=gdarkgray}
+\psset{tickcolor=gdarkgray}
+\psset{fillcolor=glightgray}
+
+% =============================================================================
+% 					Header/Footer-Style
+% =============================================================================
+% Select page style
+\pagestyle{fancyplain}
+
+% Reset header & footer
+\fancyhf{}
+
+% Reset chapter & sectionmark
+\renewcommand{\chaptermark}[1]{\markboth{\textsc{#1}}{}}
+\renewcommand{\sectionmark}[1]{\markright{\textsc{#1}}{}}
+
+% Clear headrule
+\renewcommand{\headrule}{}
+
+% =============================================================================
+% 					Listen-Style
+% =============================================================================
+\newenvironment{bemenum}%
+	{\begin{enumerate}[label=\textsc{\alph{*}}.,leftmargin=17pt]}{\end{enumerate}}
+\newenvironment{defnenum}%
+	{\begin{enumerate}[label={\rm(\alph{*})}]}{\end{enumerate}}
+\newenvironment{propenum}%
+	{\begin{enumerate}[label=\arabic{*})]}{\end{enumerate}}
+\newenvironment{equivenum}%
+	{\begin{enumerate}[label=(\roman{*})]}{\end{enumerate}}
+\newenvironment{bspenum}%
+	{\begin{enumerate}[label=\alph{*}.),leftmargin=17pt]}{\end{enumerate}}
+\newenvironment{proofenumarabicbr}%
+	{\begin{enumerate}[label=(\arabic{*}),leftmargin=17pt]}{\end{enumerate}}
+\newenvironment{proofenumroman}%
+	{\begin{enumerate}[label=(\roman{*}),leftmargin=17pt]}{\end{enumerate}}
+\newenvironment{proofenum}%
+	{\begin{enumerate}[label=\arabic{*}),leftmargin=17pt]}{\end{enumerate}}
+\newenvironment{proofenuma}%
+	{\begin{enumerate}[label=\alph{*}.),leftmargin=2pt]}{\end{enumerate}}
+
+% =============================================================================
+% 					Eigene Operatoren
+% =============================================================================
+\renewcommand{\labelenumi}{{\normalfont(\alph{enumi})}}
+
+\renewcommand{\AA}{\mathcal{A}}
+
+\renewcommand{\Id}{\mathrm{Id}}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\plim}{p-lim}
+\DeclareMathOperator{\slim}{s-lim}
+
+\newcommand{\pto}{\overset{p}{\to}}
+
+\newcommand{\ocirc}[1]{\overset{\circ}{#1}}
+\renewcommand{\bar}[1]{\overline{#1}}
+
+%  \setlength{\oddsidemargin}{-51pt}
+%  \setlength{\evensidemargin}{-35pt}
+%  \setlength{\textwidth}{379pt}
+
+%\addtokomafont{partentrypagenumber}{\sf\bfseries\Huge}
+%
+%\setkomafont{chapterentrypagenumber}{\sf}
+%\setkomafont{sectionentrypagenumber}{\sf}
+%\setkomafont{partentry}{\sf\Huge}
+%\setkomafont{disposition}{\sf\Huge}
+%\setkomafont{minisec}{\sf\Huge}
+
+
+%\setcounter{tocdepth}{2}
+
+% =============================================================================
+% 					Document-Body
+% =============================================================================
+\begin{document}
+
+% Titel
+\begin{titlepage}
+\vspace*{2mm}
+\noindent\bf\color{gdarkgray}
+Prof. Dr. M. Griesemer, Universität Stuttgart
+
+\begin{center}
+\vspace*{10mm}
+{\noindent\huge\bf\color{darkblue} Mathematische Methoden\\
+\vspace{2mm}
+der Quantenmechanik}
+
+\vspace*{10mm}
+Vorlesungsmitschrieb von Jan-Cornelius Molnar
+
+\vspace*{4mm}
+
+Stuttgart, Sommersemester 2010
+\end{center}
+
+\vspace*{\fill}
+
+\begin{flushright}
+\small
+Version: \today\ \thistime
+\vspace*{5mm}
+
+Für Hinweise auf Druckfehler und Kommentare jeder Art bin ich dankbar.
+Viel Spaß!\footnote{\color{gdarkgray}
+Prof. Dr. M. Griesemer, Universität Stuttgart,
+\href{mailto:marcel.griesemer@mathematik.uni-stuttgart.de}{marcel.griesemer@mathematik.uni-stuttgart.de};\\
+Jan-Cornelius Molnar,
+\href{mailto:jan.molnar@studentpartners.de}{jan.molnar@studentpartners.de}}
+\end{flushright}
+\end{titlepage}
+
+
+%\renewcommand{\normalfont}{\sf}
+
+% Inhaltsverzeichnis
+% {
+% \sf
+% \renewcommand{\normalfont}{}
+% \tableofcontents
+% }
+\tableofcontents
+
+\fancyhead[RO]{\footnotesize\color{gdarkgray}%
+	\marginnote{$\Big|$\;\textbf{\thesection}}\rightmark}
+\fancyhead[LE]{\footnotesize\color{gdarkgray}%
+	\marginnote{\;\textbf{\thechapter}$\Big|$}\leftmark}
+
+% Zweiseitig
+\fancyfoot[LE]{\footnotesize\color{gdarkgray}%
+ 	\thepage}%
+ \fancyfoot[RO]{\footnotesize\color{gdarkgray}%
+ 	\thepage}%
+ \fancyfoot[RE,LO]{\tiny\color{gdarkgray}\today\; \thistime}
+
+% Inhalt
+\input{01-EigenschaftenWellenfunk.tex}
+
+\input{02-ExpAbfallEigenfunk.tex}
+
+\input{03-SpektrumResolvente.tex}
+
+\input{04-SymmUndSelbstAdjOperatoren.tex}
+
+\input{05-MultSchrOperatoren.tex}
+
+\input{06-Spektralsatz.tex}
+
+\input{07-KompakteOperatoren.tex}
+
+\input{bibliography.tex}
+
+\end{document}
