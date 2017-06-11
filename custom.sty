@@ -1,0 +1,66 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{custom}[2017/06/11 v1.0 project specific customizations]
+
+\RequirePackage{makeidx}                            % index
+\RequirePackage[pdf,usenames,dvipsnames]{pstricks}  % drawing figures
+\RequirePackage{pstricks-add}
+\RequirePackage{float}					            % placing figures
+
+
+%: theorem styles (with numbers)
+
+\theoremstyle{accentreplacingheader}
+\theorembodyfont{\itshape}
+\theoremseparator{}
+\theoremsymbol{}
+
+\newtheorem{prop}{Satz}[chapter]
+\newtheorem{thm}[prop]{Theorem}
+\newtheorem{lem}[prop]{Lemma}
+\newtheorem{defn}[prop]{Definition}
+\newtheorem{cor}[prop]{Korollar}
+
+\theoremstyle{accentcreplacingheader}
+\theorembodyfont{\normalfont}
+\theoremseparator{}
+\theoremsymbol{}
+
+\newtheorem{bsp}[prop]{Bsp}
+
+\theoremstyle{blackheader}
+\theorembodyfont{\normalfont}
+\theoremseparator{}
+\theoremsymbol{}
+
+\newtheorem{bem}[prop]{Bemerkung.}
+
+%: theorem styles (without numbers)
+
+\theoremstyle{nonumberaccentreplacingheader}
+\theorembodyfont{\itshape}
+\theoremseparator{}
+\theoremsymbol{}
+
+\renewtheorem{defn*}{Definition}
+\renewtheorem{prop*}{Satz}
+\renewtheorem{lem*}{Lemma}
+\renewtheorem{cor*}{Korollar}
+
+\theoremstyle{nonumberaccentcheader}
+\theorembodyfont{\normalfont}
+\theoremseparator{}
+\theoremsymbol{}
+
+\renewtheorem{bsp*}{Bsp}
+
+\theoremstyle{nonumberblackheader}
+\theorembodyfont{\normalfont}
+\theoremseparator{}
+\theoremsymbol{}
+
+\renewtheorem{bem*}{Bemerkung.}
+
+\theorembodyfont{\normalfont}
+\theoremstyle{nonumberblackheader}
+\theoremsymbol{}
+\renewtheorem{proof}{Beweis.}

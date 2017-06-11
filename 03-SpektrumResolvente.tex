@@ -42,7 +42,7 @@ $A$\index{Operator!abgeschlossen}
 \begin{align*}
 \Gamma_A:=\setdef{(x,y)}{x \in D, y=Ax}
 \end{align*}
-abgeschlossen ist in $X \oplus X$.\fishhere
+abgeschlossen ist in $X \oplus X$.\fish
 \end{defnenum}
 \end{defn*}
 
@@ -54,7 +54,7 @@ genau dann abgeschlossen, wenn
 x_n \in D,\, x_n \to x \in X\\
 Ax_n\to y
 \end{rcases}
-\Rightarrow x \in D(A)\text{ und } Ax=y.\fishhere
+\Rightarrow x \in D(A)\text{ und } Ax=y.\fish
 \end{align*}
 \end{lem*}
 
@@ -64,7 +64,7 @@ Ein zweiter Operator, $B : D(B) \subset X \to X$ heißt
 von $A$, falls $D(A) \subset D(B)$ und $Ax=Bx$ für alle $x \in D(A)$.
 Man schreibt dafür $A\subset B$.
 Zwei Operatoren sind gleich, $A=B$, falls $D(A)=D(B)$ und
-$Ax = Bx$ für alle $x \in D(A)$.\fishhere
+$Ax = Bx$ für alle $x \in D(A)$.\fish
 \end{defn*}
 
 Den Identitätsoperator $\Id : X \to X,\, x \mapsto x$ lassen
@@ -85,7 +85,7 @@ ist bijektiv und }}{(\lambda-A)^{-1} \text{ beschränkt}}}.
 \item
 Die Abbildung
 \begin{align*}
-R(A): \rho(A) \to \LL(X),\qquad
+R(A): \rho(A) \to \Lc(X),\qquad
 \lambda  \mapsto  (\lambda-A)^{-1}
 \end{align*}
 heißt \emph{Resolvente}\index{Resolvente} von $A$. $R_{\lambda}(A)$ ist die
@@ -100,7 +100,7 @@ heißt \emph{Spektrum}\index{Spektrum} von $A$. Die Menge
 \sigma_p(A) := \setdef{\lambda \in \C}{\lambda \text{ ist
 Eigenwert von A}}\subset \sigma(A)
 \end{align*}
-heißt \emph{Punktspektrum} von $A$.\index{Spektrum!Punkt-}\fishhere  
+heißt \emph{Punktspektrum} von $A$.\index{Spektrum!Punkt-}\fish  
 \end{defnenum}
 \end{defn*}
 
@@ -114,7 +114,7 @@ Das heißt, wenn $A$ abgeschlossen ist, dann gilt
 bijektiv}}.
 \end{align*}
 Wenn $A$ nicht abgeschlossen ist, dann gilt $\rho(A) = \varnothing$ und
-$\sigma(A)=\C$.\maphere
+$\sigma(A)=\C$.\map
 \end{bem*}
 %%--------------------------------------------------------------
 
@@ -123,7 +123,7 @@ $\sigma(A)=\C$.\maphere
 \begin{bsp*}
 \begin{bspenum}
 \item
-Sei $X = \C^{n}$ und $A \in \LL(X)$, dann gilt: $\sigma(A) = \sigma_p(A) \ne
+Sei $X = \C^{n}$ und $A \in \Lc(X)$, dann gilt: $\sigma(A) = \sigma_p(A) \ne
 \varnothing$ (Eigenwerte der Matrix bezüglich einer Basis von X).
 \item 
 Sei $X = L^2(\R)$, $D = \setdef{f \in L^2(\R)}{\int \abs{xf(x)}\dx <
@@ -167,7 +167,7 @@ Also ist $A_k$ abgeschlossen f\"ur $k \in \{1,\ldots ,4\}$.
 ``\textit{$\sigma(A_1) = \sigma_p(A_1) = \C$}''.
 Sei $\lambda \in \C$, dann ist $x \mapsto e^{\lambda x}$ in $D_1$ und
 \begin{align*}
-\frac{\diffd}{\dx}e^{\lambda x} = \lambda e^{\lambda x}.
+\frac{\ddd}{\dx}e^{\lambda x} = \lambda e^{\lambda x}.
 \end{align*}
 Also ist $\lambda$ Eigenwert und daher
  $\sigma(A_1) = \sigma_p(A_1) = \C$.
@@ -200,7 +200,7 @@ S(A_2-\lambda)g(x)
 - \int_{0}^{x} e^{\lambda(x-t)} \lambda g(t)\dt\\
 & = g(x).
 \end{align*}
-Also $S = R_{\lambda}(A_2)$.\bsphere
+Also $S = R_{\lambda}(A_2)$.\boxc
 \end{proof}
 \end{bspenum}
 \end{bsp*}
@@ -217,7 +217,7 @@ seien $\lambda,\mu \in \rho(A)$. Dann gilt:
 R_{\lambda}(A)R_{\mu}(A)$,
 \item\label{prop:3.1:2} $R_{\lambda}(A) R_{\mu}(A) = R_{\mu}(A) R_{\lambda}(A)$,
 \item\label{prop:3.1:3} $R_{\lambda}(A) A \subset A R_{\lambda}(A)$,
-\item\label{prop:3.1:4} $A R_{\lambda}(A) = -\Id + R_{\lambda}(A)$.\fishhere
+\item\label{prop:3.1:4} $A R_{\lambda}(A) = -\Id + R_{\lambda}(A)$.\fish
 \end{propenum}
 \end{prop}
 
@@ -248,7 +248,7 @@ A R_{\lambda}(A)x & = A(\lambda-A)^{-1}x
 = (A-\lambda)(\lambda-A)^{-1}x + \lambda R_\lambda(A)x\\
 &= (-\Id + R_\lambda(A))x. 
 \end{align*}
-Daraus folgen \ref{prop:3.1:3} und \ref{prop:3.1:4}.\qedhere
+Daraus folgen \ref{prop:3.1:3} und \ref{prop:3.1:4}.\qed
 \end{proofenum}
 \end{proof}
 %%------------------------------------------------------------
@@ -271,7 +271,7 @@ R_z(A) = \sum_{n=0}^{\infty} (-1)^nR_{z_0}(A)^{n+1}(z-z_0)^n.
 \end{align*}
 Insbesondere gilt
 $
-\norm{R_{z_0}(A)} \geq \frac{1}{\dist(z_0,\sigma(A))}.\fishhere
+\norm{R_{z_0}(A)} \geq \frac{1}{\dist(z_0,\sigma(A))}.\fish
 $
 \end{thm}
 
@@ -281,7 +281,7 @@ Sei $z_0 \in \rho(A)$ und $z \in \C$. Dann gilt
 z- A& = (z_0-A) +  (z-z_0) = (\Id + (z-z_0)R_{z_0}(A))(z_0-A),
 \end{align*}
 wobei $(z_0-A) : D \to X$ bijektiv mit $(z_0-A)^{-1} \in
-\LL(X)$. Falls $\abs{z-z_0} \cdot \norm{R_{z_0}(A)} < 1$, dann ist auch
+\Lc(X)$. Falls $\abs{z-z_0} \cdot \norm{R_{z_0}(A)} < 1$, dann ist auch
 \begin{align*}
 \Id + (z-z_0) R_{z_0}(A) : X \to X\tag{1}
 \end{align*}
@@ -302,14 +302,14 @@ d.h. $\abs{z-z_0}\ge \norm{R_{z_0}(A)}^{-1}$ und folglich
 \begin{align*}
 \dist(z_0,\sigma(A)) = 
 \inf\setdef{\abs{z-z_0}}{z\in\sigma(A)} \ge
-\frac{1}{\norm{R_{z_0}(A)}}.\qedhere
+\frac{1}{\norm{R_{z_0}(A)}}.\qed
 \end{align*}
 \end{proof}
 
 %%---------------------------Korollar------------------------------------------
 \begin{cor}
 \label{prop:3.4}
-Sei $A \in \LL(X)$. Dann ist $\sigma(A)$ kompakt und nichtleer.\fishhere
+Sei $A \in \Lc(X)$. Dann ist $\sigma(A)$ kompakt und nichtleer.\fish
 \end{cor}
 \begin{proof}
 \textit{$\sigma(A)$ ist kompakt}.
@@ -340,7 +340,7 @@ also auch beschränkt.
 Nach dem Satz von Liouville (Funktionentheorie) ist $F_{l,x}$ konsant und wegen
 (*) gilt sogar $F_{l,x}\equiv 0$. Somit ist
 $l(R_z(A)x)\equiv 0$ für alle $x\in X$ und $l\in X^*$ und daher ist $R_z(A)=0$
-für alle $z\in\C$ im Widerspruch zu $(z-A)R_z(A) = \Id$.\qedhere
+für alle $z\in\C$ im Widerspruch zu $(z-A)R_z(A) = \Id$.\qed
 \end{proof}
 
 Der Beweis lässt sich mit Funktionentheorie über Funktionen $f: \C\to X$
@@ -349,7 +349,7 @@ befasst sich im Wesentlichen mit solchen Abbildungen.
 
 \begin{bem*}
 Für einen unbeschränkten Operator $A:D\subset X\to X$ ist sowohl
-$\sigma(A)=\varnothing$ als auch $\sigma(A) = \C$ möglich.\maphere
+$\sigma(A)=\varnothing$ als auch $\sigma(A) = \C$ möglich.\map
 \end{bem*}
 
 % %%--------------Einf\"uhrung--Notationen---Definitionen--------------------
@@ -375,7 +375,7 @@ Dann sind äquivalent:
 \item\label{prop:3.5:1} $A$ ist abschließbar.
 \item\label{prop:3.5:2} $\overline{\Gamma}_A$ ist der Graph eines linearen
 Operators.
-\item\label{prop:3.5:3} Aus $x_n \to 0$ und $Ax_n \to y$ folgt $y = 0$.\fishhere
+\item\label{prop:3.5:3} Aus $x_n \to 0$ und $Ax_n \to y$ folgt $y = 0$.\fish
 \end{equivenum}
 \end{prop}
 \begin{proof}
@@ -400,7 +400,7 @@ $\Gamma_B = \overline{\Gamma_A}$.
 
 ``\ref{prop:3.5:2}$\Rightarrow$\ref{prop:3.5:1}'': Aus
 $\Gamma_B=\overline{\Gamma_A}$ folgt $B\supset A$ und $B$ ist abgeschlossen, da
-$\Gamma_B$ abgeschlossen. Somit ist $A$ abschließbar.\qedhere
+$\Gamma_B$ abgeschlossen. Somit ist $A$ abschließbar.\qed
 \end{proof}
 
 
@@ -420,7 +420,7 @@ x \in D(\bar{A})
 \text{ ist eine Cauchyfolge.}
 \end{cases}
 \end{align*}
-Es ist dann $\bar{A}x = \lim \limits_{n \to \infty} Ax_n$.\maphere
+Es ist dann $\bar{A}x = \lim \limits_{n \to \infty} Ax_n$.\map
 \end{bem*}
 %%---------------------------------------------------------------------
 \begin{bsp*}
@@ -433,6 +433,6 @@ ist nicht abschließbar.
 \begin{proof}
 Sei $f\in D$ mit $f(0)=1$ und sei $f_n(x):=f(nx)$. Dann ist
 $\|f_n\|=n^{-1/2}\|f\|\to 0$ f\"ur $n\to\infty$ aber
-$Af_n = g$ f\"ur alle $n$, wobei $g\neq 0$.\qedhere\bsphere
+$Af_n = g$ f\"ur alle $n$, wobei $g\neq 0$.\qed\boxc
 \end{proof}
 \end{bsp*}

@@ -6,7 +6,7 @@
 Sei $u\in L^1(\R^n)$. Dann ist $\hat{u}\in L^\infty(\R^n)\cap C(\R^n)$,
 $\norm{\hat{u}}_\infty \le (2\pi)^{-n/2}\norm{u}_1$ und
 \begin{align*}
-\hat{u}(p) \to 0,\qquad \abs{p}\to\infty.\fishhere
+\hat{u}(p) \to 0,\qquad \abs{p}\to\infty.\fish
 \end{align*}
 \end{lem}
 \begin{proof}
@@ -34,7 +34,7 @@ $\hat{v}\in\SS(\R^n)$ gibt es außerdem ein $R>0$ mit
 Also gilt für $\abs{p}\ge R$,
 \begin{align*}
 \abs{\hat{u}(p)} \le \abs{\hat{u}(p)-\hat{v}(p)} + \abs{\hat{v}(p)}
-\le (2\pi)^{-n/2}\norm{u-v}_1 + \abs{\hat{v}(p)} < \ep.\qedhere
+\le (2\pi)^{-n/2}\norm{u-v}_1 + \abs{\hat{v}(p)} < \ep.\qed
 \end{align*}
 \end{proof}
 
@@ -44,7 +44,7 @@ Sei $u\in L^1(\R^n)$ und $\abs{x}^ku\in L^1(\R^n)$. Dann ist $\hat{u}\in
 C^k(\R^n)$ und für $\abs{\alpha}\le k$ gilt
 \begin{align*}
 \partial^\alpha \hat{u}(p) = \widehat{(-ix)^\alpha u}(p) \to 0,\qquad
-\abs{p}\to \infty.\fishhere
+\abs{p}\to \infty.\fish
 \end{align*}
 \end{cor}
 \begin{proof}
@@ -64,21 +64,21 @@ wobei $|$Integrand$| \le 2\abs{u}\abs{x_j}\in L^1(\R^n)$ und daher nach Lemma
 \end{align*}
 Damit ist der Induktionsschrit von $\abs{\alpha} \le k-1$ nach $\abs{\alpha}
 \le k$ beweisen. (Induktionsannahme auf $\partial^{\alpha-e_j} u$
-anwenden).\qedhere
+anwenden).\qed
 \end{proof}
 
 \begin{bem*}[Folgerung.]
 Falls $u\in L^2(\R^n)$, $\hat{u}\in L^2(\R^n)$ und $\abs{p}^k\hat{u}\in
 L^1(\R^n)$, dann ist $u\in C^k(\R^n)$ und es gilt
 \begin{align*}
-\partial^\alpha u = \FF^{-1}(ip)^\alpha \FF u.\maphere
+\partial^\alpha u = \Fc^{-1}(ip)^\alpha \Fc u.\map
 \end{align*}
 \end{bem*}
 
 \begin{bem*}
 Insbesondere gilt diese Identität für alle $u\in\SS(\R^n)$. Die rechte Seite
 ist aber auch dann sinnvoll (wohldefiniert), wenn $u\in L^2(\R^n)$ und
-$\abs{p}^{\abs{\alpha}}\hat{u}\in L^2(\R^n)$.\maphere
+$\abs{p}^{\abs{\alpha}}\hat{u}\in L^2(\R^n)$.\map
 \end{bem*}
 
 Dies motiviert die folgende
@@ -90,7 +90,7 @@ Für jedes $s\ge 0$ definieren wir einen Innenproduktraum\index{Sobolevraum}
 &\lin{u,v}_s := \int_{\R^n}
 \overline{\hat{u}(p)}\hat{v}(p)(1+p^2)^s\ddp.
 \end{align*}
-$H^s(\R^m)$ heißt \emph{Sobolevraum}.\fishhere
+$H^s(\R^m)$ heißt \emph{Sobolevraum}.\fish
 \end{defn*}
 
 Aus der Plancherel-Gleichung folgt unmittelbar, dass $H^0(\R^n)=L^2(\R^n)$ und
@@ -102,10 +102,10 @@ s> t\ge 0\Rightarrow H^s(\R^n)\subset H^t(\R^n)\subset L^2(\R^n).
 \begin{prop}
 \label{prop:1.3}
 Für jedes $s\ge 0$ ist $H^s(\R^n)$ ein Hilbertraum und $C_0^\infty(\R^n)$ ist
-dicht in $H^s(\R^n)$.\fishhere
+dicht in $H^s(\R^n)$.\fish
 \end{prop}
 \begin{proof}
-Einen Beweis findet man z.B. in \cite{Fun07}.\qedhere
+Einen Beweis findet man z.B. in \cite{Fun07}.\qed
 \end{proof}
 
 \begin{thm}[Theorem (Sobolev-Lemma)]
@@ -114,11 +114,11 @@ Einen Beweis findet man z.B. in \cite{Fun07}.\qedhere
 Sei $u\in H^s(\R^n)$ und $k\in\N_0$ mit $k< s- n/2$. Dann gelten
 \begin{propenum}
 \item\label{prop:1.4:1} $u\in C^k(\R^n)$ und $\partial^\alpha u(x) =
-\FF^{-1}((ip)^\alpha \hat{u})(x)\to 0$ für $\abs{x}\to\infty$, $\abs{\alpha}\le
+\Fc^{-1}((ip)^\alpha \hat{u})(x)\to 0$ für $\abs{x}\to\infty$, $\abs{\alpha}\le
 k$.
 \item\label{prop:1.4:2} $\norm{\partial^\alpha u}_\infty =
 \sup\limits_{x\in\R^n} \abs{\partial^\alpha u(x)} \le C_{s,k,n}\norm{u}_s$ für
-$\abs{\alpha}\le k$.\fishhere
+$\abs{\alpha}\le k$.\fish
 \end{propenum}
 \end{thm}
 \begin{proof}
@@ -154,7 +154,7 @@ $\partial^\alpha u(x) = (2\pi)^{-n/2} \int_{\R^n} e^{ipx}(ip)^\alpha
 \abs{\partial^\alpha u(x)} 
 &\le (2\pi)^{-n/2} \int_{\R^n} \abs{p^\alpha}
 \abs{\hat{u}(p)}\ddp
-\le C_{s,p,k}\norm{u}_s.\qedhere
+\le C_{s,p,k}\norm{u}_s.\qed
 \end{align*}
 \end{proof}
 
@@ -196,7 +196,7 @@ L^2} - \underbrace{\frac{1}{\abs{x}}\chi_{\abs{x}>1}}_{\in L^\infty} \in
 L^2(\R^3)\oplus L^\infty(\R^3).
 \end{align*}
 Somit ist $-\frac{1}{\abs{x}}\ph\in L^2(\R^3)$  für alle $\ph\in H^2(\R^3)$.
-\maphere
+\map
 \end{bemenum}
 \end{bem*}
 
@@ -209,7 +209,7 @@ Sei $V\in L^2(\R^n)$ und $\ep > 0$. Dann gibt es eine Zerlegung des Potentials
 \begin{align*}
 V = V_2 + V_\infty,\qquad V_2\in L^2(\R^n),\quad V_\infty\in L^\infty(\R^n)
 \end{align*}
-mit $\norm{V_2}_2 < \ep$.\fishhere
+mit $\norm{V_2}_2 < \ep$.\fish
 \end{lem}
 \begin{proof}
 Sei $\chi_N$ die charakteristische Funktion der Menge
@@ -227,7 +227,7 @@ für fast alle $x$ nach dem Satz von Lebesgue, denn
 \abs{V(x)}^2(1-\chi_N) \le \abs{V(x)}^2 \in L^1(\R^n).
 \end{align*}
 Wähle nun $N$ so groß, dass $\norm{V(1-\chi_N)} < \ep$ und setzte $V_2 :=
-V(1-\chi_N)$ und $V_\infty := V\chi_N$.\qedhere
+V(1-\chi_N)$ und $V_\infty := V\chi_N$.\qed
 \end{proof}
 
 \begin{thm}
@@ -236,7 +236,7 @@ Sei $V\in L^2(\R^n)$ mit $n\le 3$. Für jedes $\ep > 0$ gibt es ein
 $C_\ep\in\R$, so dass
 \begin{align*}
 \norm{V\ph} \le \ep \norm{\Delta \ph} + C_\ep\norm{\ph},\qquad
-\forall \ph\in H^2(\R^n).\fishhere
+\forall \ph\in H^2(\R^n).\fish
 \end{align*}
 \end{thm}
 \begin{proof}
@@ -261,7 +261,7 @@ Somit folgt
 \begin{align*}
 \norm{V\ph} &\le \ep\left(C\norm{\Delta \ph}  + C\norm{\ph}\right)
 + \norm{V_\infty}_\infty\norm{\ph}\\
-&= \ep C\norm{\Delta \ph} + (\ep C + \norm{V_\infty}_\infty)\norm{\ph}.\qedhere
+&= \ep C\norm{\Delta \ph} + (\ep C + \norm{V_\infty}_\infty)\norm{\ph}.\qed
 \end{align*}
 \end{proof}
 
@@ -269,9 +269,9 @@ Somit folgt
 Für $u\in H^s(\R^n)$ und $\alpha\in\N_0^n$ mit $\abs{\alpha} \le s$ definiert
 man nun\index{schwache Ableitung}
 \begin{align*}
-\partial^\alpha u:= \FF^{-1}((ip)^\alpha \hat{u}).
+\partial^\alpha u:= \Fc^{-1}((ip)^\alpha \hat{u}).
 \end{align*}
-$\partial^\alpha u$ heißt \emph{schwache Ableitung} von $u$.\fishhere
+$\partial^\alpha u$ heißt \emph{schwache Ableitung} von $u$.\fish
 \end{defn*}
 
 Wenn $\abs{\alpha} < s-n/2$, stimmt nach Theorem \ref{prop:1.4} die schwache
@@ -282,11 +282,11 @@ Ableitung mit der partiellen Ableitung  $\partial^\alpha$ überein.
 Sei $\alpha\in\N_0^n$ mit $\abs{\alpha}\le s$. Für $u\in H^s(\R^n)$ gilt
 $\partial^\alpha u \in H^{s-\abs{\alpha}}(\R^n)$ und
 \begin{align*}
-\norm{\partial^\alpha u}_{s-\abs{\alpha}} \le \norm{u}_s.\fishhere
+\norm{\partial^\alpha u}_{s-\abs{\alpha}} \le \norm{u}_s.\fish
 \end{align*}
 \end{lem}
 \begin{proof}
-Blatt 1.\qedhere
+Blatt 1.\qed
 \end{proof}
 
 $\partial^\alpha : H^s(\R^n)\to H^{s-\abs{\alpha}}(\R^n)$ ist somit eine
@@ -300,7 +300,7 @@ $\norm{f\ph}_m \le C_f\norm{\ph}_m$ und die partiellen Ableitungen von $f\ph$
 lassen sich mit der Leibniz-Regel berechnen
 \begin{align*}
 \partial^\alpha (f\ph) = \sum_{\beta\le \alpha}\partial^\beta
-f\partial^{\alpha-\beta} \ph.\fishhere
+f\partial^{\alpha-\beta} \ph.\fish
 \end{align*}
 \end{lem}
 \begin{proof}
@@ -359,7 +359,7 @@ Die Produktregel folgt nun aus
 \partial^{\alpha-\beta}\ph_n
 \end{align*}
 im Limes für $n\to\infty$, wegen der Stetigkeit der Multiplikation mit $f$ und
-der Differentiation (Lemma \ref{prop:1.7}).\qedhere
+der Differentiation (Lemma \ref{prop:1.7}).\qed
 \end{proof}
 
 \begin{thm}
@@ -370,7 +370,7 @@ Sei $V:\R^n\to\C$ messbar, $E\in\C$ und $\ph\in H^2(\R^n)$ mit
 \end{align*}
 Ist $\Omega$ offen und $V\big|_\Omega \in C^m(\Omega)$ dann ist
 \begin{align*}
-\ph\big|_\Omega \in C^k(\Omega),\qquad \text{für }k< m+2-n/2.\fishhere
+\ph\big|_\Omega \in C^k(\Omega),\qquad \text{für }k< m+2-n/2.\fish
 \end{align*}
 \end{thm}
 \begin{proof}
@@ -412,7 +412,7 @@ H^{m+2}(\R^n)$, denn
 &\qquad\le
 2\norm{\gamma\ph}_m^2 + 2\int_{\R^n}
 \abs{p^2\widehat{\gamma\ph}(p)}^2(1+p^2)^m\ddp\\
-&\qquad < \infty.\qedhere
+&\qquad < \infty.\qed
 \end{align*}
 \end{proof}
 \begin{cor}
@@ -422,13 +422,13 @@ Sei $V:\R\to\C$ messbar, $E\in \C$ und $\ph\in H^2(\R^n)$ mit
 -\ph'' + V\ph= E\ph. 
 \end{align*}
 Ist $I\subset\R$ ein offenes Intervall und $V\big|_I\in C^m(I)$, dann ist
-$\ph\big|_I \in C^{m+2}(I)$.\fishhere
+$\ph\big|_I \in C^{m+2}(I)$.\fish
 \end{cor}
 \begin{proof}
 Nach Theorem \ref{prop:1.9} ist $\ph\big|_I\in C^{m+1}(I)$. Wegen
 \begin{align*}
 \ph'' = (V-E)\ph \in C^m(I)
 \end{align*}
-ist $\ph\in C^{m+1}(I)$. Details für $m=0$ siehe Übungsaufgabe 2.4.\qedhere
+ist $\ph\in C^{m+1}(I)$. Details für $m=0$ siehe Übungsaufgabe 2.4.\qed
 \end{proof}
 

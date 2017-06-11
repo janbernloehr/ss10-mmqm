@@ -14,7 +14,7 @@ $
 durch
 \begin{align*}
 D_f := \setdef{\ph\in L^2(\R^n)}{f\ph\in L^2(\R^n)},\quad
-(M_f\ph)(x) = f(x)\ph(x).\fishhere
+(M_f\ph)(x) = f(x)\ph(x).\fish
 \end{align*}
 \end{defn*}
 Man sieht leicht ein, dass $D_f\subset L^2(\R^n)$ dicht ist. 
@@ -27,7 +27,7 @@ Das Spektrum von $M_f$ ist der \emph{wesentliche Wertebereich} von $f$. D.h.
 0},
 \end{align*}
 wobei $\abs{\cdot}$ das Lebesgue-Maß  bezeichnet. Ist $f$ reellwertig, dann ist
-$M_f$ selbstadjungiert.\fishhere
+$M_f$ selbstadjungiert.\fish
 \end{prop}
 
 Ist $f$ stetig, dann entspricht der wesentliche Wertebereich dem Wertebereich.
@@ -78,27 +78,27 @@ Somit ist $z\in \rho(M_f)$ und $M_g=(z-M_f)^{-1}$.
 
 Falls $f$ reellwertig ist, so ist $M_f$ symmetrisch (Übung) und $\sigma(M_f) =
 W_f \subset\R$, also ist $M_f$ nach Theorem \ref{prop:4.4}
-selbstadjungiert.\qedhere
+selbstadjungiert.\qed
 \end{proof}
 
 \begin{bsp}
 \begin{bspenum}
-\item Der Operator $-i\frac{\diffd}{\dx}: H^1(\R)\subset L^2(\R) \to L^2(\R)$
+\item Der Operator $-i\frac{\ddd}{\dx}: H^1(\R)\subset L^2(\R) \to L^2(\R)$
 definiert durch
 \begin{align*}
--i\frac{\diffd}{\dx} = \FF^{-1}M_f\FF,\qquad f(p)=p,
+-i\frac{\ddd}{\dx} = \Fc^{-1}M_f\Fc,\qquad f(p)=p,
 \end{align*}
 ist selbstadjungiert auf $H^1$, da $M_f$ selbstadjungiert. Auf $C_0^\infty(\R)$
-ist $-i\frac{\diffd}{\dx}$ wesentlich selbstadjungiert und
-$\sigma(-i\frac{\diffd}{\dx}) = \sigma(M_f) = \R$.
+ist $-i\frac{\ddd}{\dx}$ wesentlich selbstadjungiert und
+$\sigma(-i\frac{\ddd}{\dx}) = \sigma(M_f) = \R$.
 \item Der Operator $-\Delta : H^2(\R^n)\subset L^2(\R^n)\to L^2(\R^n)$ definiert
 durch
 \begin{align*}
--\Delta := \FF^{-1}M_f\FF,\qquad f(p) = p^2 = \sum_{k=1}^n p_k^2
+-\Delta := \Fc^{-1}M_f\Fc,\qquad f(p) = p^2 = \sum_{k=1}^n p_k^2
 \end{align*}
 ist selbstadjungiert und wesentlich selbstadjungiert auf $C_0^\infty(\R^n)$ und
 $\sigma(-\Delta) = [0,\infty)$. Der Beweis erfolgt mit Satz
-\ref{prop:1.3}, Satz \ref{prop:5.1} und den Resultaten aus den Übungen.\bsphere
+\ref{prop:1.3}, Satz \ref{prop:5.1} und den Resultaten aus den Übungen.\boxc
 \end{bspenum}
 \end{bsp}
 
@@ -109,14 +109,14 @@ $\sigma(-\Delta) = [0,\infty)$. Der Beweis erfolgt mit Satz
 \begin{align*}
 -\Delta + V : D\subset L^2(\R^n)\to L^2(\R^n),\tag{*}
 \end{align*}
-wobei $V=M_V$ ein Multiplikationsoperator ist.\fishhere
+wobei $V=M_V$ ein Multiplikationsoperator ist.\fish
 \end{defn*}
 
 \begin{thm}
 \label{prop:5.2}
 Sei $V \in L^2(\R^n)  + L^\infty(\R^n)$ reellwertig und $n\le 3$. Dann ist
 (*) selbstadjungiert auf $D=H^2(\R^n)$ und wesentlich selbstadjungiert auf
-$D=C_0^\infty(\R^n)$.\fishhere
+$D=C_0^\infty(\R^n)$.\fish
 \end{thm}
 \begin{proof}
 Da $V$ reellwertig ist, ist $M_V$ ein symmetrischer Multiplikationsoperator und
@@ -128,7 +128,7 @@ ein $C_\ep\in\R$, so dass
 H^2(\R^n).
 \end{align*}
 Aus dem Satz von Kato-Rellich folgt schließlich, dass (*) selbstadjungiert auf
-$H^2(\R^n)$ und wesentlich selbstadjungiert auf $C_0^\infty(\R^n)$ ist.\qedhere
+$H^2(\R^n)$ und wesentlich selbstadjungiert auf $C_0^\infty(\R^n)$ ist.\qed
 \end{proof}
 
 Mit denselben Methoden (vgl. \cite{RS05b}) beweist man das folgende
@@ -140,7 +140,7 @@ reellwertig und $n\le 3$. Dann ist der Operator
 : D \subset L^2(\R^n)\to L^2(\R^n)
 \end{align*}
 selbstadjungiert auf $D=H^2(\R^{nN})$ und wesentlich selbstadjungiert auf
-$D=C_0^\infty(\R^{nN})$.\fishhere
+$D=C_0^\infty(\R^{nN})$.\fish
 \end{thm*}
 
 \begin{cor*}
@@ -150,7 +150,7 @@ H=\sum_{k=1}^N \left(-\frac{\hbar^2}{2m}\Delta_{x_k}-\frac{Ze^2}{\abs{x_k}}
 \right) + \sum_{i<k} \frac{e^2}{\abs{x_i-x_k}}
 \end{align*}
 ist selbstadjungiert auf $D=H^2(\R^{3N})$ und wesentlich selbstadjungiert auf
-$D=C_0^\infty(\R^{3N})$.\fishhere
+$D=C_0^\infty(\R^{3N})$.\fish
 \end{cor*}
 
 \begin{bem*}[Bemerkung zu den Einheiten.]
@@ -184,5 +184,5 @@ Der gemeinsame Faktor
 \frac{\hbar^2}{2m\lambda^2} = \frac{e^2}{\lambda} = 2\alpha^2me^2
 \end{align*}
 ist die 4-fache Rydberg-Energie $E_{\mathrm{Ryd}} =
-\frac{1}{2}\alpha^2mc^2$.\maphere
+\frac{1}{2}\alpha^2mc^2$.\map
 \end{bem*}

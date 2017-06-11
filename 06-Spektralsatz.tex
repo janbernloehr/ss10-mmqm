@@ -2,7 +2,7 @@
 
 \section{Messbarer Funktionalkalkül}
 
-Sei $\BB$ die Familie der Borel-messbaren Teilmengen von $\R$, d.h. die kleinste
+Sei $\Bc$ die Familie der Borel-messbaren Teilmengen von $\R$, d.h. die kleinste
 $\sigma$-Algebra, die alle offenen und abgeschlossenen Teilmengen enthält.
 Weiterhin bezeichne $B(\R)$ die Familie \textit{beschränkten} Borel-messbaren
 Funktionen $f: \R\to\C$.
@@ -15,24 +15,24 @@ f_n\pto f,\quad \text{oder}\quad f = \plim\limits_{n\to\infty} f_n,
 falls $f_n(x)\to f(x)$ für jedes $x\in \R$ und die $f_n$ gleichmäßig beschränkt
 sind, d.h.
 \begin{align*}
-\sup_{n\ge 0} \norm{f_n} < \infty.\maphere
+\sup_{n\ge 0} \norm{f_n} < \infty.\map
 \end{align*} 
 \end{bem*}
 
 \begin{prop}
 \label{prop:6.1}
-Sei $\FF\subset B(\R)$ eine Familie von Funktionen mit
+Sei $\Fc\subset B(\R)$ eine Familie von Funktionen mit
 \begin{propenum}
-\item $C_0(\R) \subset \FF$,
-\item Ist $(f_n)$ eine Folge in $\FF$ mit $f_n\pto f$, dann ist $f\in\FF$.
+\item $C_0(\R) \subset \Fc$,
+\item Ist $(f_n)$ eine Folge in $\Fc$ mit $f_n\pto f$, dann ist $f\in\Fc$.
 \end{propenum}
-Dann ist $\FF=B(\R)$.\fishhere
+Dann ist $\Fc=B(\R)$.\fish
 \end{prop}
 
 Man kann dies auch als Definition von $B(\R)$ sehen.
 
 \begin{proof}
-Siehe \cite{Wer07}.\qedhere
+Siehe \cite{Wer07}.\qed
 \end{proof}
 
 \begin{bem*}
@@ -40,26 +40,26 @@ Nach Satz \ref{prop:6.1} ist $C_0(\R)$ dicht in $B(\R)$ bezüglich der Toplogie
 der punktweisen Konvergenz. Diese Topologie erfüllt jedoch nicht das erste
 Abzählbarkeitsaxiom. D.h. obwohl $C_0(\R)$ in $B(\R)$ dicht ist, lässt sich zu
 einem $f\in B(\R)$ im Allgemeinen keine Folge $(f_n)$ in $B(\R)$ finden mit
-$f_n\pto f$.\maphere
+$f_n\pto f$.\map
 \end{bem*}
 
 \begin{defn*}
-Sei $\LL(\HH)$ die Menge der beschränkten linearen Operatoren $B:\HH\to~\HH$.
-Eine Folge $(B_n)$ in $\LL(\HH)$ \emph{konvergiert
+Sei $\Lc(\Hc)$ die Menge der beschränkten linearen Operatoren $B:\Hc\to~\Hc$.
+Eine Folge $(B_n)$ in $\Lc(\Hc)$ \emph{konvergiert
 stark}\index{Konvergenz!starke}
-gegen einen Operator $B\in \LL(\HH)$, in Zeichen
+gegen einen Operator $B\in \Lc(\Hc)$, in Zeichen
 \begin{align*}
 B = \slim\limits_{n\to\infty} B_n,
 \end{align*}
-falls $B\ph =\lim\limits_{n\to\infty} B_n\ph$ für jedes $\ph\in\HH$.\fishhere
+falls $B\ph =\lim\limits_{n\to\infty} B_n\ph$ für jedes $\ph\in\Hc$.\fish
 \end{defn*}
 
 \begin{thm}[Messbarer Funktionalkalkül]
 \label{prop:6.2}
-Zu jedem selbstadjungierten Operator $A: D\subset\HH\to~\HH$ gibt es eine
+Zu jedem selbstadjungierten Operator $A: D\subset\Hc\to~\Hc$ gibt es eine
 eindeutig bestimmte Abbildung
 \begin{align*}
-\Phi: B(\R)\to\LL(\HH)
+\Phi: B(\R)\to\Lc(\Hc)
 \end{align*}
 mit folgenden Eigenschaften:
 \begin{propenum}
@@ -86,9 +86,9 @@ Weiterhin gilt für alle $f\in B(\R)$:
 \begin{propenum}
 \item[4)]\label{prop:6.2:4} $\norm{\Phi(f)} \le \norm{f}_\infty$.
 \item[5)]\label{prop:6.2:5} Ist $f\ge 0$, so ist $\Phi(f)\ge 0$ (d.h.
-$\lin{\ph,\Phi(f)\ph} \ge 0$ für alle $\ph\in\HH$).
+$\lin{\ph,\Phi(f)\ph} \ge 0$ für alle $\ph\in\Hc$).
 \end{propenum}
-Statt $\Phi(f)$ schreibt man in der Regel $f(A)$.\fishhere
+Statt $\Phi(f)$ schreibt man in der Regel $f(A)$.\fish
 \end{thm}
 
 \begin{bsp*}
@@ -105,7 +105,7 @@ L^2(\R).
 \begin{proof}
 Es genügt zu zeigen, dass $f\mapsto M_f$ die Eigenschaften
 \ref{prop:6.2:1}-\ref{prop:6.2:3} aus Theorem \ref{prop:6.2} besitzt. Dann folgt
-aus der Eindeutigkeit des Funktionalkalküls, dass $\Phi(f) = M_f$.\qedhere
+aus der Eindeutigkeit des Funktionalkalküls, dass $\Phi(f) = M_f$.\qed
 
 % Zunächst ist $f\in B(\R)$ beschränkt, d.h. $D(M_f) = L^2(\R)$, denn für jedes
 % $\ph\in L^2(\R)$ ist auch $f\ph\in L^2(\R)$.
@@ -142,34 +142,34 @@ aus der Eindeutigkeit des Funktionalkalküls, dass $\Phi(f) = M_f$.\qedhere
 % \end{align*}
 % für $x\in\R$. Mit dem Satz von Lebesgue, folgt somit auch
 % $\norm{M_{f_k}\ph-M_{f}\ph}_2\to 0$. Somit ist $\Phi(f) = f(M_x) =
-% M_{f}$.\qedhere
+% M_{f}$.\qed
 \end{proof}
-\item Sei $A = -i\frac{\diffd}{\dx}$ in $L^2(\R)$ mit $D_A=H^1(\R)$. Dann ist
+\item Sei $A = -i\frac{\ddd}{\dx}$ in $L^2(\R)$ mit $D_A=H^1(\R)$. Dann ist
 $A=A^*$ und
 \begin{align*}
-f(A) = \FF^{-1}f(p)\FF,
+f(A) = \Fc^{-1}f(p)\Fc,
 \end{align*}
 wobei $f(p)$ für den Multiplikationsoperator $M_f$ steht.
 \begin{proof}
-Analog zu Beispiel 1.\qedhere
+Analog zu Beispiel 1.\qed
 \end{proof}
 \item Sei $A=-\Delta$ in $L^2(\R)$ und $D_A=H^2(\R)$. Dann ist $A=A^*$ und
 \begin{align*}
-f(A) = \FF^{-1}f(p^2)\FF.\bsphere
+f(A) = \Fc^{-1}f(p^2)\Fc.\boxc
 \end{align*}
 \end{bspenum}
 \end{bsp*}
 
-Für alles Weitere sei $\HH$ ein Hilbertraum und $A: D\subset \HH\to \HH$ ein
-linearer Operator auf $\HH$.
+Für alles Weitere sei $\Hc$ ein Hilbertraum und $A: D\subset \Hc\to \Hc$ ein
+linearer Operator auf $\Hc$.
 
 \begin{prop}
 \label{prop:6.3}
-Sei $A=A^*$ in $\HH$ und $f\in C_0(\R)$, dann gilt
+Sei $A=A^*$ in $\Hc$ und $f\in C_0(\R)$, dann gilt
 \begin{align*}
 f(A) = \slim\limits_{\ep\downarrow 0}
 \frac{1}{2\pi i}
-\int_\R f(t) \left(\frac{1}{t-i\ep -A} - \frac{1}{t+i\ep-A}\right)\dt.\fishhere
+\int_\R f(t) \left(\frac{1}{t-i\ep -A} - \frac{1}{t+i\ep-A}\right)\dt.\fish
 \end{align*}
 \end{prop}
 \begin{proof}
@@ -208,7 +208,7 @@ f(A) = \slim\limits_{\ep\downarrow 0}
 % (t+i\ep-x)^{-1}\right)\dt\right)
 % \end{align*}
 % und die Behauptung folgt.
-Übung.\qedhere
+Übung.\qed
 \end{proof}
 
 \section{Spektralmaß}
@@ -230,7 +230,7 @@ $\Omega_i\cap \Omega_k = \varnothing$ für $i\neq k$, dann ist
 P_\Omega = \slim\limits_{N\to\infty} \sum_{k=1}^N P_{\Omega_k}.
 \end{align*}
 \item\label{prop:6.4:4} $P_\Omega P_{\Omega'} = P_{\Omega \cap
-\Omega'}$.\fishhere
+\Omega'}$.\fish
 \end{propenum}
 \end{prop}
 \begin{proof}
@@ -264,12 +264,12 @@ P_\Omega =\Phi(\chi_\Omega) = \slim\limits_{N\to\infty}
 = \slim\limits_{N\to\infty}\sum_{k=1}^N P_{\Omega_k}
 \end{align*}
 \item $P_\Omega P_{\Omega'} = \Phi(\chi_{\Omega}\chi_{\Omega'}) =
-\Phi(\chi_{\Omega\cap \Omega'}) = P_{\Omega\cap \Omega'}$.\qedhere
+\Phi(\chi_{\Omega\cap \Omega'}) = P_{\Omega\cap \Omega'}$.\qed
 \end{proofenum}
 \end{proof}
 
 \begin{defn*}
-Jede Abbildung $P: \BB\to \LL(\HH)$ mit den Eigenschaften
+Jede Abbildung $P: \Bc\to \Lc(\Hc)$ mit den Eigenschaften
 \ref{prop:6.4:1}-\ref{prop:6.4:3} aus Satz \ref{prop:6.4} heißt
 \emph{projektionswertiges Maß}\index{projektionswertiges Maß}.
 
@@ -282,20 +282,20 @@ P_{\Omega_1}\le P_{\Omega_2}, && \text{Monotonie}\\
 P_\Omega \le \sum_{k=1}^N P_{\Omega_k}, &&
 \text{Subadditivität}.
 \end{align*}
-% Für jedes $\ph\in\HH$ ist die Abbildung
+% Für jedes $\ph\in\Hc$ ist die Abbildung
 % \begin{align*}
-% \mu: \BB\to\R,\quad \Omega\mapsto \lin{\ph,P_\Omega \ph}
+% \mu: \Bc\to\R,\quad \Omega\mapsto \lin{\ph,P_\Omega \ph}
 % \end{align*}
 % ein Borel-Maß.
 
 Nach dem messbaren Funktionalkalkül gibt es zu jedem selbstadjungierten Operator
 $A$ ein projektionswertiges Maß. Dieses heißt auch
-\emph{Spektralmaß}.\index{Spektralmaß}\fishhere
+\emph{Spektralmaß}.\index{Spektralmaß}\fish
 \end{defn*}
 \begin{proof}
-Siehe \cite{Tes09}.\qedhere
-% Habe $P:\BB\to\LL(\HH)$ die Eigenschaften \ref{prop:6.4:1}-\ref{prop:6.4:3}.
-% Dann gilt für jedes $A\in\BB$,
+Siehe \cite{Tes09}.\qed
+% Habe $P:\Bc\to\Lc(\Hc)$ die Eigenschaften \ref{prop:6.4:1}-\ref{prop:6.4:3}.
+% Dann gilt für jedes $A\in\Bc$,
 % \begin{align*}
 % \Id = P_{\R} = P_{\R\setminus A \dcup A}
 % = P_{\R\setminus A} + P_A.
@@ -305,10 +305,10 @@ Siehe \cite{Tes09}.\qedhere
 % P_AP_{\R\setminus A} = P_A(\Id-P_A) = P_A- P_A = 0.
 % \end{align*}
 % 
-% Wir zeigen, dass für jedes $\ph\in\HH$ die Abbildung $\mu$ ein Borel-Maß ist.
+% Wir zeigen, dass für jedes $\ph\in\Hc$ die Abbildung $\mu$ ein Borel-Maß ist.
 % Monotonie und Subadditivität von $P$ folgen dann sofort.
 % 
-% Für jedes $\Omega\in\BB$ ist 
+% Für jedes $\Omega\in\Bc$ ist 
 % \begin{align*}
 % \mu(\Omega) &= \lin{\ph,P_\Omega\ph}
 % = \lin{P_\Omega\ph,P_\Omega\ph}
@@ -332,18 +332,18 @@ Siehe \cite{Tes09}.\qedhere
 % \end{align*}
 % 
 % Zum Nachweis von ``\ref{prop:6.4:4}''
-% bemerken wir dass für $A,B\in \BB$ disjunkt gilt $A\subset\R\setminus B$,
+% bemerken wir dass für $A,B\in \Bc$ disjunkt gilt $A\subset\R\setminus B$,
 % \begin{align*}
 % 0\le P_AP_B \le P_{\R\setminus B}P_B = 0,
 % \end{align*}
 % und folglich $P_AP_B = 0$. Seien 
-% $\Omega,\Omega'\in \BB$ und
+% $\Omega,\Omega'\in \Bc$ und
 % weiterhin
 % \begin{align*} 
 % &(\Omega\cap \Omega')\dcup A = \Omega,\qquad
 % (\Omega\cap \Omega')\dcup B = \Omega',
 % \end{align*}
-% mit $A,B\in\BB$. Dann sind $A$, $B$ und $\Omega\cap \Omega'$ disjunkt und
+% mit $A,B\in\Bc$. Dann sind $A$, $B$ und $\Omega\cap \Omega'$ disjunkt und
 % \begin{align*}
 % P_\Omega P_{\Omega'}
 % &= P_{(\Omega\cap \Omega')\dcup A}P_{(\Omega\cap \Omega')\dcup B}
@@ -351,7 +351,7 @@ Siehe \cite{Tes09}.\qedhere
 % P_{(\Omega\cap \Omega')}P_{B}
 % + P_AP_{(\Omega\cap \Omega')}
 % + P_AP_B\\
-% &= P_{(\Omega\cap \Omega')}.\qedhere
+% &= P_{(\Omega\cap \Omega')}.\qed
 % \end{align*}
 \end{proof}
 
@@ -360,7 +360,7 @@ Siehe \cite{Tes09}.\qedhere
 Der Träger $\supp(P)$ eines projektionswertigen Maßes $P$ ist definiert durch
 \begin{align*}
 x\in \supp(P) \Leftrightarrow P(U)\neq 0 \text{ für jede offene Umgebung
-}U\text{ von }P.\fishhere
+}U\text{ von }P.\fish
 \end{align*} 
 \end{defn*}
 
@@ -372,7 +372,7 @@ Sei $A=A^*$ mit Spektralmaß $P$, dann gelten
 \item\label{lem:6.4*:2} $P_S=\Id$ und $P_{R\setminus S} = 0$.
 \item Für jede Funktion $f\in B(\R)\cap C(\R)$ gilt
 \begin{align*}
-\norm{f(A)} = \sup_{x\in S}\abs{f(x)}.\fishhere
+\norm{f(A)} = \sup_{x\in S}\abs{f(x)}.\fish
 \end{align*}
 \end{propenum}
 \end{lem}
@@ -422,7 +422,7 @@ Umgebung $U$ von $x$ mit
 \begin{align*}
 y\in U \Rightarrow \abs{f(y)} > \abs{f(x)} - \ep \ge 0.
 \end{align*}
-Da $x\in S$, ist $P_U \neq 0$ und somit existiert ein $\ph\in\HH$ mit
+Da $x\in S$, ist $P_U \neq 0$ und somit existiert ein $\ph\in\Hc$ mit
 $\norm{\ph}=1$ und $P_U\ph = \ph$. Somit gilt
 \begin{align*}
 \norm{\Phi(f)\ph}^2 &= \lin{\ph,\Phi(\abs{f}^2)\ph}
@@ -432,7 +432,7 @@ $\norm{\ph}=1$ und $P_U\ph = \ph$. Somit gilt
 &= (\abs{f(x)}-\ep)^2 \norm{\ph}. 
 \end{align*}
 Somit ist $\norm{\Phi(f)} \ge \abs{f(x)}-\ep$ für jedes $\ep > 0$, also gilt
-auch $\norm{\Phi(f)} \ge \abs{f(x)}$.\qedhere
+auch $\norm{\Phi(f)} \ge \abs{f(x)}$.\qed
 \end{proofenum}
 \end{proof}
 
@@ -442,7 +442,7 @@ Sei $A=A^*$ mit Spektralmaß $P$. Dann gelten
 \begin{propenum}
 \item $\sigma(A) = \supp P$.
 \item $\norm{(z-A)^{-1}} = \dist(z,\sigma(A))^{-1}$ für alle
-$z\in\rho(A)$.\fishhere
+$z\in\rho(A)$.\fish
 \end{propenum}
 \end{prop}
 \begin{proof}
@@ -460,28 +460,28 @@ Für $\lambda\in\R$ sei $z_n = \lambda + in^{-1}$. Dann folgt
 Also ist $S=\sigma(A)$.
 
 Für $\lambda\in\R\setminus \sigma(A)$ folgt nun die zweite Behauptung aus (*) im
-Limes für $z\to \lambda$.\qedhere
+Limes für $z\to \lambda$.\qed
 \end{proof}
 
 \begin{lem}
 \label{prop:6.7}
-Für jeden linearen Operator $B: \HH\to \HH$ in einem Prähilbertraum $\HH$ und
-alle $\ph,\psi\in \HH$ gilt die Polarisationsidentität
+Für jeden linearen Operator $B: \Hc\to \Hc$ in einem Prähilbertraum $\Hc$ und
+alle $\ph,\psi\in \Hc$ gilt die Polarisationsidentität
 \begin{align*}
 \lin{\ph, B\psi} &= \frac{1}{4}\left[\lin{\ph+\psi,B(\ph+\psi)} -
 \lin{\ph-\psi,B(\ph-\psi)} \right]\\
 &+ \frac{1}{4i}\left[\lin{\ph+i\psi,B(\ph+i\psi)} -
-\lin{\ph-i\psi,B(\ph-i\psi)}\right].\fishhere
+\lin{\ph-i\psi,B(\ph-i\psi)}\right].\fish
 \end{align*}
 \end{lem}
 \begin{proof}
-Der Beweis ist eine leichte Übung.\qedhere
+Der Beweis ist eine leichte Übung.\qed
 \end{proof}
 
 \begin{prop}
 \label{prop:6.8}
 Sei $A=A^*$ mit Spektralmaß $P$ und sei $f\in B(\R)$. Dann gilt für alle
-$\ph,\psi\in\HH$,
+$\ph,\psi\in\Hc$,
 \begin{align*}
 \lin{\ph,f(A)\psi} &= \int f(\lambda) \dmu_{\ph,\psi}(\lambda)\\
 &:= 
@@ -489,7 +489,7 @@ $\ph,\psi\in\HH$,
 + \frac{1}{4i}\left[\int f \dmu_{\ph+i\psi} - \int f\dmu_{\ph-i\psi}
 \right],
 \end{align*}
-wobei $\mu_\ph(\Omega) = \lin{\ph,P(\Omega)\ph}$.\fishhere
+wobei $\mu_\ph(\Omega) = \lin{\ph,P(\Omega)\ph}$.\fish
 \end{prop}
 
 \begin{bem*}
@@ -497,13 +497,13 @@ $\mu_{\ph,\psi}:= \lin{\ph,P(\Omega)\psi}$ ist ein komplexes Borelmaß. Eine
 Einführung in die allgemeine Integrationstheorie bezüglich komplexer Borelmaße
 würde den Rahmen dieser Vorlesung sprengen. Aufgrund der Zerlegung des
 Integrals, wie in Satz \ref{prop:6.8} angegeben, ist dies jedoch auch nicht
-notwendig, da wir uns auf gewöhnliche Integrale zurückziehen können.\maphere
+notwendig, da wir uns auf gewöhnliche Integrale zurückziehen können.\map
 \end{bem*}
 
 \begin{proof}
 Ist $f$ eine elementare Funktion
 \begin{align*}
-f = \sum_{k=1}^n c_k \chi_{\Omega_k},\qquad \Omega_k\in\BB,
+f = \sum_{k=1}^n c_k \chi_{\Omega_k},\qquad \Omega_k\in\Bc,
 \end{align*}
 so gilt
 \begin{align*}
@@ -524,16 +524,16 @@ mit dem Satz von Lebesgue und der Tatsache, dass $\mu_\ph$ ein endliches Maß
 und damit jede beschränkte Funktion $\mu_\ph$-integrierbar ist.
 
 Um den Beweis abzuschließen, ist noch die Polarisationsidentität auf
-$\lin{\ph,f(A)\psi}$ anzuwenden.\qedhere
+$\lin{\ph,f(A)\psi}$ anzuwenden.\qed
 \end{proof}
 
 \section{Spektralsatz}
 
-Der messbare Funktionalkalkül $\Phi: B(\R)\to \LL(\HH)$ lässt sich auch auf
+Der messbare Funktionalkalkül $\Phi: B(\R)\to \Lc(\Hc)$ lässt sich auch auf
 unbeschränkte borelmessbare Funktionen $f: \R\to\C$ ausdehnen. Der Operator
 $\Phi(f)$ ist dann in der Regel unbeschränkt und definiert durch
 \begin{align*}
-D(\Phi(f)) &= \Phi\left(\frac{1}{1+\abs{f}} \right)\HH,\\
+D(\Phi(f)) &= \Phi\left(\frac{1}{1+\abs{f}} \right)\Hc,\\
 \Phi(f)\ph &= \Phi\left(\frac{f}{1+\abs{f}} \right)\gamma,\qquad\text{falls }
 \ph = \Phi\left(\frac{1}{1+\abs{f}} \right)\gamma.
 \end{align*}
@@ -543,7 +543,7 @@ D(\Phi(f)) &= \Phi\left(\frac{1}{1+\abs{f}} \right)\HH,\\
 Mit obigen Notationen gilt
 \begin{propenum}
 \item $\Phi(f)$ ist wohl- und dicht definiert.
-\item\label{prop:6.9:2} $D(\Phi(f)) = \setdef{\ph\in\HH}{\int \abs{f}^2\dmu_\ph
+\item\label{prop:6.9:2} $D(\Phi(f)) = \setdef{\ph\in\Hc}{\int \abs{f}^2\dmu_\ph
 < \infty}$ und für alle $\ph,\psi\in D(\Phi(f))$ gilt
 \begin{align*}
 &\norm{\Phi(f)\ph}^2 = \int \abs{f}^2\dmu_\ph\\
@@ -552,18 +552,18 @@ Mit obigen Notationen gilt
 \item Ist $(f_k)$ eine Folge in $B(\R)$ mit $f_k(x)\to f(x)$ für alle $x\in\R$
 und $\abs{f_k}\le \abs{f}$ für alle $k$, dann gilt für alle $\ph\in D(\Phi(f))$,
 \begin{align*}
-\Phi(f_k)\ph \to \Phi(f)\ph,\qquad k\to\infty.\fishhere
+\Phi(f_k)\ph \to \Phi(f)\ph,\qquad k\to\infty.\fish
 \end{align*}
 \end{propenum}
 \end{prop}
 
 \begin{bem*}
 Alle Integrale in \ref{prop:6.9:2} können durch $\int_{\sigma(A)}$ ersetzt
-werden.\maphere
+werden.\map
 \end{bem*}
 
 \begin{proof}
-Siehe \cite{RS95a}, \cite{Wer07} oder \cite[Kapitel 12]{Mmq08}.\qedhere
+Siehe \cite{RS95a}, \cite{Wer07} oder \cite[Kapitel 12]{Mmq08}.\qed
 \end{proof}
 
 \begin{thm}[Spektralsatz]
@@ -575,10 +575,10 @@ Spektralmaß $P$ mit
 &\mu_\ph(\Omega) := \lin{\ph,P(\Omega)\ph}\tag{2}
 \end{align*}
 für alle $\ph,\psi\in D(A)$. Umgekehrt wird zu jedem projektionswertigen Maß $P$
-durch (1) und (2) ein selbstadjungierter Operator $A$ definiert.\fishhere
+durch (1) und (2) ein selbstadjungierter Operator $A$ definiert.\fish
 \end{thm}
 \begin{proof}
-Übung.\qedhere
+Übung.\qed
 \end{proof}
 
 \begin{bem*}[Bemerkungen.]
@@ -591,30 +591,30 @@ Das ist die Verallgemeinerung der Spektralzerlegung
 \begin{align*}
 A = \sum_{k=1}^m \lambda_k P_k
 \end{align*}
-eines selbstadjungierten Operators $A\in\LL(\C^n)$ mit Eigenwerten
+eines selbstadjungierten Operators $A\in\Lc(\C^n)$ mit Eigenwerten
 $\lambda_1,\ldots,\lambda_m$ und zugehörigen Eigenprojektoren $P_1,\ldots,P_m$.
 
 \item
 \emph{Spektrale Unterräume:}
 Sei $\Omega \in \R$ eine Borelmenge,
-$P_{\Omega} = \phi(\chi_{\Omega})$ und $\HH_{\Omega} = P_{\Omega}\HH$.
+$P_{\Omega} = \phi(\chi_{\Omega})$ und $\Hc_{\Omega} = P_{\Omega}\Hc$.
 Dann ist $P_{\Omega}A \subset AP_{\Omega}$, und
 \begin{align*}
-A\big|_{\HH_{\Omega}} : P_{\Omega} D(A) \subset \HH_{\Omega}
-\to \HH_{\Omega}
+A\big|_{\Hc_{\Omega}} : P_{\Omega} D(A) \subset \Hc_{\Omega}
+\to \Hc_{\Omega}
 \end{align*}
 ist selbstadjungiert (Übung). Ist $\Omega$ offen, dann
 \begin{align*}
-\sigma(A)\cap\Omega\subset\sigma(A\big|_{\HH_{\Omega}}) \subset
+\sigma(A)\cap\Omega\subset\sigma(A\big|_{\Hc_{\Omega}}) \subset
 \sigma(A)\cap\bar{\Omega}.
 \end{align*}
-Insbesondere ist $A \big|_{\HH_{\Omega}}$
+Insbesondere ist $A \big|_{\Hc_{\Omega}}$
 beschränkt, wenn $\Omega$ beschränkt ist.
 \begin{proof}
 Für $\lambda\in \sigma(A)\cap\Omega$ und alle $\ep>0$ klein genug
 gilt $(\lambda-\ep,\lambda+\ep)\subset\Omega$ und
 $P_{(\lambda-\ep,\lambda+\ep)}\neq 0$. Also
-$\lambda\in\sigma(A\big|_{\HH_{\Omega}})$.
+$\lambda\in\sigma(A\big|_{\Hc_{\Omega}})$.
 
 Falls $\lambda \notin\sigma(A) \cap\overline{\Omega} := B$
 dann ist $\delta := \dist(\lambda, B) > 0$ und somit
@@ -625,7 +625,7 @@ für alle $\ph\in P_{\Omega} D(A)$,
 \geq \delta^2 \int_{\sigma(A) \cap \Omega} \dmu_{\ph}(t)
 = \delta^2 \lin{\ph,\ph}.
 \end{align*}
-Also $\lambda\notin \sigma(A\big|_{\HH_{\Omega}})$.\qedhere
+Also $\lambda\notin \sigma(A\big|_{\Hc_{\Omega}})$.\qed
 \end{proof}
 
 \item
@@ -636,7 +636,7 @@ zu $\lambda$. (siehe Aufgabenblatt 6)
 
 \item In der Quantenmechanik wird jede beobachtbare Größe (Ort, Implus, Spin,
 \ldots) durch einen selbstadjungierten Operator beschrieben. Die normierten
-Vektoren $\ph\in \HH$ beschreiben die (reinen) Zustände des Systems. Ist
+Vektoren $\ph\in \Hc$ beschreiben die (reinen) Zustände des Systems. Ist
 $\Omega\subset\R$ eine Borelmenge, dann ist
 \begin{align*}
 \mu_\ph(\Omega) = \lin{\ph,P(\Omega)\ph},\qquad P(\Omega) = \Phi(\chi_\Omega), 
@@ -653,7 +653,7 @@ Der Erwartungswert
 kann allerdings jeden Wert zwischen $\inf \sigma(A)$ und $\sup \sigma(A)$
 annehmen.
 
-Zum Weiterlesen siehe \cite{Stra} oder \cite{Thi94}.\maphere
+Zum Weiterlesen siehe \cite{Stra} oder \cite{Thi94}.\map
 \end{bemenum}
 \end{bem*}
 
@@ -665,7 +665,7 @@ Operators $A$ sind definiert durch
 \begin{align*}
 &\sigma_\disc = \setdef{\lambda\in\R}{\lambda\text{ ist isolierter Eigenwert
 von $A$ mit endlicher Vielfachheit}}\\
-&\sigma_\ess = \sigma(A)\setminus \sigma_\disc.\fishhere
+&\sigma_\ess = \sigma(A)\setminus \sigma_\disc.\fish
 \end{align*}
 \end{defn*}
 
@@ -676,10 +676,10 @@ Sei $A=A^*$ und $P_\Omega(A) = \chi_\Omega(A)$. Dann gelten
 \item $\lambda\in\sigma(A) \Leftrightarrow P_{(\lambda-\ep,\lambda+\ep)}(A)\neq
 0$ für alle $\ep > 0$,
 \item $\lambda\in \sigma_\mathrm{disc}(A) \Leftrightarrow \lambda\in \sigma(A)$
-und es gibt ein $\ep > 0$ mit $\dim P_{(\lambda-\ep,\lambda+\ep)}(A)\HH <
+und es gibt ein $\ep > 0$ mit $\dim P_{(\lambda-\ep,\lambda+\ep)}(A)\Hc <
 \infty$.
 \item $\lambda\in\sigma_{\mathrm{ess}}(A) \Leftrightarrow \dim
-P_{(\lambda-\ep,\lambda + \ep)}(A)\HH = \infty$ für alle $\ep > 0$.\fishhere
+P_{(\lambda-\ep,\lambda + \ep)}(A)\Hc = \infty$ für alle $\ep > 0$.\fish
 \end{propenum}
 \end{prop}
 
@@ -711,19 +711,19 @@ B_{\ep}(\lambda) \cap \sigma(A) = \setd{\lambda}
 \end{align*}
 Aus $\lambda \in \sigma_\disc(A)$ folgt also
 $P_{(\lambda - \ep, \lambda + \ep)} (A) = P_{\setd{\lambda}}$
-und somit $\dim P_{(\lambda - \ep, \lambda + \ep)} \HH < \infty$.
+und somit $\dim P_{(\lambda - \ep, \lambda + \ep)} \Hc < \infty$.
 
 Ist umgekehrt $\lambda \in \sigma(A)$ und
-$n = \dim P_{(\lambda - \ep, \lambda + \ep)} \HH < \infty$.
+$n = \dim P_{(\lambda - \ep, \lambda + \ep)} \Hc < \infty$.
 Dann gilt,
 \begin{align*}
 \sigma(A)\cap(\lambda-\ep,\lambda+\ep)\subset\sigma(A \big|_{
-P_{(\lambda - \ep, \lambda + \ep)}(A) \HH})
+P_{(\lambda - \ep, \lambda + \ep)}(A) \Hc})
 = \setd{ \lambda_1, \ldots, \lambda_m},\qquad m\leq n.
 \end{align*}
 Also ist $\lambda$ ein isolierter Eigenwert von $A$ mit endlicher Vielfachheit.
 
 \item
-Folgt aus (i) und (ii).\qedhere
+Folgt aus (i) und (ii).\qed
 \end{proofenum}
 \end{proof}

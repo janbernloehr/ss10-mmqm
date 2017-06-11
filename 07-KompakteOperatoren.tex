@@ -1,21 +1,21 @@
 \chapter{Kompakte Operatoren und Stabilität des wesentlichen Spektrums}
 
 \begin{defn*}
-Eine Folge $(\ph_n)$ im Hilbertraum $\HH$ konvergiert
-\emph{schwach}\index{schwache Konvergenz} gegen $\ph\in \HH$, in Zeichen
+Eine Folge $(\ph_n)$ im Hilbertraum $\Hc$ konvergiert
+\emph{schwach}\index{schwache Konvergenz} gegen $\ph\in \Hc$, in Zeichen
 \begin{align*}
 \ph_n \wto \ph,\qquad n\to \infty,
 \end{align*}
-wenn für alle $\psi\in\HH$ gilt,
+wenn für alle $\psi\in\Hc$ gilt,
 \begin{align*}
-\lim\limits_{n\to\infty} \lin{\psi,\ph_n} = \lin{\psi,\ph}.\fishhere
+\lim\limits_{n\to\infty} \lin{\psi,\ph_n} = \lin{\psi,\ph}.\fish
 \end{align*}
 \end{defn*}
 
 \begin{bem*}[Bemerkungen.]
 \begin{bemenum}
 \item Jede Orthonormalfolge $(\ph_n)$ konvegiert schwach gegen Null, denn für
-alle $\psi\in\HH$ ist
+alle $\psi\in\Hc$ ist
 \begin{align*}
 \sum_{n\ge 0} \abs{\lin{\psi,\ph_n}}^2 \le \norm{\psi}^2.
 \end{align*}
@@ -23,7 +23,7 @@ alle $\psi\in\HH$ ist
 \begin{align*}
 \ph_n\wto \ph,\qquad \norm{\ph_n}\to \norm{\ph}
 \end{align*}
-auch $\ph_n \to\ph$.\maphere
+auch $\ph_n \to\ph$.\map
 \end{bemenum}
 \end{bem*}
 
@@ -34,19 +34,19 @@ $\sigma_\mathrm{ess}(A)$, wenn eine \emph{Weylfolge} $(\ph_n)$ in $D(A)$
 existiert, d.h. eine Folge mit 
 \begin{align*}
 \norm{\ph_n} =1,\; \ph_n\wto 0,\quad \text{ und}\quad
-\norm{(A-\lambda)\ph_n}\to 0.\fishhere
+\norm{(A-\lambda)\ph_n}\to 0.\fish
 \end{align*}
 \end{thm}
 
 \begin{proof}
-``$\Rightarrow$": Sei $\lambda\in\sigma_\mathrm{ess}(A)$ und $\HH_n =
-P_{(\lambda-\frac{1}{n},\lambda+\frac{1}{n})}(A)\HH$.
-Dann ist $\dim\HH_n = \infty$ für jedes $n\ge 1$ nach Satz \ref{prop:6.11}. Wir
-konstruieren rekursiv eine Orthonormalfolge $(\ph_n)$ mit $\ph_n\in\HH_n$.
+``$\Rightarrow$": Sei $\lambda\in\sigma_\mathrm{ess}(A)$ und $\Hc_n =
+P_{(\lambda-\frac{1}{n},\lambda+\frac{1}{n})}(A)\Hc$.
+Dann ist $\dim\Hc_n = \infty$ für jedes $n\ge 1$ nach Satz \ref{prop:6.11}. Wir
+konstruieren rekursiv eine Orthonormalfolge $(\ph_n)$ mit $\ph_n\in\Hc_n$.
 
-Sei $\ph_1\in \HH_1$ mit $\norm{\ph_1}=1$. Gegeben $\ph_1,\ldots,\ph_{n-1}$
-orthonormalisiert mit $\ph_k\in\HH_k$ für $k=1,\ldots,n-1$, wählen wir
-$\ph_n\in\HH_n$ mit $\ph_n\bot \setd{\ph_1,\ldots,\ph_{n-1}}$ und
+Sei $\ph_1\in \Hc_1$ mit $\norm{\ph_1}=1$. Gegeben $\ph_1,\ldots,\ph_{n-1}$
+orthonormalisiert mit $\ph_k\in\Hc_k$ für $k=1,\ldots,n-1$, wählen wir
+$\ph_n\in\Hc_n$ mit $\ph_n\bot \setd{\ph_1,\ldots,\ph_{n-1}}$ und
 $\norm{\ph_n}=1$. Es gilt dann $\ph_n\wto 0$ und
 \begin{align*}
 \norm{(A-\lambda)\ph_n}^2 = 
@@ -59,13 +59,13 @@ Wir führen nun die Annahme $\lambda\in\sigma_\mathrm{disc}(A)$ auf einen
 Widerspruch. Angenommen $\lambda\in\sigma_\mathrm{disc}(A)$, dann existiert nach
 Satz \ref{prop:6.11} ein $\ep > 0$ , so dass
 \begin{align*}
-\dim(P_{I_\ep}(A)\HH) < \infty,\qquad I_\ep = (\lambda-\ep,\lambda+\ep).  
+\dim(P_{I_\ep}(A)\Hc) < \infty,\qquad I_\ep = (\lambda-\ep,\lambda+\ep).  
 \end{align*}
 Weiterhin gilt $P_{I_\ep}(A) \ph_n \to 0$, denn
 \begin{align*}
 P_{I_\ep}(A)\ph_n = \sum_{k=1}^N \psi_k\lin{\psi_k,\ph_n}\to 0
 \end{align*}
-wenn $(\psi_k)_{k=1}^N$ eine ONB von $P_{I_\ep}(A)\HH$ ist. Außerdem gilt
+wenn $(\psi_k)_{k=1}^N$ eine ONB von $P_{I_\ep}(A)\Hc$ ist. Außerdem gilt
 \begin{align*}
 \norm{P_{\R\setminus I_\ep}(A)\ph_n}^2 &=
 \int_{\R\setminus I_\ep} \dmu_{\ph_n}(t)
@@ -80,31 +80,31 @@ Also gilt auch
 1 = \norm{\ph_n}^2 = \norm{P_{I_\ep}(A)\ph_n}^2 + \norm{P_{\R\setminus
 I_\ep}(A)\ph_n}^2 \to 0,
 \end{align*}
-ein Widerspruch.\qedhere
+ein Widerspruch.\qed
 \end{proof}
 
 \begin{defn*}
-Ein beschränkter Operator $B\in\LL(\HH)$ heißt
+Ein beschränkter Operator $B\in\Lc(\Hc)$ heißt
 \emph{kompakt}\index{Operator!kompakter}, wenn die Bildfolge $(B\ph_n)$ jeder
 beschränkten Folge $(\ph_n)$ eine konvergente Teilfolge besitzt.
 
 $B$ heißt \emph{von endlichem Rang}\index{Operator!von endlichem Rang}, wenn
-$\dim (B\HH) < \infty$.\fishhere
+$\dim (B\Hc) < \infty$.\fish
 \end{defn*}
 
 \begin{prop}
 \label{prop:7.2}
 \begin{propenum}
-\item\label{prop:7.2:1} Ist $B\in\LL(\HH)$ von endlichem Rang, dann ist $B$
+\item\label{prop:7.2:1} Ist $B\in\Lc(\Hc)$ von endlichem Rang, dann ist $B$
 kompakt.
-\item\label{prop:7.2:2} Sind $B, C\in\LL(\HH)$ kompakt und $\lambda,\mu\in\C$,
+\item\label{prop:7.2:2} Sind $B, C\in\Lc(\Hc)$ kompakt und $\lambda,\mu\in\C$,
 dann ist auch $\lambda B+ \mu C$ kompakt.
-\item\label{prop:7.2:3} Ist $B$ kompakt und $C\in\LL(\HH)$, dann sind auch
+\item\label{prop:7.2:3} Ist $B$ kompakt und $C\in\Lc(\Hc)$, dann sind auch
 $BC$ und $CB$ kompakt.
-\item\label{prop:7.2:4} Ist $B_n$ eine Folge kompakter Operatoren in $\LL(\HH)$
+\item\label{prop:7.2:4} Ist $B_n$ eine Folge kompakter Operatoren in $\Lc(\Hc)$
 mit $\norm{B_n-B}\to 0$, dann ist auch $B$ kompakt.
 \item\label{prop:7.2:5} Ist $B$ kompakt und $\ph_n\wto \ph$, dann gilt
-$B\ph_n\to B\ph$.\fishhere
+$B\ph_n\to B\ph$.\fish
 \end{propenum}
 \end{prop}
 
@@ -112,7 +112,7 @@ Die kompakten Operatoren bilden also ein abgeschlossenes Ideal der beschränkten
 Operatoren und führen schwach konvergente in konvergente Folgen über.
 
 \begin{proof}
-``\ref{prop:7.2:1}-\ref{prop:7.2:5}": Übung.\qedhere
+``\ref{prop:7.2:1}-\ref{prop:7.2:5}": Übung.\qed
 \end{proof}
 
 \begin{thm}
@@ -120,7 +120,7 @@ Operatoren und führen schwach konvergente in konvergente Folgen über.
 Sei $A=A^*$ und $B\subset B^*$ mit $D(B)\supset D(A)$. Ist $B(A+i)^{-1}$
 kompakt, dann ist $A+B$ selbstadjungiert auf $D(A)$ und
 \begin{align*}
-\sigma_\mathrm{ess}(A+B) = \sigma_\mathrm{ess}(A).\fishhere
+\sigma_\mathrm{ess}(A+B) = \sigma_\mathrm{ess}(A).\fish
 \end{align*}
 \end{thm}
 
@@ -130,7 +130,7 @@ Ist $B(A+i)^{-1}$ kompakt, dann heißt $B$ \emph{relativ kompakt} bezüglich $A$
 \begin{proofenum}
 \item Wir zeigen $\norm{B(A+in)^{-1}} \to 0$.
 
-Wähle eine Folge $(\ph_n)$ in $\HH$ mit $\norm{\ph_n} = 1$ und
+Wähle eine Folge $(\ph_n)$ in $\Hc$ mit $\norm{\ph_n} = 1$ und
 \begin{align*}
 \norm{B(A+in)^{-1}} &\le \norm{B(A+in)^{-1}\ph_n} + \frac{1}{n}\\
 &= \norm{B(A+i)^{-1}(A+i)(A+in)^{-1}\ph_n} + \frac{1}{n}.\tag{*}
@@ -147,7 +147,7 @@ und für alle $\gamma\in D(A)$ gilt
 &\quad \le \norm{(A-i)\gamma}\norm{(A+in)^{-1}\ph_n}
 \le \frac{1}{n}\norm{(A-i)\gamma}\to 0.
 \end{align*}
-Da $D(A)\subset\HH$ dicht liegt, folgt $(A+i)(A+in)^{-1}\ph_n\wto 0$ und damit
+Da $D(A)\subset\Hc$ dicht liegt, folgt $(A+i)(A+in)^{-1}\ph_n\wto 0$ und damit
 gilt nach Voraussetzung
 \begin{align*}
 B(A+i)^{-1}(A+i)(A+in)^{-1}\ph_n \to 0.
@@ -186,23 +186,23 @@ während $B(A+i)^{-1}$ kompakt ist. Somit ist $\lambda\in
 \begin{align*}
 B(A+B+i)^{-1} = B(A+i)^{-1}(A+i)(A+B+i)^{-1}
 \end{align*}
-ist kompakt, da $(A+i)(A+B+i)^{-1}$ nach dem Graphensatz beschränkt ist.\qedhere
+ist kompakt, da $(A+i)(A+B+i)^{-1}$ nach dem Graphensatz beschränkt ist.\qed
 \end{proofenum}
 \end{proof}
 
 \begin{thm}
 \label{prop:7.4}
-Sei $\HH$ ein separabler Hilbertraum und $B\in\LL(\HH)$ kompakt. Dann existiert
+Sei $\Hc$ ein separabler Hilbertraum und $B\in\Lc(\Hc)$ kompakt. Dann existiert
 eine Folge $(B_n)$ von Operatoren von endlichem Rang mit $\norm{B_n-B}\to
-0$.\fishhere
+0$.\fish
 \end{thm}
 \begin{proof}
-Da $\HH$ separabel ist, existiert eine abzählbare ONB $(\ph_n)$. Sei $P_N$
+Da $\Hc$ separabel ist, existiert eine abzählbare ONB $(\ph_n)$. Sei $P_N$
 definiert durch
 \begin{align*}
 P_N\ph = \sum_{k=1}^N \ph_k \lin{\ph_k,\ph},
 \end{align*}
-dann gilt $P_N^* = P_N = P_N^2$ und $P_N\ph \to \ph$ für alle $\ph\in\HH$. Sei
+dann gilt $P_N^* = P_N = P_N^2$ und $P_N\ph \to \ph$ für alle $\ph\in\Hc$. Sei
 $B_N := BP_N$, dann ist $B_N$ von endlichem Rang und nach Definition der Norm
  $\norm{B_N-B}$ gibt es Vektoren $\gamma_N$ mit $\norm{\gamma_N}=1$ und
 \begin{align*}
@@ -212,30 +212,30 @@ Es gilt
 \begin{align*}
 (1-P_N)\gamma_N \wto 0,\qquad N\to \infty, 
 \end{align*}
-denn für $\psi\in\HH$ gilt
+denn für $\psi\in\Hc$ gilt
 \begin{align*}
 \lin{\psi,(1-P_N)\gamma_N} = \lin{(1-P_N)\psi,\gamma_N}
 \le \underbrace{\norm{(1-P_N)\psi}}_{\to 0}\underbrace{\norm{\gamma_N}}_{=1}
 \end{align*}
-Da $B$ kompakt ist, folgt aus (*), dass $\norm{B_N-B}\to 0$.\qedhere
+Da $B$ kompakt ist, folgt aus (*), dass $\norm{B_N-B}\to 0$.\qed
 \end{proof}
 
 Kompakte Operatoren über einem separablen Hilbertraum können also als Abschluss
 der Operatoren von endlichem Rang aufgefasst werden.
 
 \begin{defn*}
-Ein Operator auf $\LL^2(\R^n)$ heißt
+Ein Operator auf $\Lc^2(\R^n)$ heißt
 \emph{Hilbert-Schmidt-Operator}\index{Operator!Hilbert-Schmidt-}, falls ein Kern
-$K\in\LL^2(\R^n\times\R^n)$ existiert mit
+$K\in\Lc^2(\R^n\times\R^n)$ existiert mit
 \begin{align*}
-(B\ph)(x) = \int_{\R^n} K(x,y)\ph(y)\dy.\tag{**}\fishhere
+(B\ph)(x) = \int_{\R^n} K(x,y)\ph(y)\dy.\tag{**}\fish
 \end{align*}
 \end{defn*}
 
 \begin{lem*}
 Jeder Kern definiert via (**) einen beschränkten Operator $B$ mit
 \begin{align*}
-\norm{B}\le \norm{K}_2.\fishhere
+\norm{B}\le \norm{K}_2.\fish
 \end{align*}
 \end{lem*}
 \begin{proof}
@@ -246,7 +246,7 @@ Sei also $K\in L^2(\R^n\times \R^n)$ und $B$ via (**) definiert, dann ist
 &\le
 \int \left(\int \abs{K(x,y)}^2\dy \right)
 \left(\int \abs{\ph(y)}^2 \dy \right)\dx\\
-&= \norm{K}_2^2\norm{\ph}_2^2.\qedhere
+&= \norm{K}_2^2\norm{\ph}_2^2.\qed
 \end{align*}
 \end{proof}
 
@@ -260,7 +260,7 @@ $(\ph_n\otimes\ph_k)_{n,k\in\N}$ eine ONB von $L^2(\R^n\times\R^n)$.
 
 \begin{thm}
 \label{prop:7.5}
-Jeder Hilbert-Schmidt-Operator auf $L^2(\R^n)$ ist kompakt.\fishhere
+Jeder Hilbert-Schmidt-Operator auf $L^2(\R^n)$ ist kompakt.\fish
 \end{thm}
 \begin{proof}
 Sei $B$ ein Hilbert-Schmidt-Operator mit Integralkern $K\in
@@ -277,19 +277,19 @@ ist von endlichem Rang, denn $B_NL^2(\R^n)=\mathrm{span
 \begin{align*}
 \norm{B-B_N}\le \norm{K-K_N}_2 \to 0
 \end{align*}
-also ist auch $B$ kompakt.\qedhere
+also ist auch $B$ kompakt.\qed
 \end{proof}
 
 \begin{prop}
 \label{prop:7.6}
 Sind $f,g\in L^2(\R^n)$, dann ist
 \begin{align*}
-f(x)g(-i\nabla_x) = M_f \FF^{-1} M_g \FF
+f(x)g(-i\nabla_x) = M_f \Fc^{-1} M_g \Fc
 \end{align*}
 in $L^2(\R^n)$ dicht definiert und beschränkt. Die eindeutige beschränkte
 Fortsetzung auf $L^2(\R^n)$ ist ein Hilbert-Schmidt-Operator mit Kern
 \begin{align*}
-(2\pi)^{-n/2} f(x)\check{g}(x-y).\fishhere
+(2\pi)^{-n/2} f(x)\check{g}(x-y).\fish
 \end{align*}
 \end{prop}
 \begin{proof}
@@ -300,22 +300,22 @@ Der Operator ist auf $\SS(\R^n)$ definiert, denn für $\ph\in \SS(\R^n)$ gilt
 also ist $g\hat{\ph}\in L^1(\R^n)\cap L^2(\R^n)$. Somit ist $\hat{\ph} \in
 D(M_g)$ und
 \begin{align*}
-\FF^{-1}M_g\FF\ph = \FF^{-1}(g\hat{\ph}) \in L^\infty(\R^n)\subset D(M_f).
+\Fc^{-1}M_g\Fc\ph = \Fc^{-1}(g\hat{\ph}) \in L^\infty(\R^n)\subset D(M_f).
 \end{align*}
 Für $g,\ph\in \SS(\R^n)$ gilt
 \begin{align*}
-\FF^{-1}(g\hat{\ph}) = (2\pi)^{-n/2}\check{g}*\ph.
+\Fc^{-1}(g\hat{\ph}) = (2\pi)^{-n/2}\check{g}*\ph.
 \end{align*}
 Zu $g\in L^2(\R^n)$, existiert eine Folge $(g_k)$ in $\SS(\R^n)$ mit
 $\norm{g_k-g}_2 \to 0$ und somit ist für $\ph\in\SS(\R^n)$
 \begin{align*}
-\FF^{-1} M_g \FF \ph &= \FF^{-1} g\hat{\ph}
-= L^2\text{-}\lim\limits_{n\to\infty} \FF^{-1}(g_k \hat{\ph})
+\Fc^{-1} M_g \Fc \ph &= \Fc^{-1} g\hat{\ph}
+= L^2\text{-}\lim\limits_{n\to\infty} \Fc^{-1}(g_k \hat{\ph})
 = L^2\text{-}\lim\limits_{n\to\infty} (2\pi)^{-n/2} \check{g}_k * \ph\\
 &= (2\pi)^{-n/2} \check{g} * \ph,
 \end{align*}
 denn $\norm{(\check{g}_k-\check{g})*\ph}_2 \le
-\norm{\check{g}_k-\check{g}}_2\norm{\ph}_1$.\qedhere
+\norm{\check{g}_k-\check{g}}_2\norm{\ph}_1$.\qed
 \end{proof}
 
 \begin{lem}
@@ -328,14 +328,14 @@ $V(x)\to 0$,\quad $\abs{x}\to \infty$,
 \item\label{prop:7.7:3} $V\in L^\infty(\R^n)$,\qquad $V(x)\to
 0$,\quad$\abs{x}\to \infty$.
 \end{equivenum} 
-Dann ist $V(-\Delta + 1)^{-1}$ kompakt.\fishhere
+Dann ist $V(-\Delta + 1)^{-1}$ kompakt.\fish
 \end{lem}
 
 \begin{bem*}
 Die Kompaktheit von $V(-\Delta+1)^{-1}$ ist äquivalent zur Kompaktheit der
 Abbildung
 \begin{align*}
-V : H^2(\R^n)\to L^2(\R^n),\qquad \ph\mapsto V\ph.\maphere
+V : H^2(\R^n)\to L^2(\R^n),\qquad \ph\mapsto V\ph.\map
 \end{align*}
 \end{bem*}
 
@@ -366,7 +366,7 @@ Also ist nach obigem Satz $V_Rg_m(-i\nabla_x)$ kompakt und
 \norm{V_R}_\infty \norm{(-\Delta+1)^{-1} - g_m(-i\nabla_x)}\\
 &\le \norm{V_R}_\infty \norm{g-g_m}_\infty \to 0.
 \end{align*}
-Somit ist auch $V_R(-\Delta+1)^{-1}$ kompakt.\qedhere
+Somit ist auch $V_R(-\Delta+1)^{-1}$ kompakt.\qed
 \end{proof}
 
 \begin{thm}
@@ -376,12 +376,12 @@ Ist $V:\R^n\to\R$ messbar und $V(-\Delta+1)^{-1}$ kompakt, dann ist
 -\Delta + V : D\subset L^2(\R^n)\to L^2(\R^n)
 \end{align*}
 selbstadjungiert auf $D=H^2(\R^n)$, nach unten beschränkt und
-$\sigma_\mathrm{ess} = [0,\infty)$.\fishhere
+$\sigma_\mathrm{ess} = [0,\infty)$.\fish
 \end{thm}
 
 \begin{bem*}
 Ein selbstadjungierter Operator $A$ heißt nach unten beschränkt, wenn
-$\sigma(A)$ nach unten beschränkt ist.\maphere
+$\sigma(A)$ nach unten beschränkt ist.\map
 \end{bem*}
 
 \begin{proof}
@@ -403,7 +403,7 @@ $\lambda_0$, so dass für $\lambda > \lambda_0$
 \end{align*}
 und folglich der Operator $-\Delta+V+\lambda$ nach (*), $H^2(\R^n)\to
 L^2(\R^n)$ bijektiv abbildet mit beschränkter Inverser. Also ist
-$-\lambda\in\rho(-\Delta+V)$ für $\lambda > \lambda_0$.\qedhere
+$-\lambda\in\rho(-\Delta+V)$ für $\lambda > \lambda_0$.\qed
 \end{proof}
 
 %TODO: Illustration des Spektrums
@@ -416,7 +416,7 @@ E := \inf\setdef{\lin{\ph,(-\Delta+V)\ph}}{\ph\in H^2(\R^n),\; \norm{\ph} =
 1}<0,
 \end{align*}
 dann ist $E=\min\sigma(-\Delta+V)$ ein isolierter Eigenwert endlicher
-Vielfachheit.\fishhere
+Vielfachheit.\fish
 \end{cor}
 \begin{proof}
 Sei $H=-\Delta + V$ und $\lambda_0 = \min \sigma(H)$. Aus dem Spektralsatz
@@ -428,14 +428,14 @@ wissen wir,
 Wegen $\lambda_0\in \sigma(H)$  ist 
 $P_{(\lambda_0-\ep,\lambda_0+\ep)}(H)\neq 0$
 für jedes $\ep > 0$. Für $\ph_\ep \in
-P_{(\lambda_0-\ep,\lambda_0+\ep)}(H)\HH$ ist dann
+P_{(\lambda_0-\ep,\lambda_0+\ep)}(H)\Hc$ ist dann
 \begin{align*}
 \lin{\ph_\ep,H\ph_\ep} = \int_{(\lambda_0-\ep,\lambda_0+\ep)} \lambda
 \dmu_{\ph_\ep}(\lambda) \le \norm{\ph_\ep}^2\left(\lambda_0 + \ep\right)
 \end{align*}
 und folglich ist $E\le \lambda_0$.
 Dass $E$ ein isolierter Eigenwert endlicher Vielfachheit ist, folgt aus der
-Annahme $E< 0$ und aus Theorem \ref{prop:7.8}.\qedhere
+Annahme $E< 0$ und aus Theorem \ref{prop:7.8}.\qed
 \end{proof}
 % 
 % \subsection{Vielteilchensysteme}

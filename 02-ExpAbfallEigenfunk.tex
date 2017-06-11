@@ -14,18 +14,18 @@ wobei $V(x)>E$ für $x> R$.
  \psline{->}(-1,0)(8.5,0)
  \psline{->}(0,-3)(0,1.8)
  \psline[linestyle=dashed](4.1933,-0.7)(4.1933,1.8)
- \psline[linecolor=yellow](0,-0.4047)(6,-0.4047)
+ \psline[linecolor=accentc](0,-0.4047)(6,-0.4047)
 
- \psplot[linewidth=1.2pt,plotpoints=200,linecolor=darkblue,algebraic=true]{0.47}{8}%
+ \psplot[linewidth=1.2pt,plotpoints=200,linecolor=accent,algebraic=true]{0.47}{8}%
  	{(-22.5*x^2+11.25*x^3)*2.71828^(-1.5*x)+0.02}
- \psplot[linewidth=1.2pt,linecolor=darkblue,algebraic=true]{1.6}{8}% 
+ \psplot[linewidth=1.2pt,linecolor=accent,algebraic=true]{1.6}{8}% 
  	{-4.25*(2.71828^(-.143*x^2))-0.06}
  	
- \rput(-0.19,-0.38){\color{yellow}$E$}
- \rput(1.9,-2.956){\color{gdarkgray}$V$}
- \rput(2.1,1){\color{gdarkgray}$\ph$}
- \rput(6,-0.9){\color{gdarkgray}$V>E$}
- \rput(6.2,1.43){\color{gdarkgray}exponentieller Abfall}
+ \rput(-0.19,-0.38){\color{accentc}$E$}
+ \rput(1.9,-2.956){\color{darkgray}$V$}
+ \rput(2.1,1){\color{darkgray}$\ph$}
+ \rput(6,-0.9){\color{darkgray}$V>E$}
+ \rput(6.2,1.43){\color{darkgray}exponentieller Abfall}
  \pscurve[linecolor=gray](5.8,1.2)(5.35,0.8)(5.9,0.75)(5.6,0.4)
 \end{pspicture}
 \caption{$-\ph^{\prime\prime}+V\ph=E\ph$ mit $\ph\in L^2(\R)$}
@@ -44,19 +44,19 @@ Im Bereich $x>R$ ist $V(x)>E$, also muss $\ph$ dort strikt konvex sein wenn $\ph
 \begin{pspicture}(-1,-2)(6.4,3)
  \psline[arrowsize=4pt]{->}(0,-1)(0,2)
  
- \pscurve[linecolor=purple,linewidth=1.2pt](0,1)(1,0.5)(5,2)
+ \pscurve[linecolor=accentb,linewidth=1.2pt](0,1)(1,0.5)(5,2)
  
- \psplot[linewidth=1.2pt,linecolor=darkblue,algebraic=true]{0}{5}%
+ \psplot[linewidth=1.2pt,linecolor=accent,algebraic=true]{0}{5}%
  	{2.71828^(-x)}
- \psplot[linewidth=1.2pt,linecolor=purple,algebraic=true]{1}{4}%
+ \psplot[linewidth=1.2pt,linecolor=accentb,algebraic=true]{1}{4}%
  	{ln(-0.25*(x-5))}
- \psplot[linewidth=1.2pt,linecolor=purple,algebraic=true]{0}{1}%
+ \psplot[linewidth=1.2pt,linecolor=accentb,algebraic=true]{0}{1}%
 	{-0.78125*x^3+2.3125*x^2-2.53125*x+1}
   \psline[arrowsize=4pt]{->}(-2,0)(6,0)
   
-  \rput(-0.3,-0.3){\color{gdarkgray}$R$}
-  \rput(5.6,0.3){\color{gdarkgray}$\ph\in L^2$}
-  \rput(5.7,2.1){\color{gdarkgray}$\ph\not\in L^2$}
+  \rput(-0.3,-0.3){\color{darkgray}$R$}
+  \rput(5.6,0.3){\color{darkgray}$\ph\in L^2$}
+  \rput(5.7,2.1){\color{darkgray}$\ph\not\in L^2$}
 \end{pspicture}
 \caption{Möglicher Verlauf von $\ph$ für $x>R$.}
 \end{figure}
@@ -71,7 +71,7 @@ $f\in C^{\infty}(\R^n\to\R)$ mit $\partial^{\alpha}f\in L^{\infty}(\R^n)$ für $
    fHf = \frac{1}{2}\left(f^2 H + H f^2\right) + |\nabla f|^2.
 \end{align*} 
 auf $H^2(\R^n)$, wobei $f$, $f^2$ und $\abs{\nabla f}^2$ als
-Multiplikationsoperatoren aufzufassen sind.\fishhere
+Multiplikationsoperatoren aufzufassen sind.\fish
 \end{prop}
 
 \begin{bem*}
@@ -79,7 +79,7 @@ Der Satz gilt unverändert auch für
 \begin{align*}
 H = -\Delta + V,\qquad V: \R^n\to \C,
 \end{align*}
-wenn $V: H^2(\R^n)\to L^2(\R^n)$.\maphere
+wenn $V: H^2(\R^n)\to L^2(\R^n)$.\map
 \end{bem*}
 
 \begin{proof}
@@ -106,7 +106,7 @@ Nach (3) gilt
 f[H,f] - [H,f]f = 2\abs{\nabla f}^2.\tag{4} 
 \end{align*}
 Aus (1), (2) und (4) folgt nun die Behauptung nach Addition von (1) und
-(2).\qedhere
+(2).\qed
 \end{proof}
 
 \begin{defn*}
@@ -116,7 +116,7 @@ $\Sigma\le \infty$ von $H=-\Delta+V$ durch
 \begin{align*}
 &\Sigma = \lim\limits_{R\to\infty} \Sigma_R,\\
 &\Sigma_R = \inf\setdef{\lin{\ph,H\ph}}{\ph\in H^2(\R^n),\; \norm{\ph} = 1,\;
-\ph(x) = 0\text{ für } \abs{x}< R}.\fishhere
+\ph(x) = 0\text{ für } \abs{x}< R}.\fish
 \end{align*}
 \end{defn*}
 
@@ -130,7 +130,7 @@ beispielsweise $\Sigma=\infty$.
 Sei $V:\R^n\to\R$ messbar mit $V\ph\in C^2(\R^n)$ für alle $\ph\in H^2(\R^n)$.
 Ist $\ph\in H^2(\R^n)$ und $H\ph = E\ph$, wobei $E< \Sigma$, dann ist
 $e^{\beta\abs{x}}\ph(x)\in L^2(\R^n)$ für alle $\beta\in\R$, so dass
-$E+\beta^2< \Sigma$.\fishhere
+$E+\beta^2< \Sigma$.\fish
 \end{thm}
 \begin{proof}
 Sei $\chi\in C_0^\infty(\R^n\to[0,1])$ mit
@@ -148,14 +148,14 @@ und sei $\chi_R(x) := \chi(R^{-1}x)$ für $R> 0$.
 \begin{pspicture}(-2,-1.5)(8,2)
  \psline{->}(-1.5,0)(7,0)
  \psline{->}(0,-1)(0,2)
- \psplot[linewidth=1.18pt,linecolor=darkblue,algebraic=true]{2}{4}%
+ \psplot[linewidth=1.18pt,linecolor=accent,algebraic=true]{2}{4}%
  	{0.1875*(x-2)^5-0.9375*(x-2)^4+1.25*(x-2)^3}
- \psline[linewidth=1.18pt,linecolor=darkblue](-0.75,0)(2,0)
- \psline[linewidth=1.18pt,linecolor=darkblue](4,1)(6.5,1)
- \rput(2,-0.3){\color{gdarkgray}$R$}
- \rput(3.9,-0.3){\color{gdarkgray}$2R$}
- \rput(-0.2,1){\color{gdarkgray}$1$}
- \rput(5,1.35){\color{gdarkgray}$\chi_R$}
+ \psline[linewidth=1.18pt,linecolor=accent](-0.75,0)(2,0)
+ \psline[linewidth=1.18pt,linecolor=accent](4,1)(6.5,1)
+ \rput(2,-0.3){\color{darkgray}$R$}
+ \rput(3.9,-0.3){\color{darkgray}$2R$}
+ \rput(-0.2,1){\color{darkgray}$1$}
+ \rput(5,1.35){\color{darkgray}$\chi_R$}
  \psline(0,1)(-0.08,1)
  \psline(2,0)(2,-0.08)
  \psline(3.9,0)(3.9,-0.08)
@@ -222,7 +222,7 @@ Andererseits ist auch
 \begin{align*}
 \int_{\setd{x< 2R}} e^{2\beta\abs{x}}\abs{\ph(x)}^2\dx
 \le
-e^{4\beta R}\norm{\ph}^2 < \infty.\qedhere
+e^{4\beta R}\norm{\ph}^2 < \infty.\qed
 \end{align*}
 \end{proof}
 
@@ -237,11 +237,11 @@ und $\ph\in H^2(\R^n)$ mit $H\ph = E\ph$. Sei
 für ein $p>\frac{n}{2}$ und $n\ge 2$. Dann gilt für alle $x\in\R^n$
 \begin{align*}
 \esssup\limits_{y:\abs{y-x}\le \frac{1}{2}} \abs{\ph(y)} \le
-C\norm{\ph}_{L^2(B_1(x))}.\fishhere
+C\norm{\ph}_{L^2(B_1(x))}.\fish
 \end{align*}
 \end{prop}
 \begin{proof}
-Siehe Übungsblatt 3.\qedhere
+Siehe Übungsblatt 3.\qed
 \end{proof}
 
 \begin{cor}
@@ -250,7 +250,7 @@ Sei $V:\R^n\to\R$ messbar mit $V\ph\in C^2(\R^n)$ für alle $\ph\in H^2(\R^n)$
 und $\ph\in H^2(\R^n)$ mit $H\ph = E\ph$. Dann gibt es zu jedem $\beta\in\R$
 mit $E+\beta^2<\Sigma$ ein $C_\beta \in\R$, so dass
 \begin{align*}
-\abs{\ph(x)} \le C_\beta e^{-\beta\abs{x}}\quad \text{f.ü.}\fishhere
+\abs{\ph(x)} \le C_\beta e^{-\beta\abs{x}}\quad \text{f.ü.}\fish
 \end{align*}
 \end{cor}
 \begin{proof}
@@ -273,7 +273,7 @@ e^{3/2\beta}
 \le
 C\norm{e^{\beta\abs{\cdot}}\ph}
 e^{3/2\beta}
-< \infty.\qedhere
+< \infty.\qed
 \end{align*}
 \end{proof}
 
@@ -288,7 +288,7 @@ beschreiben,
 H = (-i\nabla_x  + A(x))^2 + H_f + V,
 \end{align*}
 wobei $A(x)$ das quantisierte Vektorpotential darstellt und $H_f$ die
-Feldenergie.\maphere
+Feldenergie.\map
 \end{bemenum}
 \end{bem*}
 % 
