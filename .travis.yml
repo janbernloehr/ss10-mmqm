@@ -1,5 +1,6 @@
-dist: trusty
 sudo: required
+dist: trusty
+group: edge
 
 before_install:
 - sudo add-apt-repository ppa:jonathonf/texlive-2016 -y
